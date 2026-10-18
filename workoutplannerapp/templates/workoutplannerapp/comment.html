@@ -1,0 +1,151 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FitXplosion - Fitness Website</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f5f5f5;
+        margin: 0;
+        padding: 0;
+    }
+    #comment-list {
+        width: 80%;
+        max-width: 600px;
+        margin: 50px auto;
+        padding: 20px;
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .comment-card {
+        position: relative;
+        margin-bottom: 20px;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        background: #fff;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transition: transform 0.2s;
+    }
+    .comment-card:hover {
+        transform: translateY(-5px);
+    }
+    .comment-card .delete-btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 20px;
+        color: #999;
+        cursor: pointer;
+        transition: color 0.3s ease;
+    }
+    .comment-card .delete-btn:hover {
+        color: #e74c3c;
+    }
+    .comment-card .comment-info {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 10px;
+    }
+    .comment-card .profile-pic {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        margin-right: 10px;
+    }
+    .comment-card .name {
+        font-weight: bold;
+        font-size: 1.1rem;
+        flex-grow: 1;
+    }
+    .comment-card .stars {
+        display: flex;
+        margin-right: 10px;
+    }
+    .comment-card .stars i {
+        color: #ffac33;
+        margin-right: 3px;
+    }
+    .comment-card .date {
+        font-size: 0.9rem;
+        color: #777;
+    }
+    .comment-card .text {
+        margin-top: 10px;
+        font-size: 1rem;
+        line-height: 1.4;
+        color: #666;
+    }
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+
+<div id="comment-list"></div>
+<!-- <i class="fas fa-trash delete-btn" onclick="deleteComment(this)"></i> -->
+<script>
+  window.onload = function() {
+      var comments = JSON.parse(localStorage.getItem('comments')) || [];
+      comments.forEach(function(comment) {
+          displayComment(comment);
+      });
+  };
+
+  function displayComment(comment) {
+    var commentList = document.getElementById('comment-list');
+    var commentItem = document.createElement('div');
+    commentItem.className = 'comment-card';
+
+    var profilePicSrc = comment.sex === 'F' ? '{% static "images/ttb.png" %}' : '{% static "images/profileb.png" %}';
+
+    commentItem.innerHTML = `
+        <div class="comment-info">
+            <img src="${profilePicSrc}" alt="Profile Picture" class="profile-pic">
+            <div class="name">${comment.name}</div>
+            <div class="stars">${generateStars(comment.rating)}</div>
+            <div class="date">${formatDate(new Date(comment.timestamp))}</div>
+        </div>
+        <div class="text">${comment.text}</div>
+    `;
+
+    commentList.appendChild(commentItem);
+}
+
+
+  function generateStars(rating) {
+      var stars = '';
+      for (var i = 0; i < 5; i++) {
+          if (i < rating) {
+              stars += '<i class="fas fa-star filled-star"></i>';
+          } else {
+              stars += '<i class="fas fa-star empty-star"></i>';
+          }
+      }
+      return stars;
+  }
+
+  function deleteComment(element) {
+      var commentCard = element.parentElement;
+      var commentList = document.getElementById('comment-list');
+      var comments = JSON.parse(localStorage.getItem('comments'));
+      var index = Array.from(commentList.children).indexOf(commentCard);
+      comments.splice(index, 1);
+      localStorage.setItem('comments', JSON.stringify(comments));
+      commentList.removeChild(commentCard);
+  }
+
+  function formatDate(date) {
+      var day = date.getDate();
+      var month = date.getMonth() + 1; // Months are zero indexed
+      var year = date.getFullYear();
+      return day + '/' + month + '/' + year;
+  }
+</script>
+
+</body>
+</html>

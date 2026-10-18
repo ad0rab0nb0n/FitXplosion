@@ -1,0 +1,218 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitXplosion - Fitness Website</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color:rgb(194,193,191);
+        }
+        #img-box {
+            width: 60%;
+            max-width: 500px;
+            background-color: rgb(255, 247, 236);
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            position: relative;
+        }
+        .container {
+            margin-top: 20px;
+        }
+        .timer {
+            font-size: 2em;
+            color: #67160e;
+        }
+        .controls {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .controls img {
+            margin: 0 10px;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        .controls img:hover {
+            transform: scale(1.1);
+        }
+        #main {
+            position: absolute;
+            top: 20px;
+            left: 30em;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        #main:hover {
+            transform: scale(1.1);
+        }
+        #gif {
+            width: 100%;
+            max-width: 400px;
+            height: 400px;
+            margin-top: 38px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        #stat {
+            font-family:sans-serif;
+            font-size: 2em;
+            color: #333;
+            margin-top: 20px;
+        }
+        #congratulation-box {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 20px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            border-radius:20px;
+        }
+        #finish-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #8B0000; /* Change to your desired button color */
+            color: white;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            text-align: center;
+            font-size: 16px;
+        }
+        .blurred{
+            filter: blur(5px); /* Adjust the blur intensity */
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="img-box">
+        <img src="{% static 'images/sign-out.png' %}" id="main" onclick="mainPage()">
+        <img src="{% static 'images/sideplank.gif' %}" id="gif" alt="Exercise GIF">
+        <p id="stat">Side Plank</p>
+        <div class="container">
+            <p class="timer" id="timer">01:00</p>
+            <div class="controls">
+                <img src="{% static 'images/previous.png' %}" onclick="prevPage()">
+                <img src="{% static 'images/pause.png' %}" id="control-button" onclick="toggleTimer()">
+                <img src="{% static 'images/next.png' %}" onclick="nextPage()">
+                <img src="{% static 'images/refresh.png' %}" onclick="resetTimer()">
+            </div>
+        </div>
+    </div>
+    <div id="congratulation-box" style="display:none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; padding: 20px; box-shadow: 0px 0px 10px rgba(0,0,0,0.5); text-align: center;">
+        <h2>Congratulations!</h2>
+        <p>You have completed all the exercises.</p>
+        <form action="{% url 'abs_progress'%}" method="POST"> 
+            {% csrf_token %}
+            <button id="finish-button">Finish</button>
+        </form>
+    </div>
+    <script>
+        const timerEl = document.getElementById("timer");
+        const controlButton = document.getElementById("control-button");
+        const congratulationBox = document.getElementById("congratulation-box");
+        const imgbox = document.getElementById("img-box");
+        let interval;
+        let timeLeft = 60; // Set the initial time to 1 minute (60 seconds)
+        let isRunning = false;
+
+        function updateTimer() {
+            let minutes = Math.floor(timeLeft / 60);
+            let seconds = timeLeft % 60;
+            let formattedTime = `${minutes.toString().padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
+            timerEl.innerHTML = formattedTime;
+        }
+
+        function startTimer() {
+            interval = setInterval(() => {
+                timeLeft--;
+                updateTimer();
+                if (timeLeft === 0) {
+                    clearInterval(interval);
+                    nextPage();
+                }
+            }, 1000);
+            isRunning = true;
+            controlButton.src = "{% static 'images/pause.png' %}";
+        }
+
+        function stopTimer() {
+            clearInterval(interval);
+            isRunning = false;
+            controlButton.src = "{% static 'images/play.png' %}";
+        }
+
+        function toggleTimer() {
+            if (isRunning) {
+                stopTimer();
+            } else {
+                startTimer();
+            }
+        }
+
+        function resetTimer() {
+            clearInterval(interval);
+            timeLeft = 60; // Reset to 1 minute
+            updateTimer();
+            startTimer(); // Auto-start after resetting
+        }
+
+        const images = ["{% static 'images/sideplank.gif' %}", "{% static 'images/situp.gif' %}", "{% static 'images/scissorkick.gif' %}", "{% static 'images/bicycle.gif' %}", "{% static 'images/mountain.gif' %}", "{% static 'images/russiantwist.gif' %}"];
+        const line = ["Side plank", "Sit-ups", "Scissor Kick", "Bicycle Crunch", "Mountain Climber", "Russian Twist"];
+        let i = 0;
+
+        function updateExercise() {
+            document.getElementById("gif").src = images[i];
+            document.getElementById("stat").innerText = line[i];
+            resetTimer();
+        }
+
+        function nextPage() {
+            if (i < images.length - 1) {
+                i++;
+                updateExercise();
+            } else {
+                showCongratulations();
+            }
+        }
+
+        function prevPage() {
+            if (i > 0) {
+                i--;
+                updateExercise();
+            }
+        }
+        function showCongratulations() {
+            clearInterval(interval);
+            congratulationBox.style.display = 'block';
+            imgbox.classList.add('blurred');
+        }
+        function mainPage() {
+            window.location.href = "{% url 'exercise'%}";
+        }
+
+        // Initialize the timer display and start timer on page load
+        updateTimer();
+        document.addEventListener('DOMContentLoaded', startTimer);
+    </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# Python virtual environments
+.venv/
+venv/
+env/
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Local databases
+*.sqlite3
+*.sqlite3-*
+*.db
+
+# Generated static files
+staticfiles/
+
+# macOS files
+.DS_Store
+
+# Logs
+*.log
+# Large image archive
+/static/images.zip
+
+# Windows shortcut files
+*.lnk

@@ -1,0 +1,458 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <title>FitXplosion - Fitness Website</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        body {
+            /* background: linear-gradient(-60deg, #ffe6e6, #ff9696, #e06d6d, #ffe6e6); */
+            background-color: #d0d0d0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        .bigcontainer {
+            background-color: #fff;
+            border-radius: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
+            position: relative;
+            overflow: hidden;
+            width: 728px;
+            max-width: 100%;
+            min-height: 500px;
+        }
+
+        .selected {
+            border: 4px solid #3b82f6;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .unit-selector {
+            background-color: #e2e8f0;
+            color: #1a202c;
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            cursor: pointer;
+        }
+
+        .unit-selector.active {
+            background-color: #e54646;
+            color: #ffffff;
+        }
+
+        .step-indicator.step-active {
+            background-color: #e54646;
+            color: #ffffff;
+            border-color: #e54646;
+        }
+
+        .textcolor {
+            color: #a82d2d;
+        }
+    </style>
+    <title>Modern Login Page | AsmrProg</title>
+</head>
+
+<body>
+
+    <div class="bigcontainer" id="container">
+        <div id="survey">
+            <p class="text-center font-bold text-2xl textcolor mt-8">WELCOME {{user}}</p>
+            <div id="content" class="my-4">
+                <div id="stepContent1" class="mb-20">
+                    <h1 class="m-4 font-bold text-lg">Q1 : What is your main goal?</h1>
+                    <button
+                        class="select-btn block w-72 h-15 mx-auto my-2.5 p-2.5 text-lg text-white bg-red-800 border-3 border-red-600 rounded-lg cursor-pointer transition-colors duration-300 hover:bg-red-600 select-btn">Lose
+                        weight</button>
+                    <button
+                        class="select-btn block w-72 h-15 mx-auto my-2.5 p-2.5 text-lg text-white bg-red-800 border-3 border-red-600 rounded-lg cursor-pointer transition-colors duration-300 hover:bg-red-600 select-btn">Get
+                        firm and toned</button>
+                    <button
+                        class="select-btn block w-72 h-15 mx-auto my-2.5 p-2.5 text-lg text-white bg-red-800 border-3 border-red-600 rounded-lg cursor-pointer transition-colors duration-300 hover:bg-red-600 select-btn">Reduce
+                        stress & anxiety</button>
+                    <button
+                        class="select-btn block w-72 h-15 mx-auto my-2.5 p-2.5 text-lg text-white bg-red-800 border-3 border-red-600 rounded-lg cursor-pointer transition-colors duration-300 hover:bg-red-600 select-btn">Develop
+                        flexibility</button>
+                </div>
+
+                <div id="stepContent2" class="hidden mb-36">
+                    <h1 class="m-4 mb-4 font-bold text-lg">Q2 : What is your gender?</h1>
+                    <div class="flex justify-center mb-4">
+                        <button class="select-btn sex-btn flex items-center justify-center w-40 h-15 mx-2.5 border-3 border-gray-600 rounded-lg cursor-pointer transition-colors duration-300" onclick="selectSex('M')">
+                            <img src="{% static 'images/profileb.png' %}" alt="profile" class="rounded-lg">
+                        </button>
+                        <button class="select-btn sex-btn flex items-center justify-center w-40 h-15 mx-2.5 border-3 border-gray-600 rounded-lg cursor-pointer transition-colors duration-300" onclick="selectSex('F')">
+                            <img src="{% static 'images/ttb.png' %}" alt="profile" class="rounded-lg">
+                        </button>
+                    </div>
+                    <input id="sex" value="" class="hidden">
+                </div>
+
+                <!-- <div class="hidden mb-16" id="stepContent3">
+                    <h1 class="m-4 font-bold text-lg">Q3 : Which describes your body?</h1>
+                    <div class="grid grid-cols-2 gap-4">
+                        <button
+                            class="select-btn flex items-center justify-start w-64 h-28 mx-auto p-2.5 text-lg text-white bg-gray-400 border-2 border-gray-600 rounded-lg cursor-pointer transition-colors duration-300 hover:bg-gray-300 mb-4">
+                            <img src="{% static 'images/thin-removebg-preview.png' %}" alt="Slim" class="w-28 h-28 mr-5">
+                            <span class="flex-grow text-left">Slim</span>
+                        </button>
+
+                        <button
+                            class="select-btn flex items-center justify-start w-64 h-28 mx-auto p-2.5 text-lg text-white bg-gray-400 border-2 border-gray-600 rounded-lg cursor-pointer transition-colors duration-300 hover:bg-gray-300 mb-4">
+                            <img src="{% static 'images/midsize-removebg-preview.png' %}" alt="Midsize" class="w-28 h-28 mr-5">
+                            <span class="flex-grow text-left">Midsize</span>
+                        </button>
+
+                        <button
+                            class="select-btn flex items-center justify-start w-64 h-28 mx-auto p-2.5 text-lg text-white bg-gray-400 border-2 border-gray-600 rounded-lg cursor-pointer transition-colors duration-300 hover:bg-gray-300">
+                            <img src="{% static 'images/overweight-removebg-preview.png' %}" alt="Plump" class="w-28 h-28 mr-5">
+                            <span class="flex-grow text-left">Plump</span>
+                        </button>
+
+                        <button
+                            class="select-btn flex items-center justify-start w-64 h-28 mx-auto p-2.5 text-lg text-white bg-gray-400 border-2 border-gray-600 rounded-lg cursor-pointer transition-colors duration-300 hover:bg-gray-300">
+                            <img src="{% static 'images/ovrweight-removebg-preview.png' %}" alt="Overweight" class="w-28 h-28 mr-5">
+                            <span class="flex-grow text-left">Overweight</span>
+                        </button>
+                    </div>
+                </div> -->
+
+                <div id="stepContent3" class="hidden relative">
+                    <h1 class="m-4 font-bold text-lg">Q3 : What workouts are you interested in?</h1>
+                    <div class="grid grid-cols-3 gap-2 ml-16">
+                        <button class="w-40 h-36 rounded-md relative overflow-hidden group select-btn">
+                            <img src="{% static 'images/pilates.png' %}" alt="Slim" class="photo block transition-transform duration-300">
+                            <span
+                                class="absolute top-0 left-0 w-full h-full bg-black bg-opacity-50 text-white flex flex-col items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">Pilates</span>
+                        </button>
+                        <button class="w-40 h-36 rounded-md relative overflow-hidden group select-btn">
+                            <img src="{% static 'images/yoga.jpg' %}" alt="Midsize" class="photo block transition-transform duration-300">
+                            <span
+                                class="absolute top-0 left-0 w-full h-full bg-black bg-opacity-50 text-white flex flex-col items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">Yoga</span>
+                        </button>
+                        <button class="w-40 h-36 rounded-md relative overflow-hidden group select-btn">
+                            <img src="{% static 'images/strength.jpg' %}" alt="Midsize" class="photo block transition-transform duration-300">
+                            <span
+                                class="absolute top-0 left-0 w-full h-full bg-black bg-opacity-50 text-white flex flex-col items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">Strength</span>
+                        </button>
+                        <button class="w-40 h-36 rounded-md relative overflow-hidden group select-btn">
+                            <img src="{% static 'images/cardioo.jpg' %}" alt="Midsize" class="photo block transition-transform duration-300">
+                            <span
+                                class="absolute top-0 left-0 w-full h-full bg-black bg-opacity-50 text-white flex flex-col items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">Cardio</span>
+                        </button>
+                        <button class="w-40 h-36 rounded-md relative overflow-hidden group select-btn">
+                            <img src="{% static 'images/zumba.jpg' %}" alt="Midsize" class="photo block transition-transform duration-300">
+                            <span
+                                class="absolute top-0 left-0 w-full h-full bg-black bg-opacity-50 text-white flex flex-col items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">Zumba</span>
+                        </button>
+                        <button class="w-40 h-36 rounded-md relative overflow-hidden group select-btn">
+                            <img src="{% static 'images/circuit.jpg' %}" alt="Midsize" class="photo block transition-transform duration-300">
+                            <span
+                                class="absolute top-0 left-0 w-full h-full bg-black bg-opacity-50 text-white flex flex-col items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">Circuit</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div id="stepContent4" class="hidden">
+                    <h1 class="m-4 font-bold text-lg">Q4 : What are your meal preferences?</h1>
+                    <div class="grid grid-cols-3 gap-2 ml-16">
+                        <button class="w-40 h-36 rounded-md relative overflow-hidden group select-btn">
+                            <img src="{% static 'images/vegann.jpg' %}" alt="Slim" class="photo block transition-transform duration-300">
+                            <span
+                                class="absolute top-0 left-0 w-full h-full bg-black bg-opacity-50 text-white flex flex-col items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">Vegan</span>
+                        </button>
+                        <button class="w-40 h-36 rounded-md relative overflow-hidden group select-btn">
+                            <img src="{% static 'images/glutenfree.jpg' %}" alt="Midsize" class="photo block transition-transform duration-300">
+                            <span
+                                class="absolute top-0 left-0 w-full h-full bg-black bg-opacity-50 text-white flex flex-col items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">Gluten
+                                Free</span>
+                        </button>
+                        <button class="w-40 h-36 rounded-md relative overflow-hidden group select-btn">
+                            <img src="{% static 'images/latacosefree.jpg' %}" alt="Midsize"
+                                class="photo block transition-transform duration-300">
+                            <span
+                                class="absolute top-0 left-0 w-full h-full bg-black bg-opacity-50 text-white flex flex-col items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">Lactose
+                                Free</span>
+                        </button>
+                        <button class="w-40 h-36 rounded-md relative overflow-hidden group select-btn">
+                            <img src="{% static 'images/halal.png' %}" alt="Midsize" class="photo block transition-transform duration-300">
+                            <span
+                                class="absolute top-0 left-0 w-full h-full bg-black bg-opacity-50 text-white flex flex-col items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">Halal</span>
+                        </button>
+                        <button class="w-40 h-36 rounded-md relative overflow-hidden group select-btn">
+                            <img src="{% static 'images/caffeinefree.png' %}" alt="Midsize"
+                                class="photo block transition-transform duration-300">
+                            <span
+                                class="absolute top-0 left-0 w-full h-full bg-black bg-opacity-50 text-white flex flex-col items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">Caffeine
+                                Free</span>
+                        </button>
+                        <button class="w-40 h-36 rounded-md relative overflow-hidden group select-btn">
+                            <img src="{% static 'images/none.jpg' %}" alt="Midsize" class="photo block transition-transform duration-300">
+                            <span
+                                class="absolute top-0 left-0 w-full h-full bg-black bg-opacity-50 text-white flex flex-col items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">None</span>
+                        </button>
+                    </div>
+                </div>
+                
+
+                <div id="stepContent5" class="hidden mb-36">
+                    <h1 class="m-4 font-bold text-lg">Q5 : What is your age?</h1>
+                    <div class="flex justify-center mb-4">
+                        <input type="number" id="age" placeholder="Age" class="border border-gray-300 p-2 rounded w-5/6">
+                    </div>
+                    <div class="bg-gray-100 p-4 rounded w-5/6 mx-auto">
+                        <p class="text-sm font-medium">Calculating your BMI</p>
+                        <p class="text-xs text-gray-600">Body mass index (BMI) is a metric of body fat percentage commonly
+                            used to estimate risk levels of potential health problems.</p>
+                    </div>
+                </div>
+
+                <div id="stepContent6" class="hidden mb-24">
+                    <h1 class="m-4 font-bold text-lg ">Q6 : What are your height?</h1>
+                    <div class="flex justify-center mb-4">
+                        <div id="cmBtn" class="unit-selector active" onclick="selectUnit('cm')">cm</div>
+                        <div id="ftBtn" class="unit-selector ml-2" onclick="selectUnit('ft')">ft</div>
+                    </div>
+                    <div id="cmInput" class="mb-4 flex justify-center">
+                        <input type="number" id="cm" placeholder="cm" class="border border-gray-300 p-2 rounded w-5/6">
+                    </div>
+                    <div id="ftInput" class="hidden mb-4 flex justify-center">
+                        <input type="number" id="ft" placeholder="ft" class="border border-gray-300 p-2 rounded mr-2">
+                        <input type="number" id="in" placeholder="in" class="border border-gray-300 p-2 rounded">
+                    </div>
+                    <div class="bg-gray-100 p-4 rounded w-5/6 mx-auto">
+                        <p class="text-sm font-medium">Calculating your BMI</p>
+                        <p class="text-xs text-gray-600">Body mass index (BMI) is a metric of body fat percentage commonly
+                            used to estimate risk levels of potential health problems.</p>
+                    </div>
+                </div>
+
+                <div id="stepContent7" class="hidden mb-24">
+                    <h1 class="m-4 font-bold text-lg">Q7 : What are your current weight?</h1>
+                    <div class="flex justify-center mb-4">
+                        <div id="kgBtn6" class="unit-selector active" onclick="selectWeightUnit('kg', 6)">kg</div>
+                        <div id="lbBtn6" class="unit-selector ml-2" onclick="selectWeightUnit('lb', 6)">lb</div>
+                    </div>
+                    <div id="kgInput6" class="mb-4 flex justify-center">
+                        <input type="number" id="kg6" placeholder="kg" class="border border-gray-300 p-2 rounded w-5/6">
+                    </div>
+                    <div id="lbInput6" class="hidden mb-4 flex justify-center">
+                        <input type="number" id="lb6" placeholder="lb" class="border border-gray-300 p-2 rounded w-5/6">
+                    </div>
+                    <div class="bg-gray-100 p-4 rounded w-5/6 mx-auto">
+                        <p class="text-sm font-medium">Calculating your BMI</p>
+                        <p class="text-xs text-gray-600">Body mass index (BMI) is a metric of body fat percentage commonly
+                            used to estimate risk levels of potential health problems.</p>
+                    </div>
+                </div>
+
+                <div id="stepContent8" class="hidden mb-48">
+                    <h1 class="m-4 font-bold text-lg">Q8 : What are your target weight?</h1>
+                    <div class="flex justify-center mb-4">
+                        <div id="kgBtn7" class="unit-selector active" onclick="selectWeightUnit('kg', 7)">kg</div>
+                        <div id="lbBtn7" class="unit-selector ml-2" onclick="selectWeightUnit('lb', 7)">lb</div>
+                    </div>
+                    <div id="kgInput7" class="mb-4 flex justify-center">
+                        <input type="number" id="kg7" placeholder="kg" class="border border-gray-300 p-2 rounded w-5/6">
+                    </div>
+                    <div id="lbInput7" class="hidden mb-4 flex justify-center">
+                        <input type="number" id="lb7" placeholder="lb" class="border border-gray-300 p-2 rounded w-5/6">
+                    </div>
+                </div>
+
+            </div>
+            <div class="flex items-center justify-center">
+                <div id="step1"
+                    class="step-indicator flex items-center justify-center rounded-full p-1 mx-1 border-2 border-gray-300 step-active bg-gray-300">
+                </div>
+                <div id="step2"
+                    class="step-indicator flex items-center justify-center rounded-full p-1 mx-1 border-2 border-gray-300 bg-gray-300">
+                </div>
+                <div id="step3"
+                    class="step-indicator flex items-center justify-center rounded-full p-1 mx-1 border-2 border-gray-300 bg-gray-300">
+                </div>
+                <div id="step4"
+                    class="step-indicator flex items-center justify-center rounded-full p-1 mx-1 border-2 border-gray-300 bg-gray-300">
+                </div>
+                <div id="step5"
+                    class="step-indicator flex items-center justify-center rounded-full p-1 mx-1 border-2 border-gray-300 bg-gray-300">
+                </div>
+                <div id="step6"
+                    class="step-indicator flex items-center justify-center rounded-full p-1 mx-1 border-2 border-gray-300 bg-gray-300">
+                </div>
+                <div id="step7"
+                    class="step-indicator flex items-center justify-center rounded-full p-1 mx-1 border-2 border-gray-300 bg-gray-300">
+                </div>
+                <div id="step8"
+                    class="step-indicator flex items-center justify-center rounded-full p-1 mx-1 border-2 border-gray-300 bg-gray-300">
+                </div>
+            </div>
+            <div class="flex items-center justify-end">
+                <button id="backBtn"
+                    class="p-2 text-white bg-red-900 border border-red-700 rounded flex items-center hover:bg-red-400 mx-2"
+                    onclick="prevStep()">
+                    <i class="fas fa-arrow-left"></i>
+                </button>
+                <button id="nextBtn"
+                    class="p-2 text-white bg-red-900 border border-red-700 rounded flex items-center hover:bg-red-400 mr-16"
+                    onclick="nextStep()">
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+        <div id="ready" class="hidden mb-20">
+            <h1 class="text-center font-bold text-2xl textcolor mt-8">Your Profile is Ready!!</h1>
+            <div id="bmiResult" class="bg-gray-100 p-4 rounded w-5/6 mx-auto">
+                <h1 class="m-4 font-bold text-lg">Your BMI Information :</h1>
+                <p id="bmiValue" class="mx-2 text-md"></p>
+                <p id="bmiCategory" class="mx-2 text-md"></p>
+            </div>
+            <div class="bg-gray-100 p-4 rounded w-5/6 mx-auto">
+                <p class="text-sm font-medium">Calculating your BMI</p>
+                <p class="text-xs text-gray-600">Body mass index (BMI) is a metric of body fat percentage commonly
+                    used to estimate risk levels of potential health problems.</p>
+            </div>
+            <div class="flex justify-end mr-4">
+                <form action="{% url 'survey' %}" method="POST"> 
+                    {% csrf_token %} 
+                    <input class="hidden" type="text" name="height" id="height" required>
+                    <input class="hidden" type="text" name="bmi" id="bmipost" required>
+                    <input class="hidden" type="text" name="weight" id="weight" required>
+                    <input class="hidden" type="text" name="sex" id="sexpost" required>
+                    <button class="bg-[#a82d2d] text-white text-xs py-2 px-4 rounded-lg font-semibold tracking-wide uppercase mt-2 cursor-pointer">
+                        Finish
+                    </button>
+                </form>
+            </div>
+        </div>       
+    </div>
+
+    <script>
+        function selectSex(sex) {
+            document.getElementById('sex').value = sex;
+            document.querySelectorAll('.sex-btn').forEach(btn => btn.classList.remove('selected', 'border-blue-500'));
+            document.querySelector(`button[onclick="selectSex('${sex}')"]`).classList.add('selected', 'border-blue-500');
+        }
+        document.querySelectorAll('.select-btn').forEach(button => {
+            button.addEventListener('click', function () {
+                document.querySelectorAll('.select-btn').forEach(btn => btn.classList.remove('selected', 'border-blue-500'));
+                this.classList.add('selected', 'border-blue-500');
+            });
+        });
+        document.querySelectorAll('.select-btn').forEach(button => {
+            button.addEventListener('click', function () {
+                document.querySelectorAll('.select-btn').forEach(btn => btn.classList.remove('selected'));
+                this.classList.add('selected');
+            });
+        });
+
+        let currentStep = 1;
+
+        function nextStep() {
+            if (currentStep < 8) {
+                document.getElementById(`stepContent${currentStep}`).classList.add('hidden');
+
+                currentStep++;
+                document.getElementById(`stepContent${currentStep}`).classList.remove('hidden');
+                document.getElementById(`step${currentStep}`).classList.add('step-active');
+            } else {
+                calculateBMI();
+            }
+        }
+
+        function prevStep() {
+            if (currentStep > 1) {
+                document.getElementById(`stepContent${currentStep}`).classList.add('hidden');
+                document.getElementById(`step${currentStep}`).classList.remove('step-active');
+                currentStep--;
+                document.getElementById(`stepContent${currentStep}`).classList.remove('hidden');
+                document.getElementById(`step${currentStep}`).classList.add('step-active');
+            }
+        }
+
+        function selectUnit(unit) {
+            document.getElementById('cmInput').classList.toggle('hidden', unit !== 'cm');
+            document.getElementById('ftInput').classList.toggle('hidden', unit !== 'ft');
+            document.getElementById('cmBtn').classList.toggle('active', unit === 'cm');
+            document.getElementById('ftBtn').classList.toggle('active', unit === 'ft');
+        }
+
+        function selectWeightUnit(unit, step) {
+            const kgBtn = document.getElementById(`kgBtn${step}`);
+            const lbBtn = document.getElementById(`lbBtn${step}`);
+            const kgInput = document.getElementById(`kgInput${step}`);
+            const lbInput = document.getElementById(`lbInput${step}`);
+
+            kgBtn.classList.toggle('active', unit === 'kg');
+            lbBtn.classList.toggle('active', unit === 'lb');
+            kgInput.classList.toggle('hidden', unit !== 'kg');
+            lbInput.classList.toggle('hidden', unit !== 'lb');
+        }
+
+        function calculateBMI() {
+            const cm = document.getElementById('cm').value;
+            const ft = document.getElementById('ft').value;
+            const inch = document.getElementById('in').value;
+            const kg = document.getElementById('kg6').value;
+            const lb = document.getElementById('lb6').value;
+            const sex = document.getElementById('sex').value;
+
+            let heightInMeters;
+            if (cm) {
+                heightInMeters = cm / 100;
+            } else {
+                const totalInches = (parseFloat(ft) * 12) + parseFloat(inch);
+                heightInMeters = totalInches * 0.0254;
+            }
+
+            let weightInKg;
+            if (kg) {
+                weightInKg = kg;
+            } else {
+                weightInKg = lb * 0.453592;
+            }
+
+            const bmi = weightInKg / (heightInMeters ** 2);
+            let bmiCategory = '';
+
+            if (bmi < 18.5) {
+                bmiCategory = 'Underweight';
+            } else if (bmi < 24.9) {
+                bmiCategory = 'Normal weight';
+            } else if (bmi < 29.9) {
+                bmiCategory = 'Overweight';
+            } else {
+                bmiCategory = 'Obesity';
+            }
+
+            document.getElementById(`survey`).classList.add('hidden');
+
+            document.getElementById('bmiValue').innerText = `BMI: ${bmi.toFixed(2)}`;
+            document.getElementById('bmiCategory').innerText = `Category: ${bmiCategory}`;
+            document.getElementById('height').value = Math.round(heightInMeters);
+            document.getElementById('weight').value = Math.round(weightInKg);
+            document.getElementById('bmipost').value = bmi.toFixed(2);
+            document.getElementById('sexpost').value = sex;
+            document.getElementById(`ready`).classList.remove('hidden');
+        }
+    </script>
+</body>
+
+</html>

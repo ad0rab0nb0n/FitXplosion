@@ -1,0 +1,212 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <title>FitXplosion - Fitness Website</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+        }
+
+        .checkout_container {
+            max-width: 700px;
+            margin: 60px auto;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+
+        .buttonCheckout {
+            color: white;
+            border: none;
+            padding: 6px 16px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 5px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .modal {
+            background: rgba(0, 0, 0, 0.5);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .modal-content {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            width: 33%;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="checkout_container">
+        <h1 class="text-center font-bold text-2xl text-red-900 py-2">Products in Cart</h1>
+        <div>
+            <div class="border-b-gray-700 py-4" id="cartItems">
+                <!-- Cart items will be dynamically inserted here -->
+            </div>
+            <div class="flex mb-4">
+                <div class="w-2/3 p-2"></div>
+                <div class="w-36 p-2"></div>
+                <div class="totalQuantity w-20 p-2" id="totalQuantity">0</div>
+                <div class="totalPrice w-36 p-2" id="totalPrice">$0.00</div>
+            </div>
+        </div>
+        <div class="flex justify-between mx-8">
+            <a href="{% url 'shop' %}"><button class="buttonCheckout bg-red-900 hover:bg-red-700">Keep
+                    Shopping</button></a>
+            <button id="checkoutButton" class="buttonCheckout bg-red-900 hover:bg-red-700">CHECKOUT</button>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="confirmationModal" class="modal hidden">
+        <div class="modal-content">
+            {% if user.address %}
+            <h2 class="text-center font-bold text-xl text-red-900 py-2">Check and Correct Address</h2>
+            {% else %}
+            <h2 class="text-center font-bold text-xl text-red-900 py-2">Enter Address</h2>
+            {% endif %}
+            
+            <div class="mb-4">
+                <label for="address" class="block text-gray-700">Address:</label>
+                <input type="text" id="addressfield" name="addressfield" value="{% if user.address %}{{ user.address }}{% endif %}" class="w-full border border-gray-300 p-2 rounded">
+            </div>
+            <span id="addressError" class="text-red-400 font-sm font-bold text-center hidden">You need to add your address!</span>
+            <div class="flex justify-between mt-4 gap-12">
+                <button id="cancelCheckout" class="buttonCheckout bg-gray-600 hover:bg-gray-400">Cancel</button>
+                <button id="confirmCheckout" class="buttonCheckout bg-red-900 hover:bg-red-700 mr-4">Submit</button>
+            </div>
+        </div>
+    </div>
+
+    <form id="checkoutForm" action="{% url 'receipt' %}" method="POST" class="hidden">
+        {% csrf_token %}
+        <input type="hidden" name="data" id="data" value="">
+        <input type="hidden" name="amount" id="amount" value="">
+        <input type="hidden" name="quantity" id="quantity" value="">
+        <input type="hidden" name="address" id="address" value="">
+    </form>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const cartItemsContainer = document.getElementById('cartItems');
+            const totalQuantityElement = document.getElementById('totalQuantity');
+            const totalPriceElement = document.getElementById('totalPrice');
+            const checkoutButton = document.getElementById('checkoutButton');
+            const confirmationModal = document.getElementById('confirmationModal');
+            const confirmCheckout = document.getElementById('confirmCheckout');
+            const cancelCheckout = document.getElementById('cancelCheckout');
+            const checkoutForm = document.getElementById('checkoutForm');
+            const addressField = document.getElementById('addressfield');
+            const addressError = document.getElementById('addressError');
+
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+            let products = [];
+
+            const fetchProducts = async () => {
+                try {
+                    const response = await fetch("{% static 'json/products.json' %}");
+                    products = await response.json();
+                    displayCartItems();
+                } catch (error) {
+                    console.error('Error fetching products:', error);
+                }
+            };
+
+            const displayCartItems = () => {
+                cartItemsContainer.innerHTML = '';
+                let totalQuantity = 0;
+                let totalPrice = 0;
+                let cartItemsData = [];
+
+                cart.forEach(item => {
+                    const product = products.find(p => p.id == item.product_id);
+                    if (product) {
+                        totalQuantity += item.quantity;
+                        totalPrice += item.quantity * product.price;
+
+                        const cartItem = document.createElement('div');
+                        cartItem.classList.add('item');
+                        cartItem.innerHTML = 
+                `<div class="flex border-b border-gray-300">
+                    <div class="w-2/3 p-2">${product.name}</div>
+                    <div class="w-36 p-2">${product.price} Ks</div>
+                    <div class="w-20 p-2">${item.quantity}</div>
+                    <div class="w-36 p-2">${(item.quantity * product.price).toFixed(2)} Ks</div>
+                </div>`;   
+                        cartItemsContainer.appendChild(cartItem);
+
+                        // Add item to cartItemsData
+                        cartItemsData.push({
+                            name: product.name,
+                            price: product.price,
+                            quantity: item.quantity,
+                            total: (item.quantity * product.price).toFixed(2)
+                        });
+                    }
+                });
+                totalQuantityElement.textContent = totalQuantity;
+                totalPriceElement.textContent = `${totalPrice.toFixed(2)} Ks`;
+                document.getElementById('amount').value = totalPrice;
+                document.getElementById('quantity').value = totalQuantity;
+                document.getElementById('data').value = JSON.stringify(cartItemsData);
+            };
+
+            fetchProducts();
+
+            checkoutButton.addEventListener('click', () => {
+                confirmationModal.classList.remove('hidden');
+            });
+
+            cancelCheckout.addEventListener('click', () => {
+                confirmationModal.classList.add('hidden');
+            });
+
+            confirmCheckout.addEventListener('click', () => {
+                const addressValue = addressField.value.trim();
+                if (addressValue === '') {
+                    addressError.classList.remove('hidden');
+                } else {
+                    addressError.classList.add('hidden');
+                    // Update the address field in the hidden form before submitting
+                    document.getElementById('address').value = addressValue;
+                    confirmationModal.classList.add('hidden');
+                    checkoutForm.submit();
+                }
+            });
+        });
+
+    </script>
+
+</body>
+
+</html>

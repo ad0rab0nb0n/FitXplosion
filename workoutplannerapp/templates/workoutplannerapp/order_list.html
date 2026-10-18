@@ -1,0 +1,77 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <title>FitXplosion - Fitness Website</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+        }
+
+        .checkout_container {
+            max-width: 700px;
+            margin: 60px auto;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+
+
+        .buttonCheckout {
+            color: white;
+            border: none;
+            padding: 6px 16px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 5px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="checkout_container">
+        <h1 class="text-center font-bold text-2xl text-red-900 py-2">Order List</h1>
+        <div>
+            <div class="border-b-gray-700 py-4" id="cartItems">
+                {% for item in items %}
+                <div class="flex border-b border-gray-300">
+                    <div class="w-2/3 p-2">{{item.0}}</div>
+                    <div class="w-36 p-2">{{item.1}} Ks</div>
+                    <div class="w-20 p-2">{{item.2}}</div>
+                    <div class="w-36 p-2">{{item.3}} Ks</div>
+                </div> 
+                {% endfor %}
+            </div>
+            <div class="flex mb-4">
+                <div class="w-2/3 p-2"></div>
+                <div class="w-36 p-2"></div>
+                <div class="totalQuantity w-20 p-2" id="totalQuantity">{{quantity}}</div>
+                <div class="totalPrice w-36 p-2" id="totalPrice">{{amount}}Ks</div>
+            </div>
+        </div>
+        <div class="flex justify-end mx-8">
+            <form action="{% url 'admin_receipt' %}" method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="id" id="id" value="{{receipt_id}}">
+                <input type="hidden" name="amount" id="amount" value="{{amount}}">
+                <button class="buttonCheckout bg-red-900 hover:bg-red-700">Save E-Receipt</button>
+            </form>
+        </div>
+    </div>
+
+</body>
+
+</html>

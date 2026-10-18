@@ -1,0 +1,573 @@
+[
+    {
+        "id": "1",
+        "name": "WHEY Protein Powder",
+        "image": "/media/images/protein1.png",
+        "price": 120000,
+        "category": "1",
+        "description":"This whey protein powder is designed for fitness enthusiasts looking to boost their protein intake. It contains a blend of high-quality whey proteins that promote muscle recovery and growth. It’s ideal for consumption post-workout to replenish muscles and aid in their repair."
+    },
+    {
+        "id": "2",
+        "name": "GYM BODY Protein Powder",
+        "image": "/media/images/protein2.png",
+        "price": 130000,
+        "category": "1",
+        "description":" Tailored for dedicated gym-goers, this protein powder is formulated to support intense training sessions. It offers a high protein content that aids in muscle repair, growth, and overall performance enhancement. With added vitamins and minerals, it ensures that your body gets the necessary nutrients for peak performance."
+    },
+    {
+        "id": "3",
+        "name": "WHEY SUPER ADVEANCED Protein Powder",
+        "image":  "/media/images/protein3.png",
+        "price": 125000,
+        "category": "1",
+        "description":" This advanced whey protein formula is designed to deliver superior results. It combines whey protein isolates, concentrates, and hydrolysates to ensure maximum protein absorption and utilization. Enhanced with digestive enzymes and additional nutrients, it supports faster recovery and muscle growth."
+    },
+    {
+        "id": "4",
+        "name": "MASS GAINER(WHEY Protein)",
+        "image":  "/media/images/protein4.png",
+        "price": "85000",
+        "category": "1",
+        "description":"A powerful mass gainer that combines whey protein with a high-calorie blend of carbohydrates and fats. It is designed to help individuals gain muscle mass and weight quickly and efficiently. Ideal for those with a fast metabolism or who have difficulty gaining weight, it provides the necessary nutrients to support muscle growth and overall body mass."
+    },
+    {
+        "id": "5",
+        "name": "Yoga Mat",
+        "image": "/media/images/yogamap.png",
+        "price": 25000,
+        "category": "3",
+        "description": "Enhance your yoga practice with our Yoga Mat, designed to support your movements and provide comfort during every pose. Whether you're a beginner or a seasoned yogi, this mat offers the perfect blend of cushioning, grip, and durability for a fulfilling practice session."
+    },
+    {
+        "id": "6",
+        "name": "DUMBBELL SET    (8 PAIR)",
+        "image": "/media/images/Dumbells.png",
+        "price": 320000,
+        "category": "3",
+        "description":"Achieve your fitness goals with our Dumbbell Set, featuring eight pairs of dumbbells designed to enhance strength training and versatility. Whether you're toning muscles, building strength, or improving endurance, this set provides a comprehensive range of weights to accommodate various exercises and fitness levels."
+    },
+    {
+        "id": "7",
+        "name": "Jump Rope",
+        "image": "/media/images/jumprope.png",
+        "price": 8500,
+        "category": "3",
+        "description": "Enhance your fitness routine with our Jump Rope, designed for speed, endurance, and agility training. Perfect for athletes, fitness enthusiasts, and anyone looking to improve cardiovascular health, this jump rope offers a versatile and effective way to burn calories and boost endurance."
+    },
+    {
+        "id": "8",
+        "name": "Rowers",
+        "image": "/media/images/rowers.png",
+        "price": 65000,
+        "category": "3",
+        "description" : "Transform your fitness routine with our Rowing Machine, designed to provide a full-body workout that improves cardiovascular health, builds strength, and enhances endurance. Ideal for home gyms, fitness enthusiasts, and athletes alike, this rower offers a low-impact yet highly effective exercise option."
+    },
+    {
+        "id": "9",
+        "name": "Power Rack",
+        "image": "/media/images/powerracker.png",
+        "price": 320000,
+        "category": "3",
+        "description":"Transform your home gym with our Power Rack, an essential piece of equipment for serious strength training enthusiasts. Designed to provide a safe and versatile platform for a wide range of exercises, this power rack is ideal for building strength, muscle mass, and enhancing overall fitness."
+    },
+    {
+        "id": "10",
+        "name": "Bench",
+        "image": "/media/images/BenchPress.png",
+        "price": 1400000,
+        "category": "3",
+        "description": "Achieve your fitness goals with our Weight Bench, a versatile and essential piece of equipment for any home gym or fitness studio. Designed to support a variety of exercises, from bench presses to dumbbell workouts, this bench provides stability, comfort, and safety for effective strength training."
+    },
+    {
+        "id": "11",
+        "name": "Exercise Bike",
+        "image": "/media/images/bike.png",
+        "price": 860000,
+        "category": "3",
+        "description" : "Achieve a rewarding cardio workout with our Exercise Bike, designed to provide a convenient and effective way to improve cardiovascular health, burn calories, and boost endurance. Whether you're a beginner or a seasoned cyclist, this bike offers a comfortable and efficient fitness solution for your home gym."
+    },
+    {
+        "id": "12",
+        "name": "Kettleball",
+        "image": "/media/images/kettleball.png",
+        "price": 120000,
+        "category": "3",
+        "description" : "Enhance your strength, endurance, and flexibility with our Kettlebell, a versatile fitness tool designed for dynamic workouts. Whether you're performing swings, squats, snatches, or Turkish get-ups, this kettlebell offers a comprehensive workout that targets multiple muscle groups and improves overall fitness."
+    },
+    {
+        "id": "13",
+        "name": "Ab Roller",
+        "image": "/media/images/AbRoller.png",
+        "price": 82000,
+        "category": "3",
+        "description": "Achieve strong and defined abdominal muscles with our Ab Roller, a compact and effective fitness tool designed for targeting the core muscles. Ideal for home workouts or gym sessions, this ab roller provides a challenging workout that helps strengthen your abs, obliques, and entire core."
+    },
+    {
+        "id": "14",
+        "name": "Hydro Cell Water Bottle",
+        "image": "/media/images/bottle1.png",
+        "price": 25000,
+        "category": "2",
+        "description":"Made to be your go-to sidekick from office to trailhead, Hydro Flask stainless steel water bottles are vacuum-insulated and keep cold drinks cold and hot drinks hot for hours. "
+    },
+    {
+        "id": "15",
+        "name": "Cage Water Bottle",
+        "image": "/media/images/bottle2.png",
+        "price": 23000,
+        "category": "2",
+        "description":"Our Cage Water Bottle is the perfect companion for your workout, cycling, or any outdoor activity. Designed for convenience and durability, this water bottle ensures you stay hydrated no matter where your adventures take you."
+
+    },
+    {
+        "id": "16",
+        "name": "sport Bottle",
+        "image": "/media/images/bottle3.png",
+        "price": 28000,
+        "category": "2",
+        "description":"Elevate your hydration game with our Sport Water Bottle, designed to keep up with your most intense workouts and outdoor adventures. Combining style, functionality, and durability, this water bottle is an essential part of your fitness gear."
+    },
+    {
+        "id": "17",
+        "name": "Man Sport Set",
+        "image": "/media/images/men_shirt1.png",
+        "price": 76000,
+        "category": "2",
+        "description":"Gear up for success with our Man Sport Set, designed to provide everything you need for an effective and stylish workout. Whether you're hitting the gym, going for a run, or training outdoors, this set ensures you stay comfortable and perform at your best."
+    },
+    {
+        "id": "18",
+        "name": "Man Gym Shirt",
+        "image": "/media/images/men_shirt2.png",
+        "price": 36000,
+        "category": "2",
+        "description":"Step up your workout game with our Man Gym Shirt, engineered to deliver peak performance and ultimate comfort. Whether you're lifting weights, running, or engaging in high-intensity interval training, this shirt is your perfect workout companion."
+    },
+    {
+        "id": "19",
+        "name": "Fitness Shirt(Man)",
+        "image": "/media/images/men_shirt3.png",
+        "price": 32000,
+        "category": "2",
+        "description":"Transform your workouts with our Fitness Shirt, designed for the modern athlete who demands both style and function. Perfect for any fitness routine, this shirt combines cutting-edge fabric technology with a sleek design to help you perform at your best."
+    },
+    {
+        "id": "20",
+        "name": "Running Shoe(Man)",
+        "image": "/media/images/shoe_m.png",
+        "price": 180000,
+        "category": "2",
+        "description": "Discover the ultimate blend of performance and comfort with our Running Shoes, meticulously designed for the modern runner. Whether you're training for a marathon or just enjoying a jog in the park, these shoes are engineered to enhance your running experience."
+    },
+    {
+        "id": "21",
+        "name": "Woman Running Shoe(Nike)",
+        "image": "/media/images/shoe_w.png",
+        "price": 140000,
+        "category": "2",
+        "description":"Take your running game to the next level with the Nike Women's Running Shoe. Engineered for superior performance, comfort, and style, these shoes are your perfect partner for any running journey, whether you're training for a race or hitting the pavement for a casual jog."
+    },
+    {
+        "id": "22",
+        "name": "Woman Running Shoe(Nike)",
+        "image": "/media/images/shoe_w1.png",
+        "price": 160000,
+        "category": "2",
+        "description": "Take your running game to the next level with the Nike Women's Running Shoe. Engineered for superior performance, comfort, and style, these shoes are your perfect partner for any running journey, whether you're training for a race or hitting the pavement for a casual jog."
+    },
+    {
+        "id": "23",
+        "name": "Man Sport Pant (Short)",
+        "image": "/media/images/short_pant_men.png",
+        "price": 38000,
+        "category": "2",
+        "description":"Experience ultimate comfort and performance with our Man Sport Shorts, designed for athletes who demand the best. Perfect for any workout or athletic activity, these shorts combine advanced fabric technology with a sleek design to help you push your limits."
+    },
+    {
+        "id": "24",
+        "name": "Gym Skirt",
+        "image": "/media/images/skirt.png",
+        "price": 28000,
+        "category": "2",
+        "description":"Elevate your workout wardrobe with our Gym Skirt, designed for women who want to combine style with functionality. Perfect for gym sessions, running, or any fitness activity, this skirt offers the perfect blend of comfort, performance, and chic design."
+    },
+    {
+        "id": "25",
+        "name": "Sport Bra(ID.1)",
+        "image": "/media/images/spoet_bra1.png",
+        "price": 32000,
+        "category": "2",
+        "description":"Discover the perfect blend of support and style with our Sport Bra, designed to keep you comfortable and confident during any workout. Whether you're hitting the gym, going for a run, or practicing yoga, this bra offers the support you need to perform your best."
+    },
+    {
+        "id": "26",
+        "name": "Sport Top(ID.1)",
+        "image": "/media/images/sport_bra2.png",
+        "price": 38000,
+        "category": "2",
+        "description": "Enhance your workout experience with our Sport Top (ID.1), crafted for women who prioritize both performance and style. Whether you're hitting the gym, going for a run, or practicing yoga, this top offers the perfect combination of comfort, support, and contemporary design."
+    },
+    {
+        "id": "27",
+        "name": "Sport Bra(ID.2)",
+        "image": "/media/images/sport_bra3.png",
+        "price": 28000,
+        "category": "2",
+        "description":"Discover the perfect blend of support and style with our Sport Bra, designed to keep you comfortable and confident during any workout. Whether you're hitting the gym, going for a run, or practicing yoga, this bra offers the support you need to perform your best."
+    },
+    {
+        "id": "28",
+        "name": "Sport Set1(Woman)",
+        "image": "/media/images/sport_set1.png",
+        "price": 115000,
+        "category": "2",
+        "description": "Unleash your potential with our Sport Set1 designed for women who demand style, comfort, and performance. Perfect for various fitness activities, from gym workouts to yoga sessions, this set combines functionality with a sleek, modern design to keep you motivated and on top of your game."
+    },
+    {
+        "id": "29",
+        "name": "Sport Set2(Woman)",
+        "image": "/media/images/sport_set2.png",
+        "price": 180000,
+        "category": "2",
+        "description": "Unleash your potential with our Sport Set1 designed for women who demand style, comfort, and performance. Perfect for various fitness activities, from gym workouts to yoga sessions, this set combines functionality with a sleek, modern design to keep you motivated and on top of your game."
+    },
+    {
+        "id": "30",
+        "name": "Sweat Pant(UniSex)",
+        "image": "/media/images/sweat_pant.png",
+        "price": 320000,
+        "category": "2",
+        "description" : "Experience ultimate comfort and casual style with our Unisex Sweat Pants, designed for lounging, workouts, or everyday wear. These versatile pants offer a relaxed fit and quality construction to keep you cozy and stylish wherever you go."
+    },
+    {
+        "id": "31",
+        "name": "Sport Top(ID.2)",
+        "image": "/media/images/top_w.png",
+        "price": 31500,
+        "category": "2",
+        "description": "Enhance your workout experience with our Sport Top (ID.1), crafted for women who prioritize both performance and style. Whether you're hitting the gym, going for a run, or practicing yoga, this top offers the perfect combination of comfort, support, and contemporary design."
+    },
+    {
+        "id": "32",
+        "name": "WHEY 100% Protein Powder",
+        "image": "/media/images/protein5.png",
+        "price": 230000,
+        "category": "1",
+        "description":"This product offers pure whey protein without any fillers. It delivers a high concentration of protein per serving, ensuring maximum muscle recovery and growth. Suitable for athletes and bodybuilders who need a reliable and potent protein source."
+
+    },
+    {
+        "id": "33",
+        "name": "MASS GAINER Vanilla Flavour(Maxi Size)",
+        "image": "/media/images/protein6.png",
+        "price": 220000,
+        "category": "1",
+        "description":"A large-sized mass gainer with a delicious vanilla flavor. It is formulated to provide a high caloric intake combined with essential proteins, vitamins, and minerals to support muscle growth and overall weight gain. Ideal for those looking to increase their size and strength."
+    },
+    {
+        "id": "34",
+        "name": "MASS GAINER(2100 Grams)",
+        "image": "/media/images/protein7.png",
+        "price": 250000,
+        "category": "1",
+        "description":"This mass gainer provides a substantial amount of protein and calories to support significant muscle and weight gain. It is enriched with vitamins, minerals, and other nutrients to enhance muscle development and overall health. Perfect for individuals with high caloric needs or those looking to maximize their muscle-building efforts."
+    },
+    {
+        "id": "35",
+        "name": "ORGAIN(Organic Protein)",
+        "image": "/media/images/protein8.png",
+        "price": 82000,
+        "category": "1",
+        "description":"An organic protein powder sourced from plant-based ingredients. It ensures a clean and sustainable protein intake, free from artificial additives. It’s perfect for individuals seeking a natural protein source to support muscle recovery, growth, and overall health."
+    },
+    {
+        "id": "36",
+        "name": "PREMIER PROTEIN Vanilla Flavour",
+        "image": "/media/images/protein9.png",
+        "price": 110000,
+        "category": "1",
+        "description":"This vanilla-flavored protein powder is designed for those who need a tasty yet effective protein supplement. It boasts a blend of high-quality proteins, vitamins, and minerals, perfect for muscle repair, sustained energy, and overall wellness. It's a versatile addition to your diet, whether used in shakes, smoothies, or baked goods."
+    },
+    {
+        "id": "37",
+        "name": "PREMIER PROTEIN Chaocolatte Flavour",
+        "image": "/media/images/protein10.png",
+        "price": 110000,
+        "category": "1",
+        "description":"A delicious chocolate protein powder that combines taste and nutrition. This supplement offers a high protein content to help support muscle recovery and growth. It's low in sugar and calories, making it an ideal choice for those looking to indulge in a healthy way while meeting their fitness goals."
+
+    },
+    {
+        "id": "38",
+        "name": "DAILY VEGAN PROTEIN",
+        "image": "/media/images/protein11.png",
+        "price": 150000,
+        "category": "1",
+        "description":" A premium vegan protein powder crafted from a blend of pea, rice, and hemp proteins. It provides a complete amino acid profile necessary for muscle recovery and growth. This product is also free from dairy, gluten, and soy, ensuring it meets the needs of individuals with dietary restrictions while promoting optimal health."
+    },
+    {
+        "id": "39",
+        "name": "High Protein Shake",
+        "image": "/media/images/protein12.png",
+        "price": 120000,
+        "category": "1",
+        "description":"A high-protein shake that offers convenience and nutrition in one package. Each serving is designed to deliver a significant amount of protein, essential for muscle building and repair. It's perfect for those with active lifestyles who need a quick and nutritious meal replacement or snack."
+    },
+    {
+        "id": "40",
+        "name": "GOLD STANDARD(100% Whey Protein)",
+        "image": "/media/images/protein13.png",
+        "price": 87000,
+        "category": "1",
+        "description":" Renowned for its quality, this whey protein supplement is a favorite among athletes and bodybuilders. It provides a potent dose of 24 grams of protein per serving, along with essential amino acids, including BCAAs and glutamine. This ensures optimal muscle recovery and growth, making it a staple in any fitness regimen."
+    },
+    {
+        "id": "41",
+        "name":"STEPZORG 100% Pure Whey Protein Capsule",
+        "image": "/media/images/capsule1.png",
+        "price": 63000,
+        "category": "1",
+        "description":" These pure whey protein capsules are a convenient alternative to traditional protein powders. Ideal for those who need to increase their protein intake without the hassle of mixing shakes. They support muscle maintenance, recovery, and overall protein needs, perfect for on-the-go nutrition."
+    },
+    {
+        "id": "42",
+        "name": "Ultimate Protein Capsule",
+        "image": "/media/images/capsule2.png",
+        "price": 52000,
+        "category": "1",
+        "description":"Formulated to aid in weight gain and muscle building, these protein capsules are packed with high-quality protein and essential nutrients. They are perfect for individuals who need to increase their caloric intake to support muscle growth and overall body mass."
+    },
+    {
+        "id": "43",
+        "name": "LOGO Weigh Gain Capsule",
+        "image": "/media/images/capsule3.png",
+        "price": 48000,
+        "category": "1",
+        "description":"These weight gain capsules are designed to help individuals gain weight in a healthy manner. They combine protein with essential vitamins and minerals to support muscle growth, enhance energy levels, and improve overall health. Ideal for those who struggle to gain weight or need additional nutritional support."
+    },
+    {
+        "id": "44",
+        "name": "Low Calorie Salad",
+        "image": "/media/images/wlsplate.png",
+        "price": 5500,
+        "category": "4",
+        "description":"Chicken Breast, Peas, Avocados, and Cucumber Salad  Indulge in the perfect blend of flavors and nutrients with our low-calorie salad featuring tender chicken breast vibrant peas creamy avocados and crisp cucumber. This delightful salad is not only a feast for your taste buds but also a nutritious choice for those mindful of their calorie intake"
+    },
+    {
+        "id": "45",
+        "name": "Salmon Salad",
+        "image": "/media/images/salmon.png",
+        "price": 13000,
+        "category": "4",
+        "description":"Salmon, Spinach, Cherry Tomatoes, and Red Onions Salad Savor the delightful taste and health benefits of our low-calorie salmon salad, featuring succulent salmon, fresh spinach, juicy cherry tomatoes, and zesty red onions. This vibrant and nutritious salad is perfect for those seeking a wholesome meal without the extra calories."
+    },
+    {
+        "id": "46",
+        "name": "Vegan Salad",
+        "image": "/media/images/vegan.png",
+        "price": 6500,
+        "category": "4",
+        "description":"Delight in the wholesome and vibrant flavors of our vegan salad, featuring protein-packed chickpeas, nutrient-rich quinoa, creamy avocado, and fresh kale. This delicious and nutritious salad offers a perfect balance of textures and tastes, making it an ideal choice for a healthy and satisfying meal. Enjoy the refreshing and guilt-free goodness of our vegan salad, crafted to nourish your body and delight your palate!"
+    },
+    {
+        "id": "47",
+        "name": "Low Fat Plate",
+        "image": "/media/images/low_fat.png",
+        "price": 6500,
+        "category": "4",
+        "description": "A Low Fat Plate represents a dietary approach focused on reducing fat intake while maintaining balanced nutrition. This concept emphasizes choosing foods that are naturally low in fat"
+    },
+    {
+        "id": "48",
+        "name": "Zero Calorie Plate",
+        "image": "/media/images/zero_fat.png",
+        "price":7500,
+        "category": "4",
+        "description": "A Zero Calorie Plate represents a commitment to health-conscious eating by focusing on foods that are very low in calories or have minimal impact on overall caloric intake. This concept encourages mindful choices and portion control, promoting a balanced and nutritious diet."
+    },
+    {
+        "id": "55",
+        "name": "Korean Set",
+        "image": "/media/images/bibimbap.png",
+        "price": 8500,
+        "category": "4",
+        "description":"Experience the vibrant and flavorful essence of Korean cuisine with our Bibimbap, a delightful mix of steamed rice, seasoned vegetables, and a perfectly fried egg, all drizzled with spicy gochujang sauce. This harmonious blend of textures and tastes provides a satisfying and nutritious meal, perfect for any time of the day. Enjoy the colorful and balanced goodness of Bibimbap, a true culinary delight!"
+    },
+    {
+        "id": "56",
+        "name": "Diabetes",
+        "image": "/media/images/highq.png",
+        "price": 12000,
+        "category": "4",
+        "description":"Enjoy a delicious and diabetes-friendly salad crafted to support healthy blood sugar levels. Our salad features fresh spinach, lean grilled chicken, colorful bell peppers, and crunchy walnuts. This nutritious blend offers a satisfying mix of protein, fiber, and healthy fats, making it an excellent choice for those managing diabetes. Relish in the balanced flavors and health benefits of our diabetes-friendly salad, perfect for a wholesome meal!"
+    },
+    {
+        "id": "57",
+        "name": "Fried Rice",
+        "image": "/media/images/fried_rice.png",
+        "price": 9000,
+        "category": "4",
+        "description": "Enjoy the delicious flavors of Fried Rice with our Low-Calorie version, crafted to provide a satisfying meal without compromising on taste or nutrition. This dish combines wholesome ingredients and smart cooking techniques to offer a lighter alternative that supports your wellness goals."
+    },
+    {
+        "id": "58",
+        "name": "Protein Vegan Set",
+        "image": "/media/images/prowm.png",
+        "price": 6500,
+        "category": "4",
+        "description": "Discover our Protein Vegan Set, curated to support your fitness goals with plant-based protein sources that are rich in essential nutrients. Perfect for vegans, vegetarians, or anyone seeking to incorporate more plant-based proteins into their diet, this set offers a variety of options to enhance your daily nutrition and promote muscle recovery."
+    },
+    {
+        "id": "59",
+        "name": "Lunch Plate With Sweetpotato",
+        "image": "/media/images/sweetpotato.png",
+        "price": 8000,
+        "category": "4",
+        "description": "Indulge in our Lunch Plate with Sweet Potato, a wholesome and satisfying meal option that combines the nutritional benefits of sweet potatoes with complementary ingredients for a delicious dining experience. Perfect for those seeking a nutritious lunch that is both filling and flavorful."
+    },
+    {
+        "id": "60",
+        "name": "Protein Set",
+        "image": "/media/images/proplate.png",
+        "price": 13000,
+        "category": "4",
+        "description":"Fuel your day with our high-protein salad, a perfect blend of lean turkey breast, black beans, quinoa, and edamame. This nutrient-dense salad is designed to provide a substantial protein boost, supporting muscle growth and overall energy. Savor the combination of hearty flavors and wholesome ingredients, making this salad an ideal choice for anyone looking to increase their protein intake. Enjoy the delicious and nutritious power of our high-protein salad!"
+    },
+    {
+        "id": "65",
+        "name": "Berry Smootie",
+        "image": "/media/images/berry.png",
+        "price": 5500,
+        "category": "4",
+        "description":"Indulge in the refreshing and antioxidant-rich goodness of our mixed berry smoothie. This delightful blend features a medley of fresh strawberries, blueberries, raspberries, and blackberries, perfectly mixed with creamy yogurt and a splash of honey for natural sweetness. Packed with vitamins, minerals, and fiber, our berry smoothie offers a delicious and nutritious way to start your day or satisfy your cravings. Enjoy the vibrant flavors and health benefits of our mixed berry bliss smoothie!"
+    },
+    {
+        "id": "66",
+        "name": "Mango",
+        "image": "/media/images/mango.png",
+        "price": 4500,
+        "category": "4",
+        "description":" our refreshing mango smoothie. This vibrant blend features ripe mangoes, blended to perfection with creamy yogurt and a splash of orange juice for a burst of citrusy freshness. Packed with vitamin C, fiber, and natural sweetness, our mango smoothie offers a delightful and nutritious treat any time of day. Enjoy the tropical flavors and rejuvenating goodness of our tropical mango delight smoothie!"
+    },
+    {
+        "id": "67",
+        "name": "Matcha",
+        "image": "/media/images/matcha.png",
+        "price": 5000,
+        "category": "4",
+        "description":"Experience tranquility with our Zen Green Matcha Latte, crafted from premium Japanese matcha powder blended with steamed milk (or your favorite dairy-free alternative) and a hint of natural sweetness. This smooth and creamy beverage offers a balanced boost of antioxidants and a gentle caffeine kick, perfect for a moment of calm focus or as a refreshing pick-me-up. Embrace the serene flavors and healthful benefits of our Zen Green Matcha Latte, a harmonious blend for mindful enjoyment."
+    },
+    {
+        "id": "68",
+        "name": "Resberry Smootie",
+        "image": "/media/images/resberry.png",
+        "price": 5500,
+        "category": "4",
+        "description":"A raspberry smoothie is a refreshing, tart-sweet drink made by blending fresh or frozen raspberries with a liquid base like milk, yogurt, or a plant-based alternative. Optional add-ins like banana, honey, or protein powder enhance flavor and nutrition, making it a perfect choice for breakfast or a healthy snack."
+    },
+    {
+        "id": "69",
+        "name": "Kiwi Smootie",
+        "image": "/media/images/kiwi.png",
+        "price": 4500,
+        "category": "4",
+        "description":"A kiwi smoothie is a vibrant and tangy beverage made by blending fresh kiwi with a liquid base such as yogurt, milk, or a plant-based alternative. Optional ingredients like banana, honey, or spinach can be added for extra sweetness, creaminess, or nutritional benefits. It's a refreshing and healthy drink ideal for any time of the day."
+    },
+    {
+        "id": "70",
+        "name": "Strawberry Smootie",
+        "image": "/media/images/strawberry_s.png",
+        "price": 5000,
+        "category": "4",
+        "description":"A strawberry smoothie is a refreshing blend of strawberries, a liquid base like milk or yogurt, and optional sweeteners or add-ins like banana, honey, or protein powder. It's a quick, nutritious, and delicious treat perfect for breakfast or a snack."
+    },
+    {
+        "id": "75",
+        "name": "Overnight Oats",
+        "image": "/media/images/overoat.png",
+        "price": 6500,
+        "category": "4",
+        "description":"Savor the convenience and nourishment of our classic overnight oats, a wholesome blend of rolled oats soaked overnight in milk (or a dairy-free alternative), mixed with chia seeds, and lightly sweetened with honey or maple syrup. Enjoy it cold or warmed up, topped with your favorite fruits, nuts, or a dollop of yogurt for a satisfying breakfast that’s rich in fiber, protein, and essential nutrients. Start your day right with the hearty goodness and versatility of our classic overnight oats!"
+    },
+    {
+        "id": "76",
+        "name": "Youghrt Oat",
+        "image": "/media/images/youghrtoat.png",
+        "price": 5500,
+        "category": "4",
+        "description":"Delight in our creamy yogurt oats parfait, combining layers of Greek yogurt, wholesome rolled oats soaked in milk (or a dairy-free alternative), and a medley of fresh berries or sliced fruits. This refreshing and nutritious parfait offers a perfect balance of creamy textures, crunchy oats, and sweet fruits, providing a protein-rich breakfast or snack that keeps you energized throughout the day. Enjoy the delightful blend of flavors and textures in our yogurt oats parfait, a delicious treat for any time of day!"
+    },
+    {
+        "id": "77",
+        "name": "Snack Plate",
+        "image": "/media/images/snack-plate-meal-1_orig-removebg-preview.png",
+        "price": 7500,
+        "category": "4",
+        "description":"This nutritious snack plate provides a perfect combination of fiber, protein, healthy fats, and vitamins, making it an ideal choice for a quick and satisfying snack to keep you going throughout the day. Enjoy the delightful mix of flavors and textures in our balanced snack plate!"
+    },
+    {
+        "id": "78",
+        "name": "Molten Chocolate Cake",
+        "image": "/media/images/choco.png",
+        "price": 15000,
+        "category": "4",
+        "description":"This rich dessert features a moist and velvety chocolate cake exterior that gives way to a gooey, molten chocolate center. Served warm and topped with a dusting of powdered sugar or a scoop of vanilla ice cream, our molten chocolate lava cake is a luxurious treat that satisfies every chocolate craving. Delight in the irresistible richness and indulgence of our molten chocolate lava cake, perfect for a special occasion or any time you deserve a sweet escape!"
+    },
+    {
+        "id": "79",
+        "name": "Pancake",
+        "image": "/media/images/pancake.png",
+        "price": 8000,
+        "category": "4",
+        "description":"Treat yourself to our fluffy buttermilk pancakes, cooked to golden perfection and served warm with a generous drizzle of maple syrup. These pancakes are light, airy, and deliciously satisfying, perfect for a comforting breakfast or brunch. Enjoy the classic goodness and irresistible taste of our fluffy buttermilk pancakes, a timeless favorite for any occasion!"
+    },
+    {
+        "id": "84",
+        "name": "Chocolate Ice-cream",
+        "image": "/media/images/choco_ic.png",
+        "price": 8000,
+        "category": "4",
+        "description":"Guilt-Free Chocolate Ice Cream Delight: Enjoy a luscious, smooth chocolate ice cream that's low in calories, perfect for satisfying your sweet tooth while keeping your diet on track."
+    },
+    {
+        "id": "85",
+        "name": "Fruits",
+        "image": "/media/images/fruit.png",
+        "price": 6500,
+        "category": "4",
+        "description":"This fruit bowl is a delightful blend of flavors, textures, and essential vitamins, offering a refreshing and nutritious snack or light breakfast option. Enjoy the natural sweetness and health benefits of our vibrant fruit medley bowl!"
+    },
+    {
+        "id": "86",
+        "name": "Strawberry Bowl",
+        "image": "/media/images/strawberry_bowl.png",
+        "price": 6500,
+        "category": "4",
+        "description":"Juicy and Sweet Fresh Strawberries: Enjoy the vibrant taste of freshly picked strawberries, bursting with natural sweetness and packed with vitamins for a delicious, guilt-free treat."
+    },
+    {
+        "id": "87",
+        "name": "Watermelon Bowl",
+        "image": "/media/images/watermelon_bowl.png",
+        "price": 6500,
+        "category": "4",
+        "description":"Naturally Hydrating Watermelon: Indulge in the thirst-quenching goodness of fresh watermelon, offering a burst of juicy flavor and essential nutrients with every bite."
+    },
+    {
+        "id": "88",
+        "name": "Pineapple Bowl",
+        "image": "/media/images/pineapple.png",
+        "price": 6500,
+        "category": "4",
+        "description":"Juicy and Flavorful Pineapple: Delight in the refreshing and juicy goodness of fresh pineapple, perfect for a sweet and healthy snack any time of the day."
+    },
+    {
+        "id": "89",
+        "name": "Kiwi Bowl",
+        "image": "/media/images/kiwi_bowl.png",
+        "price": 6500,
+        "category": "4",
+        "description":"Tropical Kiwi Bliss: Savor the exotic flavor and velvety texture of fresh kiwi, bursting with nutrients and perfect for adding a tropical twist to your day."
+    }
+]

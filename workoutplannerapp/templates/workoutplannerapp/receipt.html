@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitXplosion - Fitness Website</title>
+</head>
+<body>
+    <form action="{% url 'receipt' %}" method="POST"> 
+        {% csrf_token %} 
+        <div class="container">
+            <input type="text" name="name" value="Thin Thiri Bon">
+            <button type="submit" >SignIn</button>
+        </div>
+    </form>
+</body>
+</html>

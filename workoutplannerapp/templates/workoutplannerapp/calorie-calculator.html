@@ -1,0 +1,444 @@
+<!-- templates/your_app/calorie_calculator.html -->
+{% load static %}  <!-- Load static files -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calorie Calculator</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #e0f7fa;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 150vh;
+        }
+
+        .container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            max-width: 900px;
+            width: 100%;
+        }
+
+        h1 {
+            color: #00796b;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .calculator {
+            margin-top: 20px;
+        }
+
+        label {
+            font-size: 1.1em;
+            color: #555555;
+        }
+
+        #food-select {
+            text-align: left;
+            margin: 20px 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .column {
+            flex: 1 1 30%;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .food-item {
+            display: flex;
+            align-items: center;
+        }
+
+        input[type="checkbox"] {
+            margin-right: 10px;
+            width: 18px;
+            height: 18px;
+        }
+
+        button {
+            padding: 12px 25px;
+            background-color: #00796b;
+            color: #ffffff;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1.1em;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #004d40;
+        }
+
+        #calorie-result {
+            margin-top: 30px;
+            font-size: 1.3em;
+            color: #333333;
+        }
+
+        #calorie-value {
+            font-weight: bold;
+            color: #00796b;
+        }
+
+        .imagee {
+            width: 200px;
+            height: 200px;
+            margin-top: 50px;
+            margin-left: 30px;
+            margin-bottom: -20px;
+        }
+
+        .req {
+            padding: 10px 10px;
+            background-color: #739a95;
+            color: #ffffff;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1.1em;
+            transition: background-color 0.3s;
+        }
+
+        .description {
+            margin-bottom: -10px;
+            text-align: center;
+            font-weight: bold;
+            color: brown;
+        }
+
+        .pop-over {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            display: none;
+            z-index: 1000;
+            text-align: center;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: none;
+            z-index: 999;
+        }
+
+        .close-btn {
+            background-color: #00796b;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .close-btn:hover {
+            background-color: #004d40;
+        }
+        .body-calorie-info {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #eef2f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 50vh;
+        }
+        .container-calorie-info {
+            max-width: 600px;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .container-calorie-info h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .section-calorie-info {
+            margin-bottom: 20px;
+        }
+        .section-calorie-info h2 {
+            color: #047c44;
+            font-size: 1.2em;
+            border-bottom: 2px solid #125b2a;
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+        }
+        .section-calorie-info ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .section-calorie-info li {
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Calorie Calculator</h1>
+        <div class="calculator">
+            <label for="food-select">Choose food to count calories in your plate:</label>
+            <div id="food-select">
+                <div class="column">
+                    <h3>Fruits</h3>
+                    <div class="food-item">
+                        <input type="checkbox" id="apple" value="95">
+                        <label for="apple">Apple - 95 cal</label>
+                    </div>
+                    <div class="food-item">
+                        <input type="checkbox" id="banana" value="105">
+                        <label for="banana">Banana - 105 cal</label>
+                    </div>
+                    <div class="food-item">
+                        <input type="checkbox" id="orange" value="62">
+                        <label for="orange">Orange - 62 cal</label>
+                    </div>
+                    <div class="food-item">
+                        <input type="checkbox" id="avocado" value="234">
+                        <label for="avocado">Avocado - 234 cal</label>
+                    </div>                    <div class="food-item">
+                        <input type="checkbox" id="strawberry" value="77">
+                        <label for="strawberry">Strawberry - 77 cal</label>
+                    </div>
+                    <div class="food-item">
+                        <input type="checkbox" id="watermelon" value="45">
+                        <label for="watermelon">Watermelon - 45 cal</label>
+                    </div>
+                    <div class="food-item">
+                        <input type="checkbox" id="grape" value="62">
+                        <label for="grape">Grape - 62 cal</label>
+                    </div>
+                    <div class="food-item">
+                        <input type="checkbox" id="pineapple" value="74">
+                        <label for="pineapple">Pineapple - 74 cal</label>
+                    </div>
+                </div>
+                <div class="column">
+                    <h3>Vegetables</h3>
+                    <div class="food-item">
+                        <input type="checkbox" id="carrot" value="25">
+                        <label for="carrot">Carrot - 25 cal</label>
+                    </div>
+                    <div class="food-item">
+                        <input type="checkbox" id="potato" value="150">
+                        <label for="potato">Potato - 150 cal</label>
+                    </div>
+                    <div class="food-item">
+                        <input type="checkbox" id="broccoli" value="55">
+                        <label for="broccoli">Broccoli - 55 cal</label>
+                    </div>
+                    <div class="food-item">
+                        <input type="checkbox" id="cucumber" value="15">
+                        <label for="cucumber">Cucumber - 15 cal</label>
+                    </div>
+                    <div class="food-item">
+                        <input type="checkbox" id="pepper" value="27">
+                        <label for="pepper">Pepper - 27 cal</label>
+                    </div>
+                    <div class="food-item">
+                        <input type="checkbox" id="tomato" value="19">
+                        <label for="tomato">Tomato -19 cal</label>
+                    </div>
+                    <div class="food-item">
+                        <input type="checkbox" id="cabbage" value="28">
+                        <label for="cabbage">Cabbage - 28 cal</label>
+                    </div>
+                    <div class="food-item">
+                        <input type="checkbox" id="peas" value="72">
+                        <label for="peas">Peas - 72 cal</label>
+                    </div>
+                </div>
+                <div class="column">
+                    <h3>Meats & Proteins</h3>
+                    <div class="food-item">
+                        <input type="checkbox" id="chicken" value="165">
+                        <label for="chicken">Chicken (100g) - 165 cal</label>
+                    </div>
+                    <div class="food-item">
+                        <input type="checkbox" id="salmon" value="208">
+                        <label for="salmon">Salmon (100g) - 208 cal</label>
+                    </div>
+                    <div class="food-item">
+                        <input type="checkbox" id="pork" value="225">
+                        <label for="prok">Pork (100g) - 225 cal</label>
+                    </div>
+                    <div class="food-item">
+                        <input type="checkbox" id="beef" value="136">
+                        <label for="beef">Beef (100g) - 136 cal</label>
+                    </div>
+                    <div class="food-item">
+                        <input type="checkbox" id="shrimp" value="101">
+                        <label for="shrimp">Shrimp (100g) - 101 cal</label>
+                    </div>
+                    <div class="food-item">
+                        <input type="checkbox" id="egg" value="78">
+                        <label for="egg">Egg - 78 cal</label>
+                    </div>
+                    <div class="food-item">
+                        <input type="checkbox" id="steak" value="679">
+                        <label for="steak">Steak (300g) - 679 cal</label>
+                    </div>
+                    <div class="food-item">
+                        <input type="checkbox" id="nuts" value="607">
+                        <label for="nuts">Nuts (100g) - 607 cal</label>
+                    </div>
+                </div>
+                <div class="column">
+                    <h3>Dairy & Others</h3>
+                    <div class="food-item">
+                        <input type="checkbox" id="milk" value="42">
+                        <label for="milk">Milk (100ml) - 42 cal</label>
+                    </div>
+                    <div class="food-item">
+                        <input type="checkbox" id="cheese" value="113">
+                        <label for="cheese">Cheese (1 slice) - 113 cal</label>
+                    </div>                    
+                    <div class="food-item">
+                        <input type="checkbox" id="whey" value="42">
+                        <label for="whey">Whey protein (30g) - 42 cal</label>
+                    </div>
+                    <div class="food-item">
+                        <input type="checkbox" id="cream" value="809">
+                        <label for="cream">Heavy Cream (1 cup) - 809 cal</label>
+                    </div>
+                    <div class="food-item">
+                        <input type="checkbox" id="yogurt" value="100">
+                        <label for="yogurt">Yogurt - 100 cal</label>
+                    </div>
+                    <div class="food-item">
+                        <input type="checkbox" id="peanut_butter" value="188">
+                        <label for="peanut_butter">Peanut Butter (2 tbsp) - 188 cal</label>
+                    </div>
+                </div>
+                <div class="column">
+                    <h3>Grains & Sweets</h3>
+                    <div class="food-item">
+                        <input type="checkbox" id="bread" value="80">
+                        <label for="bread">Bread - 80 cal</label>
+                    </div>
+                    <div class="food-item">
+                        <input type="checkbox" id="rice" value="200">
+                        <label for="rice">Rice (1 cup) - 200 cal</label>
+                    </div>
+                    <div class="food-item">
+                        <input type="checkbox" id="cereal" value="110">
+                        <label for="cereal">Cereal (1 cup) - 110 cal</label>
+                    </div>
+                    <div class="food-item">
+                        <input type="checkbox" id="pasta" value="221">
+                        <label for="pasta">Pasta (1 cup) - 221 cal</label>
+                    </div>
+                    <div class="food-item">
+                        <input type="checkbox" id="chocolate" value="200">
+                        <label for="chocolate">Chocolate (50g) - 200 cal</label>
+                    </div>
+                    <div class="food-item">
+                        <input type="checkbox" id="pizza" value="285">
+                        <label for="pizza">Pizza (1 slice) - 285 cal</label>
+                    </div>
+                    <div class="food-item">
+                        <input type="checkbox" id="burger" value="354">
+                        <label for="burger">Burger - 354 cal</label>
+                    </div>
+                    <div class="food-item">
+                        <input type="checkbox" id="ice_cream" value="137">
+                        <label for="ice_cream">Ice Cream (1 scoop) - 137 cal</label>
+                    </div>
+                </div>
+                <div class="column">
+                    <img src="{% static './images/highq.png' %}" alt="" class="imagee">
+                    <p class="description">Click here to know</p>
+                    <button class="req">REQUIRED CALORIES</button>
+                </div>
+            </div>
+            <button id="calculate-btn">Calculate</button>
+            <p id="calorie-result">Total Calories: <span id="calorie-value">0</span> cal</p>
+        </div>
+    </div>
+    <div class="overlay"></div>
+    <div class="pop-over">
+        <div>
+            <div class="container-calorie-info">
+                <h1>Calorie Needs Information</h1>
+                <div class="section-calorie-info">
+                    <h2>1. Calorie Needs for Weight Loss</h2>
+                    <ul>
+                        <li>Consume 500-1000 calories less than your Total Daily Energy Expenditure (TDEE- around 1,800-2,200 calories) per day.</li>
+                    </ul>
+                </div>
+                <div class="section-calorie-info">
+                    <h2>2. Calorie Needs for Muscle Gain</h2>
+                    <ul>
+                        <li>Consume 250-500 calories more than your TDEE (around 1,800-2,200 calories) per day.</li>
+                    </ul>
+                </div>
+                <div class="section-calorie-info">
+                    <h2>3. Calorie Needs to Stay Fit</h2>
+                    <ul>
+                        <li>Consume calories equal to your TDEE (around 1,800-2,200 calories per day) to maintain your current weight.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <button class="close-btn">Close</button>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script>
+        document.getElementById('calculate-btn').addEventListener('click', function() {
+            const checkboxes = document.querySelectorAll('#food-select input[type="checkbox"]');
+            let totalCalories = 0;
+
+            checkboxes.forEach(checkbox => {
+                if (checkbox.checked) {
+                    totalCalories += parseInt(checkbox.value);
+                }
+            });
+
+            document.getElementById('calorie-value').textContent = totalCalories;
+        });
+
+        document.querySelector('.req').addEventListener('click', function() {
+            document.querySelector('.overlay').style.display = 'block';
+            document.querySelector('.pop-over').style.display = 'block';
+        });
+
+        document.querySelector('.close-btn').addEventListener('click', function() {
+            document.querySelector('.overlay').style.display = 'none';
+            document.querySelector('.pop-over').style.display = 'none';
+        });
+    </script>
+</body>
+</html>

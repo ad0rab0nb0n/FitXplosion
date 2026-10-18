@@ -1,0 +1,455 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitXplosion - Fitness Website</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    
+}
+.lil{
+    margin-left: 20px;
+}
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(60, 60, 60, 0.5); /* Adjust the opacity as needed */
+    z-index: -1;
+}
+nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 20px;
+            padding-right: 10%;
+            position: fixed; /* Changed from relative to fixed */
+            top: 0; /* Make sure it stays at the top */
+            width: 100%; /* Make sure it spans the full width */
+            background-color: rgba(14, 14, 14, 0.324); 
+            z-index: 10; /* Ensure it is above other elements */
+            margin-bottom: 20px;
+        }
+        .logo{
+            color: white;
+            font-size: 24px;
+        }
+        
+        span{
+            color: brown;
+        }
+        
+        nav ul li{
+            list-style-type: none;
+            display:inline-block ;
+            padding: 10px 20px;
+        }
+        
+        nav ul li a{
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        nav ul li a:hover{
+            color: brown;
+            transition: .3s;
+        }
+        nav ul li a.active {
+            color: brown; /* Color when link is active */
+        }
+#home{
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+    justify-content: space-between;
+    
+}
+#man {
+    float: right;
+}
+.paragraph p{
+    width: 500px;
+    margin: 4em 0em 0em 2em;
+    font-family: sans-serif;
+    font-size: 1em;
+    
+}
+.bigtext{
+    font-size: 50px;
+}
+.color{
+    color: brown;
+}
+button{
+    background: black;
+    padding: 20px 25px;
+    text-decoration: none;
+    font-weight: bold;
+    color: white;
+    display: inline-block;
+    margin: 30px 0;
+    border-radius: 5px;
+    margin-right: 20px;
+}
+#programs{
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    color: white; /* Ensure text is visible on the new background */
+}
+.ex_extitle {
+    color: rgb(0, 0, 0);
+    text-align: center;
+    position: absolute; /* Changed from fixed to absolute */
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    font-size: 20px;
+    font-style: italic;
+    margin-top: 60px;
+}
+.ex_bigtext {
+    font-size: 50px;
+    font-weight: bolder;
+    color: rgb(0, 0, 0);
+    margin-top: -20px;
+}
+#ex_lag {
+    margin-top: 150px;
+    overflow-y: hidden;
+    overflow-x: auto;
+    white-space: nowrap;
+    position: relative;
+    z-index: 1;
+}
+#ex_lag::-webkit-scrollbar {
+    width: 0px;
+}
+#ex_in {
+    display: inline-flex;
+}
+.ex_a {
+    position: relative;
+    display: inline-block;
+    margin-top: 6em;
+    margin-left: 0.5em;
+    overflow: hidden;
+}
+.ex_a img {
+    display: block;
+    transition: transform 0.3s;
+}
+.ex_a .ex_overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+.ex_a:hover .ex_overlay {
+    opacity: 1;
+}
+.ex_a img:hover {
+    filter: brightness(0.7);
+    transform: scale(1.1);
+}
+.ex_overlay .fas {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+.ex_overlay .ex_text {
+    font-size: 1.2em;
+}
+#guide{
+    margin-top: 20px;
+    background-color: #141414;
+    margin-bottom: -20px;
+
+}
+.big{
+    padding:0em 13em;
+    color: white;
+}
+.train_title {
+    text-align: center;
+    font-size: 20px;
+    /* margin-top: 20px; */
+    /* font-style: italic; */
+    color: white;
+}
+.train_title .ex_bigtext {
+    font-size: 34px;
+    font-weight: bold;
+    margin-top: 30px;
+
+}
+.h4{
+    color: brown;
+    font-size: 50px;
+    margin-top: -20px;
+}
+.big {
+    margin-top: 4em;
+}
+.fordisplay {
+    display: flex;
+    justify-content: space-around;
+}
+.fordisplay a{
+    text-decoration: none;
+    align-items: center;
+}
+.fordisplay img:hover{
+    box-shadow: 0px 0px 40px rgb(47, 46, 46);
+}
+footer {
+    margin-top: 20px;
+    background-color: #222;
+    color: #fff;
+    padding: 30px 0;
+    text-decoration: none;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.footer-content p {
+    margin: 0;
+    font-size: 14px;
+}
+
+.footer-content nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-content nav ul li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.footer-content nav ul li:last-child {
+    margin-right: 0;
+}
+
+.footer-content nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-content nav ul li a:hover {
+    color: #f90101;
+}
+
+button{
+    border: none;
+    background: brown;
+    padding: 12px 30px;
+    border-radius: 30px;
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+    transition: .4s;
+    margin-bottom: 20px;
+  }
+  h2{
+    color: brown;
+  }
+  
+  button:hover{
+    transform: scale(1.3);
+    cursor: pointer;
+  }
+  .animated {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease, transform 0.5s ease;
+  }
+  .animated-show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+ .profile{
+    margin-right: 100px;
+    color: white;
+    font-size: 26px;
+    text-decoration: none;
+ }    
+    </style>
+    
+</head>
+<body>
+    <div id="home">
+        <img src="{% static 'images/2-removebg-preview.png' %}"  width="500px" height="700px">
+        <div class="overlay"></div>
+        <nav>
+            <h2 class="logo lil">Healthier <span> You</span></h2>
+            <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'aboutus' %}">About us</a></li>
+                <li><a href="{% url 'exercise' %}" style="background-color: rgba(107, 6, 6, 0.318); padding: 12px 20px 25px 20px; border-radius: 5px 5px 0px 0px ;">Exercise</a></li>
+                <li><a href="{% url 'diet' %}">Diet Plan</a></li>
+                <li><a href="{% url 'shop' %}">Shop</a></li>
+            </ul>
+            <a href="{% url 'profile' %}"  style="margin-right: 100px; color:white; text-decoration:none;">
+                <i class="fas fa-user" style="margin-right: 10px;"></i>{{ user }}
+            </a>
+        </nav>
+        <div class="paragraph">
+                
+            <div class="banner">
+                <h1 class="bigtext">Push your limits watch your body <span class="color">Transform</span></h1>
+                <p>Join us today and start your fitness journey!</p>
+            </div>
+            <a href="#programs">
+                <button>Get Started</button>
+            </a>
+        </div>
+        <img src="{% static 'images/1-removebg-preview.png' %}" width="500px" height="700px" id="man">
+    </div>
+       
+    <div id="programs">
+        <div class="ex_extitle">
+            <p>We provide five training programs</p>
+            <h4 class="h4">__Choose yours__</h4>
+        </div>  
+        <div id="ex_lag"> 
+            <div id="ex_in">  
+                <a href="{% url 'yoga' %}" class="ex_a">
+                    <img src="{% static 'images/yogagirl.jpg' %}" height="400px" width="350px">
+                    <div class="ex_overlay">
+                        <i class="fas fa-search"></i>
+                        <div class="ex_text">Yoga Exercises</div>
+                    </div>
+                </a>
+                <a href="{% url 'weightloss' %}" class="ex_a">
+                    <img src="{% static 'images/weightlosssssssss.jpg' %}" height="400px" width="350px">
+                    <div class="ex_overlay">
+                        <i class="fas fa-search"></i>
+                        <div class="ex_text">Weight Loss Exercises</div>
+                    </div>
+                </a>
+                <a href="{% url 'weightgain' %}" class="ex_a">
+                    <img src="{% static 'images/weightgain.jpg' %}" height="400px" width="350px">
+                    <div class="ex_overlay">
+                        <i class="fas fa-search"></i>
+                        <div class="ex_text">Weight Gain Exercises</div>
+                    </div>
+                </a>
+                <a href="{% url 'abs' %}" class="ex_a">
+                    <img src="{% static 'images/muscletrain.jpg' %}" height="400px" width="350px">
+                    <div class="ex_overlay">
+                        <i class="fas fa-search"></i>
+                        <div class="ex_text">Muscle Gain Exercises</div>
+                    </div>
+                </a>
+                <a href="{% url 'cardio' %}" class="ex_a">
+                    <img src="{% static 'images/cardio.jpg' %}" height="400px" width="350px">
+                    <div class="ex_overlay">
+                        <i class="fas fa-search"></i>
+                        <div class="ex_text">Cardio</div>
+                    </div>
+                </a>
+                <a href="{% url 'upperbody' %}" class="ex_a">
+                    <img src="{% static 'images/upper.jpg' %}" height="400px" width="350px">
+                    <div class="ex_overlay">
+                        <i class="fas fa-search"></i>
+                        <div class="ex_text">Upperbody Exercises</div>
+                    </div>
+                </a>
+                <a href="{% url 'lowerbody' %}" class="ex_a">
+                    <img src="{% static 'images/lowerbody.jpg' %}" height="400px" width="350px">
+                    <div class="ex_overlay">
+                        <i class="fas fa-search"></i>
+                        <div class="ex_text">Lowerbody Exercises</div>
+                    </div>
+                </a>
+            </div> 
+        </div>
+    </div>
+    <div id="guide">
+        <br><br>
+        <div class="train_title">
+            <h1>Contact with our Trainers</h1>
+        </div> 
+        <div class="big">
+            <div class="fordisplay">
+                <a href="{% url 'trainer_Julia' %}">
+                    <img src="{% static "images/one.jpg" %}" height="400px" width="350px">
+                    <h2>Julia Smith</h2>
+                </a>
+                <a href="{% url 'trainer_Janne' %}">
+                    <img src="{% static "images/two.jpg" %}" height="400px" width="350px">
+                    <h2>Janne Will</h2>
+                </a>
+                <a href="{% url 'trainer_Davis' %}">
+                    <img src="{% static "images/three.jpg" %}" height="400px" width="350px">
+                    <h2>Davis Jones</h2>
+                </a>
+            </div>
+            <div class="fordisplay">
+                <a href="{% url 'trainer_Mathrew' %}">
+                    <img src="{% static "images/four.jpg" %}" height="400px" width="350px">
+                    <h2>Mathrew Brown</h2>
+                </a>
+                <a href="{% url 'trainer_Henry' %}">
+                    <img src="{% static "images/five.jpg" %}" height="400px" width="350px">
+                    <h2>Henry Alexander</h2>
+                </a>
+                <a href="{% url 'trainer_Hannah' %}">
+                    <img src="{% static "images/six.jpg" %}" height="400px" width="350px">
+                    <h2>Hannah Taylor</h2>
+                </a>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 MIIT. All Rights Reserved.</p>
+            <div class="social-media">
+                <h4>Follow us:</h4>
+                <a href="https://www.facebook.com"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.youtube.com"><i class="fab fa-youtube"></i></a>
+                <a href="https://twitter.com"><i class="fab fa-twitter"></i></a>
+            </div>
+                <ul>
+                    <li><a href="{% url 'home' %}">Home</a></li>
+                    <li><a href="{% url 'diet' %}">Diet Plan</a></li>
+                    <li><a href="{% url 'shop' %}">Shop</a></li>
+                    <li><a href="{% url 'aboutus' %}">About Us</a></li>
+                </ul>
+        </div>
+    </footer>
+</body>
+</html>

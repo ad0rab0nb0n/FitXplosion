@@ -1,0 +1,1270 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitXplosion - Fitness Website</title>
+<link rel="stylesheet" href="dietplan.css">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<style>
+  body{
+    background-image: url("{% static './images/image2.png' %}");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 28px;
+  }
+  
+  h1{          
+    padding-top: 150px;         
+    padding-left: 50px;
+  }
+  p{
+    font-size: 15px;
+    padding-left: 50px;
+  }
+  table{
+    padding-left: 50px;
+  }
+  .table1{
+    margin-left: 200px;
+  }
+  td{
+    padding: 7px;
+    font-weight: bold;
+  }
+  .frame {
+    display: flex;
+    width: 100%;
+    margin-right: 0px;
+    margin-left: 50px;
+    
+  }
+  .cframe {
+    display: flex;
+    width: fit-content;
+    margin-right: 0px;
+    margin-left: 10px;
+    height: 400px;
+    /* background-color: pink; */
+  }
+  
+  .plate{
+  display: flex;
+  width: 200px;
+  height: 220px;
+  }
+  .cplate{
+  display: inline-flex;
+  width: 220px;
+  height: 220px;
+  margin-top: -200px;
+  float: left;
+  margin-left: -100px;
+  }
+  .container {
+  display: flex;
+  flex-wrap: wrap; /* This allows cards to wrap to the next line if needed */
+  
+  }
+  h3{
+  line-height: 5%;
+  margin-left: 50px;
+  }
+  
+  .banner {
+  display: flex; /* Makes the content within each banner a row */
+  width: 400px; /* Fixed width for each card */
+  padding: 20px;
+  border: 1px solid #ddd;
+  background-color: pink;
+  margin-right: 20px;
+  border-radius: 10px;
+  overflow: hidden;
+  }
+  .cbanner {
+  display: flex; /* Makes the content within each banner a row */
+  /* flex-wrap: wrap; */
+  width: 350px; /* Fixed width for each card */
+  padding: 10px;
+  border: 1px solid #ddd;
+  background-color: pink;
+  /* margin-right: 20px; */
+  margin-left: 10px;
+  border-radius: 15px;
+  /* overflow: hidden; */
+  color: white;
+  }
+  .wls{
+  width: 300px;
+  height: 250px; /* Set a fixed height for the photo area */
+  margin-right: 5px; /* Adds space between photo and text content */
+  object-fit: contain;
+  margin-top: 75px;
+  }
+  .prot{
+  width: 300px;
+  height: 250px; /* Set a fixed height for the photo area */
+  margin-right: 5px; /* Adds space between photo and text content */
+  object-fit: contain;
+  margin-top: 75px;
+  margin-left: 5px;
+  }
+  .juice{
+  width: 300px;
+  height: 250px; /* Set a fixed height for the photo area */
+  margin-right: 5px; /* Adds space between photo and text content */
+  object-fit: contain;
+  margin-top: 20px;
+  }
+  #ccolor1{
+  background-color: black;
+  }
+  #color1{
+  background-color: rgb(249, 204, 212);
+  }
+  #color2{
+  background-color:rgb(182, 250, 182);
+  }
+  #color3{
+  background-color: rgb(249, 249, 185);
+  }
+  
+  
+  .banner h2 {
+  flex: 1; /* Makes text content occupy remaining space */
+  font-size: 25px;
+  line-height: 1.5;
+  }
+  .banner p {
+  flex: 1; /* Makes text content occupy remaining space */
+  font-size: 14px;
+  line-height: 1.5;
+  margin-left: -50px;
+  }
+  
+  .banner button {
+  background-color: #000000;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  }
+  #ctext{
+  margin-top: 60px;
+  display: block;
+  clear: left;
+  text-align: left;
+  margin-left: -60px;
+  }
+  .card_btn{
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+  width: 280px;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 40px;
+  }
+  .card_btn1{
+  background-color: #bdbdbd;
+  color: rgb(0, 0, 0);
+  width: 100px;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: -120px;
+  }
+  .title{
+  margin-left: 50px;
+  margin-bottom: -5px;
+  }
+  .price{
+  margin-left: -70px;
+  }
+  .item1{
+  width: 250px;
+  margin-right: 20px;
+  }
+  .item2{
+  width: 150px;
+  margin-left: 70px;
+  }
+  .star{
+  margin-bottom: 20px;
+  }
+  .faint{
+  color: #a5a5a5;
+  }
+  .bibimbap{
+  width: 190px;
+  height: 190px;
+  object-fit: contain;
+  margin-top: 95px;
+  margin-left: 50px;
+  }
+  .salmon{
+  width: 230px;
+  height: 230px;
+  object-fit: contain;
+  margin-top: 85px;
+  margin-left: 50px;
+  }
+  .card_table{
+  padding: 0%;
+  margin-left: 90px;
+  }
+  .vegan{
+  margin-left: 20px;
+  margin-top: 60px;
+  width: 250px;
+  height: 250px;
+  }
+  .protein{
+  width: 340px;
+  height: 220px;
+  margin-top: 80px;
+  margin-left: 10px;
+  
+  }
+  .dia{
+  width: 300px;
+  height: 200px;
+  margin-top: 80px;
+  margin-left: 40px;
+  }
+  .berry{
+  width: 280px;
+  height: 280px;
+  margin-top: 60px;
+  margin-left: 29px;
+  }
+  .mango{
+  width: 250px;
+  height: 250px;
+  margin-top: 60px;
+  margin-left: 20px;
+  }
+  .matcha{
+  width: 270px;
+  height: 270px;
+  margin-top: 60px;
+  margin-left: 1px;
+  }
+  .oat{
+  margin-left: 20px;
+  margin-top: 80px;
+  width: 260px;
+  height: 220px;
+  }
+  .yog{
+  width: 300px;
+  height: 200px;
+  margin-top: 80px;
+  /* margin-left: 8px; */
+  }
+  .snack{
+  width: 200px;
+  height: 220px;
+  margin-top: 80px;
+  margin-left: 70px;
+  }
+  .pancake{
+  width: 210px;
+  height: 200px;
+    margin-top: 70px;
+    margin-left: 50px;
+  }
+  .fruit{
+  width: 300px;
+  height: 180px;
+  margin-top: 80px;
+  
+  }
+  .choco{
+  width: 350px;
+  height: 200px;
+  margin-top: 70px;
+  margin-left: 40px;
+  }
+  .fake{
+  color: rgb(91, 91, 90);
+  }
+  .abt{
+      border-collapse: collapse;
+      width: 30%; /* sets the width of each table */
+      margin: 0 10px; /* adds margin for spacing between tables */
+      display: inline-block; /* allows tables to sit side-by-side */
+      /* border: 2px solid black; */
+      border-radius: 10px;
+      box-shadow: 20cap;
+      margin-left: 15px;
+      background-color: #c9c9c9;
+  }
+  .bold{
+    font-weight: bold;
+    font-size: large;
+  }
+  .under{
+    font-weight: lighter;
+    font-size: small;
+  }
+  .thtd{
+      padding: 10px; /* adds padding for spacing */
+      border: 1px solid #ddd; /* adds a subtle border for distinction */
+  }
+  .th {
+      text-align: left; /* aligns table headers to the left */
+      font-weight: bold; /* makes headers bold */
+  }
+  .deli{
+      width: 100px;
+      height: 70px;
+  }
+  .msg{
+      width: 70px;
+      height: 70px;
+  }
+  .loc{
+      width: 120px;
+      height: 70px;
+  }
+  .kick{
+    margin-left: 120px;
+  }
+  .kick1{
+    margin-left: 70px;
+    margin-bottom: 30px;
+  }
+  
+  .animation {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1s forwards;
+  }
+  
+  @keyframes fadeInUp {
+  to {
+  opacity: 1;
+  transform: translateY(0);
+  }
+  }
+  
+  .animation h1,
+  .animation p,
+  .animation table {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1s forwards;
+  }
+  
+  .animation h1 {
+  animation-delay: 0.2s;
+  }
+  
+  .animation p {
+  animation-delay: 0.4s;
+  }
+  
+  .animation table {
+  animation-delay: 0.6s;
+  }
+  .card_btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  }
+  
+  .card_btn:hover {
+  background-color: #45a049;
+  }
+  /* .move{
+  display: block;
+  transition: transform 0.3s ease-in-out;
+  border: none;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+  } */
+  .move:hover {
+  transform: scale(1.05);
+  }
+  .header-image {
+  width: 90%;
+  text-align: center;
+  margin-top: -320px; /* Adjust as needed to provide space between the navbar and the image */
+  margin-left: 450px;
+  margin-bottom: -150px;
+  }
+  
+  .header-image img {
+  width: 48%; /* Adjust based on the desired image size */
+  height: auto;
+  animation: spin 15s linear infinite; /* Applying the animation */
+  }
+  
+  @keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+  }
+  .card_table table img:hover {
+  transform: scale(1.1); /* Scale up the card on hover */
+  transition: transform 0.3s ease-in-out;
+  }
+  .card_table div:hover {
+  transform: scale(1.01); /* Scale up the card on hover */
+  transition: transform 0.3s ease-in-out;
+  }
+  .card_btn:hover {
+  background-color: #45a049;
+  }
+  .video-container {
+  position: relative;
+  width: 100%;
+  height: 90%;
+  height: 100vh; /* Adjust height as needed */
+  overflow: hidden;
+  }
+  video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  }
+  .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(33, 33, 33, 0.377); /* Adjust opacity and color */
+  z-index: 0;
+  }
+  .advertisement {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #fff;
+  z-index: 1;
+  }
+  .advertisement hr {
+  width: 500px; /* Adjust width of the line */
+  height: 2px; /* Adjust height of the line */
+  background-color: #fff; /* Adjust color of the line */
+  margin: 18px auto; /* Adjust margin to center the line */
+  border: none;
+  margin-left:70px;
+  }
+  nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 20px;
+  padding-right: 20%;
+  position: fixed; /* Changed from relative to fixed */
+  top: 0; /* Make sure it stays at the top */
+  width: 100%; /* Make sure it spans the full width */
+  background-color: rgba(14, 14, 14, 0.324); 
+  z-index: 10; /* Ensure it is above other elements */
+  margin-bottom: 20px;
+  height: 80px;
+  }
+  .logo{
+  color: white;
+  font-size: 24px;
+  padding-left: 20px;
+  }
+  
+  span{
+  color: brown;
+  }
+  
+  nav ul li{
+  list-style-type: none;
+  display:inline-block ;
+  padding: 10px 10px;
+  }
+  
+  nav ul li a{
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+  }
+  
+  nav a:hover{
+  color: brown;
+  transition: .3s;
+  }
+  .button1{
+  border: none;
+  background: brown;
+  padding: 12px 50px;
+  border-radius: 30px;
+  color: white;
+  font-weight: bold;
+  font-size: 15px;
+  transition: .4s;
+  margin-bottom: 20px;
+  margin-right: 100px;
+  }
+  
+  .button1:hover{
+  transform: scale(1.3);
+  cursor: pointer;
+  }
+  footer {
+  background-color: #000000;
+  color: #fff;
+  padding: 30px 0;
+  text-decoration: none;
+  }
+  
+  .footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+  }
+  
+  .footer-content p {
+  margin: 0;
+  font-size: 14px;
+  }
+  
+  .footer-content nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  }
+  
+  .footer-content nav ul li {
+  display: inline-block;
+  margin-right: 20px;
+  }
+  
+  .footer-content nav ul li:last-child {
+  margin-right: 0;
+  }
+  
+  .footer-content nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  }
+  
+  .footer-content nav ul li a:hover {
+  color: #f90101;
+  }
+  .small{
+  font-size: 15px;
+  color: blue;
+  }
+  
+  
+</style>
+
+</head>
+<body>
+  
+  <nav>
+    <h2 class="logo lil">Healthier <span> You</span></h2>
+    <ul>
+      <li><a href="{% url 'home' %}">Home</a></li>
+      <li><a href="{% url 'aboutus' %}">About us</a></li>
+      <li><a href="{% url 'exercise' %}">Exercise</a></li>
+      <li><a href="{% url 'diet' %}" style="background-color: rgba(107, 6, 6, 0.318); padding: 15px 20px; border-radius: 5px 5px 0px 0px ;">Diet Plan</a></li>
+      <li><a href="{% url 'shop' %}">Shop</a></li>
+    </ul>
+    <a href="{% url 'profile' %}"  style="margin-right: 100px; font-size: 1.2rem; color:white; text-decoration:none;"> 
+      <i class="fas fa-user" style="margin-right: 10px;"></i>{{ user }}
+  </a>
+</nav>
+
+  <div>
+  <h1 class="animation">Welcome To Diet Plan</h1>
+  <p  class="animation">We provide essential nutrients, vitamins, and minerals that nourish the body and support <br> overall well-being.</p>
+  <table class="animation">
+    <tr>
+      <td>100%</td>
+      <td>0%</td>
+      <td>+90%</td>
+    </tr>
+    <tr class="fake">
+      <td>Organic</td>
+      <td>Fat</td>
+      <td>Protein</td>
+    </tr>
+  </table>
+  <div class="header-image">
+    <!-- <img src="highq.png" alt="Header Image"> -->
+    <img src="{% static './images/highq.png' %}" alt="">
+
+</div>
+</div>
+
+  <br><br><br><br><br><br>
+  <div class="frame">
+    <div class="move">
+    <div class="banner" id="color1">
+    <div>        
+      <h2>Weight loss Set</h2>
+      <p>A healthy balanced diet plan to meet individual health goals.</p><button onclick="navigateToPage()">ORDER NOW</button>
+    </div>
+    <div class="plate">
+      <img src="{% static './images/wlsplate.png' %}" alt="" class="wls">
+    </div> 
+    </div> 
+  </div> 
+    <!-- //////// -->
+    <div class="move">
+    <div class="banner" id="color2">
+      <div>        
+        <h2>Protein Set</h2>
+        <p>We offer unique sets to meet your beauty and health needs.</p><button onclick="navigateToPage()">ORDER NOW</button>
+      </div>
+      <div class="plate">
+      <img src="{% static './images/proplate.png' %}" alt="" class="prot">
+
+      </div>  
+      </div>
+    </div>
+    <!-- ////////// -->
+    <div class="move">
+      <div class="banner" id="color3">
+        <div>        
+          <h2>Fresh Juice</h2>
+          <p>Tailored fresh juice blends for a quick and nutritious boost.</p><button onclick="navigateToPage()">ORDER NOW</button>
+        </div>
+        <div class="plate">
+      <img src="{% static './images/juice.png' %}" alt="" class="juice">
+
+        </div>   
+        </div>
+      </div>
+    </div>
+      <br>
+      <!-- ///////// -->
+      <table>
+        <tr class="table1"><h3 class="kick">Weight Loss Set</h3></tr>
+        <tr class="table1"><p class="kick1">Stuck in a weight loss rut? Our personalized plan unlocks sustainable results. Enjoy real food, real progress. Fresh, delicious meals designed by experts to fuel your weight loss journey. <br> Reach your goals, feelamazing <b>Start now!</b> </p>
+        </tr>
+      </table>
+      <br><br>
+
+
+<table class="card_table">
+  <tr>
+    <td> 
+       <!-- ///////////////////////////////////////////////////////////////////////////////////////////// -->
+       <div class="cframe">
+        <div class="cbanner" id="ccolor1">
+          <table>
+            <tr> <td>       
+              <div class="cplate">
+              <img src="{% static './images/wlsplate.png' %}" alt="" class="wls">
+            </div> 
+          </td>  
+          <!-- <td><button class="card_btn1">Hot item</button></td> -->
+          </tr>
+          <tr>
+            <td>
+            <div id="ctext">        
+              <h4 class="title">Low Calorie Salad</h4>
+              <p class="star">★★★★★(4.1) | 25 Reviews</p>
+              <p class="faint">Our salads are a delicious way to nourish your body!</p>
+              <table class="price"><tr>
+                <td><p class="item">$100</p></td>
+                <td><p class="item2">+110 Available</p></td>
+              </tr></table>
+              <button class="card_btn" onclick="navigateToPage()">BUY NOW!</button>
+            </div>
+          </td>
+          </tr>
+          </table>
+        </div> 
+      
+    </td>
+
+    <td> 
+
+        <!-- ///////////////////////////////////////////////////////////////////////////////////////////// -->
+        <div class="cframe">
+          <div class="cbanner" id="ccolor1">
+            <table>
+              <tr> <td>       
+                <div class="cplate">
+                <img src="{% static './images/salmon.png' %}" alt="" class="salmon">
+              </div> 
+            </td>  
+            <!-- <td><button class="card_btn1">Hot item</button></td> -->
+            </tr>
+            <tr>
+              <td>
+              <div id="ctext">        
+                <h4 class="title">Salmon Salad</h4>
+                <p class="star">★★★★★(4.1) | 25 Reviews</p>
+                <p class="faint">Fresh Salmon! Elevate your midday with a taste of the ocean.</p>
+                <table class="price"><tr>
+                  <td><p class="item">$50</p></td>
+                  <td><p class="item2">+70 Available</p></td>
+                </tr></table>
+                <button class="card_btn" onclick="navigateToPage()">BUY NOW!</button>
+              </div>
+            </td>
+            </tr>
+            </table>
+          </div> 
+      </td>
+
+        <td> 
+             <!-- ///////////////////////////////////////////////////////////////////////////////////////////// -->
+      <div class="cframe">
+        <div class="cbanner" id="ccolor1">
+          <table>
+            <tr> <td>       
+              <div class="cplate">
+              <img src="{% static './images/bibimbap.png' %}" alt="" class="bibimbap">
+            </div> 
+          </td>  
+          <!-- <td><button class="card_btn1">Hot item</button></td> -->
+          </tr>
+          <tr>
+            <td>
+            <div id="ctext">        
+              <h4 class="title">Korean set</h4>
+              <p class="star">★★★★★(4.1) | 25 Reviews</p>
+              <p class="faint">Authentic Korean flavors, light & refreshing. Dive in!</p>
+              <table class="price"><tr>
+                <td><p class="item">$150</p></td>
+                <td><p class="item2">+75 Available</p></td>
+              </tr></table>
+              <button class="card_btn" onclick="navigateToPage()">BUY NOW!</button>
+            </div>
+          </td>
+          </tr>
+          </table>
+        </div> 
+        </td>
+    </tr>
+</table>
+<br>
+<!-- ///////////////////////////// Special set///////////////////////////////////////////////////////////////// -->
+
+
+<table class="table1">
+  <tr class="table1"><h3 class="kick">Special Set</h3></tr>
+  <tr class="table1"><p class="kick1">We offers a wide range of high-quality products and services tailored to meet the diverse needs and preferences of our customers.</p>
+  </tr>
+</table>
+<br><br>
+
+<table class="card_table">
+  <tr>
+    <td> 
+       <!-- ///////////////////////////////////////////////////////////////////////////////////////////// -->
+       <div class="cframe">
+        <div class="cbanner" id="ccolor1">
+          <table>
+            <tr> <td>       
+              <div class="cplate">
+              <img src="{% static './images/vegan.png' %}" alt="" class="vegan">
+            </div> 
+          </td>  
+          <!-- <td><button class="card_btn1">Hot item</button></td> -->
+          </tr>
+          <tr>
+            <td>
+            <div id="ctext">        
+              <h4 class="title">Vegan Salad</h4>
+              <p class="star">★★★★★(4.1) | 25 Reviews</p>
+              <p class="faint">Bursting with fresh greens and vibrant superfoods.</p>
+              <table class="price"><tr>
+                <td><p class="item">$100</p></td>
+                <td><p class="item2">+110 Available</p></td>
+              </tr></table>
+              <button class="card_btn" onclick="navigateToPage()">BUY NOW!</button>
+            </div>
+          </td>
+          </tr>
+          </table>
+        </div> 
+      
+    </td>
+
+    <td> 
+
+        <!-- ///////////////////////////////////////////////////////////////////////////////////////////// -->
+        <div class="cframe">
+          <div class="cbanner" id="ccolor1">
+            <table>
+              <tr> <td>       
+                <div class="cplate">
+                <img src="{% static './images/diabetesplate.png' %}" alt="" class="dia">
+              </div> 
+            </td>  
+            <!-- <td><button class="card_btn1">Hot item</button></td> -->
+            </tr>
+            <tr>
+              <td>
+              <div id="ctext">        
+                <h4 class="title">Diabetes</h4>
+                <p class="star">★★★★★(4.1) | 25 Reviews</p>
+                <p class="faint">Bursting with fresh greens and vibrant superfoods.</p>
+                <table class="price"><tr>
+                  <td><p class="item">$50</p></td>
+                  <td><p class="item2">+70 Available</p></td>
+                </tr></table>
+                <button class="card_btn" onclick="navigateToPage()">BUY NOW!</button>
+              </div>
+            </td>
+            </tr>
+            </table>
+          </div> 
+      </td>
+
+        <td> 
+             <!-- ///////////////////////////////////////////////////////////////////////////////////////////// -->
+      <div class="cframe">
+        <div class="cbanner" id="ccolor1">
+          <table>
+            <tr> <td>       
+              <div class="cplate">
+              <img src="{% static './images/proplate.png' %}" alt="" class="protein">
+            </div> 
+          </td>  
+          <!-- <td><button class="card_btn1">Hot item</button></td> -->
+          </tr>
+          <tr>
+            <td>
+            <div id="ctext">        
+              <h4 class="title">Protein set</h4>
+              <p class="star">★★★★★(4.1) | 25 Reviews</p>
+              <p class="faint">Bursting with fresh greens and vibrant superfoods.</p>
+              <table class="price"><tr>
+                <td><p class="item">$150</p></td>
+                <td><p class="item2">+75 Available</p></td>
+              </tr></table>
+              <button class="card_btn" onclick="navigateToPage()">BUY NOW!</button>
+            </div>
+          </td>
+          </tr>
+          </table>
+        </div> 
+        </td>
+    </tr>
+</table>
+<br><br>
+<!-- ///////////////////////////// Drinks set///////////////////////////////////////////////////////////////// -->
+<div class="video-container">
+  <video autoplay muted loop>
+    <source src="{% static './images/smoothievid.mp4' %}" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <div class="overlay"></div>
+  <div class="advertisement">
+    <h3>Our diet plan offers fresh juice</h3>
+    <hr>
+    <p>Our process of making smoothies</p>
+  </div>
+</div>
+
+<table class="table1">
+  <tr class="table1"><h3 class="kick">Fresh Juice</h3></tr>
+  <tr class="table1"><p class="kick1">We offers a wide range of high-quality products and services tailored to meet the diverse needs and preferences of our customers</p>
+  </tr>
+</table>
+<br><br>
+
+<table class="card_table">
+  <tr>
+    <td> 
+       <!-- ///////////////////////////////////////////////////////////////////////////////////////////// -->
+       <div class="cframe">
+        <div class="cbanner" id="ccolor1">
+          <table>
+            <tr> <td>       
+              <div class="cplate">
+              <img src="{% static './images/berry.png' %}" alt="" class="berry">
+            </div> 
+          </td>  
+          <!-- <td><button class="card_btn1">Hot item</button></td> -->
+          </tr>
+          <tr>
+            <td>
+            <div id="ctext">        
+              <h4 class="title">Berry Smoothie</h4>
+              <p class="star">★★★★★(4.1) | 25 Reviews</p>
+              <p class="faint">Bursting with fresh greens and vibrant superfoods.</p>
+              <table class="price"><tr>
+                <td><p class="item">$100</p></td>
+                <td><p class="item2">+110 Available</p></td>
+              </tr></table>
+              <button class="card_btn" onclick="navigateToPage()">BUY NOW!</button>
+            </div>
+          </td>
+          </tr>
+          </table>
+        </div> 
+      
+    </td>
+
+    <td> 
+
+        <!-- ///////////////////////////////////////////////////////////////////////////////////////////// -->
+        <div class="cframe">
+          <div class="cbanner" id="ccolor1">
+            <table>
+              <tr> <td>       
+                <div class="cplate">
+                <img src="{% static './images/mango.png' %}" alt="" class="mango">
+              </div> 
+            </td>  
+            <!-- <td><button class="card_btn1">Hot item</button></td> -->
+            </tr>
+            <tr>
+              <td>
+              <div id="ctext">        
+                <h4 class="title">Mango</h4>
+                <p class="star">★★★★★(4.1) | 25 Reviews</p>
+                <p class="faint">Bursting with fresh greens and vibrant superfoods.</p>
+                <table class="price"><tr>
+                  <td><p class="item">$50</p></td>
+                  <td><p class="item2">+70 Available</p></td>
+                </tr></table>
+                <button class="card_btn" onclick="navigateToPage()">BUY NOW!</button>
+              </div>
+            </td>
+            </tr>
+            </table>
+          </div> 
+      </td>
+
+        <td> 
+             <!-- ///////////////////////////////////////////////////////////////////////////////////////////// -->
+      <div class="cframe">
+        <div class="cbanner" id="ccolor1">
+          <table>
+            <tr> <td>       
+              <div class="cplate">
+              <img src="{% static './images/matcha.png' %}" alt="" class="matcha">
+            </div> 
+          </td>  
+          <!-- <td><button class="card_btn1">Hot item</button></td> -->
+          </tr>
+          <tr>
+            <td>
+            <div id="ctext">        
+              <h4 class="title">Matcha</h4>
+              <p class="star">★★★★★(4.1) | 25 Reviews</p>
+              <p class="faint">Bursting with fresh greens and vibrant superfoods.</p>
+              <table class="price"><tr>
+                <td><p class="item">$150</p></td>
+                <td><p class="item2">+75 Available</p></td>
+              </tr></table>
+              <button class="card_btn" onclick="navigateToPage()">BUY NOW!</button>
+            </div>
+          </td>
+          </tr>
+          </table>
+        </div> 
+        </td>
+    </tr>
+</table>
+
+<br><br>
+<!-- ///////////////////////////// Dessert set///////////////////////////////////////////////////////////////// -->
+
+
+<table class="table1">
+  <tr class="table1"><h3 class="kick">Desserts</h3></tr>
+  <tr class="table1"><p class="kick1">We offers a wide range of high-quality products and services tailored to meet the diverse needs and preferences of our customers</p>
+  </tr>
+</table>
+<br><br>
+
+<table class="card_table">
+  <tr>
+    <td> 
+       <!-- ///////////////////////////////////////////////////////////////////////////////////////////// -->
+       <div class="cframe">
+        <div class="cbanner" id="ccolor1">
+          <table>
+            <tr> <td>       
+              <div class="cplate">
+              <img src="{% static './images/overnightoats.png' %}" alt="" class="oat">
+            </div> 
+          </td>  
+          <!-- <td><button class="card_btn1">Hot item</button></td> -->
+          </tr>
+          <tr>
+            <td>
+            <div id="ctext">        
+              <h4 class="title">Overnight Oats</h4>
+              <p class="star">★★★★★(4.1) | 25 Reviews</p>
+              <p class="faint">Bursting with fresh greens and vibrant superfoods.</p>
+              <table class="price"><tr>
+                <td><p class="item">$100</p></td>
+                <td><p class="item2">+110 Available</p></td>
+              </tr></table>
+              <button class="card_btn" onclick="navigateToPage()">BUY NOW!</button>
+            </div>
+          </td>
+          </tr>
+          </table>
+        </div> 
+      
+    </td>
+
+    <td> 
+
+        <!-- ///////////////////////////////////////////////////////////////////////////////////////////// -->
+        <div class="cframe">
+          <div class="cbanner" id="ccolor1">
+            <table>
+              <tr> <td>       
+                <div class="cplate">
+                <img src="{% static './images/youghrtoat.png' %}" alt="" class="yog">
+              </div> 
+            </td>  
+            <!-- <td><button class="card_btn1">Hot item</button></td> -->
+            </tr>
+            <tr>
+              <td>
+              <div id="ctext">        
+                <h4 class="title">Diabetes</h4>
+                <p class="star">★★★★★(4.1) | 25 Reviews</p>
+                <p class="faint">Bursting with fresh greens and vibrant superfoods.</p>
+                <table class="price"><tr>
+                  <td><p class="item">$50</p></td>
+                  <td><p class="item2">+70 Available</p></td>
+                </tr></table>
+                <button class="card_btn" onclick="navigateToPage()">BUY NOW!</button>
+              </div>
+            </td>
+            </tr>
+            </table>
+          </div> 
+      </td>
+
+        <td> 
+             <!-- ///////////////////////////////////////////////////////////////////////////////////////////// -->
+      <div class="cframe">
+        <div class="cbanner" id="ccolor1">
+          <table>
+            <tr> <td>       
+              <div class="cplate">
+              <img src="{% static './images/snack-plate-meal-1_orig-removebg-preview.png' %}" alt="" class="snack">
+            </div> 
+          </td>  
+          <!-- <td><button class="card_btn1">Hot item</button></td> -->
+          </tr>
+          <tr>
+            <td>
+            <div id="ctext">        
+              <h4 class="title">Snack Plate</h4>
+              <p class="star">★★★★★(4.1) | 25 Reviews</p>
+              <p class="faint">Bursting with fresh greens and vibrant superfoods.</p>
+              <table class="price"><tr>
+                <td><p class="item">$150</p></td>
+                <td><p class="item2">+75 Available</p></td>
+              </tr></table>
+              <button class="card_btn" onclick="navigateToPage()">BUY NOW!</button>
+            </div>
+          </td>
+          </tr>
+          </table>
+        </div> 
+        </td>
+    </tr>
+</table>
+
+<br><br><br><br>
+<table class="card_table">
+  <tr>
+    <td> 
+       <!-- ///////////////////////////////////////////////////////////////////////////////////////////// -->
+       <div class="cframe">
+        <div class="cbanner" id="ccolor1">
+          <table>
+            <tr> <td>       
+              <div class="cplate">
+              <img src="{% static './images/fruit.png' %}" alt="" class="fruit">
+            </div> 
+          </td>  
+          <!-- <td><button class="card_btn1">Hot item</button></td> -->
+          </tr>
+          <tr>
+            <td>
+            <div id="ctext">        
+              <h4 class="title">Fruits</h4>
+              <p class="star">★★★★★(4.1) | 25 Reviews</p>
+              <p class="faint">Bursting with fresh greens and vibrant superfoods.</p>
+              <table class="price"><tr>
+                <td><p class="item">$100</p></td>
+                <td><p class="item2">+110 Available</p></td>
+              </tr></table>
+              <button class="card_btn" onclick="navigateToPage()">BUY NOW!</button>
+            </div>
+          </td>
+          </tr>
+          </table>
+        </div> 
+      
+    </td>
+
+    <td> 
+
+        <!-- ///////////////////////////////////////////////////////////////////////////////////////////// -->
+        <div class="cframe">
+          <div class="cbanner" id="ccolor1">
+            <table>
+              <tr> <td>       
+                <div class="cplate">
+                <img src="{% static './images/pancake.png' %}" alt="" class="pancake">
+              </div> 
+            </td>  
+            <!-- <td><button class="card_btn1">Hot item</button></td> -->
+            </tr>
+            <tr>
+              <td>
+              <div id="ctext">        
+                <h4 class="title">Pancake</h4>
+                <p class="star">★★★★★(4.1) | 25 Reviews</p>
+                <p class="faint">Bursting with fresh greens and vibrant superfoods.</p>
+                <table class="price"><tr>
+                  <td><p class="item">$50</p></td>
+                  <td><p class="item2">+70 Available</p></td>
+                </tr></table>
+                <button class="card_btn" onclick="navigateToPage()">BUY NOW!</button>
+              </div>
+            </td>
+            </tr>
+            </table>
+          </div> 
+      </td>
+
+        <td> 
+             <!-- ///////////////////////////////////////////////////////////////////////////////////////////// -->
+      <div class="cframe">
+        <div class="cbanner" id="ccolor1">
+          <table>
+            <tr> <td>       
+              <div class="cplate">
+              <img src="{% static './images/choco.png' %}" alt="" class="choco">
+            </div> 
+          </td>  
+          <!-- <td><button class="card_btn1">Hot item</button></td> -->
+          </tr>
+          <tr>
+            <td>
+            <div id="ctext">        
+              <h4 class="title">Molten chocolate cake</h4>
+              <p class="star">★★★★★(4.1) | 25 Reviews</p>
+              <p class="faint">Bursting with fresh greens and vibrant superfoods.</p>
+              <table class="price"><tr>
+                <td><p class="item">$150</p></td>
+                <td><p class="item2">+75 Available</p></td>
+              </tr></table>
+              <button class="card_btn" onclick="navigateToPage()">BUY NOW!</button>
+            </div>
+          </td>
+          </tr>
+          </table>
+        </div> 
+        </td>
+    </tr>
+</table>
+<br>
+<br>
+
+
+<table class="abt">
+  <tr>
+      <th rowspan="2">
+          <img src="{% static './images/deli.webp' %}" alt="" class="deli">
+      </th>
+      <td>
+          <h3 class="bold">Free Delivery</h3>
+          <p class="under">+959684857960</p>
+      </td>
+  </tr>
+</table>
+
+<table class="abt">
+  <tr>
+      <th rowspan="2">
+          <img src="{% static './images/msg.webp' %}" alt="Image description 2" class="msg">
+      </th>
+      <td>
+          <h3 class="bold">Message us</h3>
+          <p class="under">miit.edu.mm</p>
+      </td>
+  </tr>
+</table>
+
+<table class="abt">
+  <tr>
+      <th rowspan="2">
+          <img src="{% static './images/loca.png' %}" alt="Image description 3" class="loc">
+      </th>
+      <td>
+          <h3 class="bold">Located in</h3>
+          <p class="under">Mandalay Myanmar</p>
+      </td>
+  </tr>
+</table>
+<br><br><br>
+<footer>
+  <div class="footer-content">
+      <p>&copy; 2024 MIIT. All Rights Reserved.</p>
+      <div class="social-media">
+          <h4>Follow us:</h4>
+          <a href="https://www.facebook.com"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.youtube.com"><i class="fab fa-youtube"></i></a>
+          <a href="https://twitter.com"><i class="fab fa-twitter"></i></a>
+      </div>
+          <ul>
+              <li><a href="{% url 'home' %}" class="small">Home</a></li>
+              <li><a href="{% url 'diet' %}" class="small">DietPlan</a></li>
+              <li><a href="{% url 'shop' %}" class="small">Shop</a></li>
+              <li><a href="{% url 'aboutus' %}" class="small">About Us</a></li>
+          </ul>
+
+  </div>
+</footer>
+<script type="text/javaScript">
+  window.addEventListener('scroll',reveal);
+  function reveal(params) {
+    var reveals= document.querySelectorAll('')
+  }
+  function navigateToPage() {
+            window.location.href = '{% url 'shop_diet' %}';
+        }
+</script>
+</body>
+</html>
+
+

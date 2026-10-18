@@ -1,0 +1,1201 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FitXplosion - Fitness Website</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/69ajax/libs/materialize/1.0.0/css/materialize.min.css"> -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <style>
+    body,
+    html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: serif;
+      border: none;
+      outline: none;
+      /* background-color: black; */
+    }
+
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+      font-family: 'Open Sans', sans-serif;
+    }
+
+    body {
+      font-family: 'Open Sans', sans-serif;
+      line-height: 1.6;
+    }
+
+    .container {
+      position: relative;
+      width: 100%;
+      height: 80%;
+      overflow: hidden;
+    }
+
+    #video-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      min-width: 100%;
+      min-height: 100%;
+
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(31, 30, 30, 0.587);
+      /* Adjust the alpha value (0.5) to set the desired opacity */
+    }
+
+    .lil {
+      margin-left: 20px;
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .bb {
+      text-align: center;
+      color: white;
+      font-size: 50px;
+      margin-top: 200px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .bb1 {
+      text-align: center;
+      color: white;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 20px;
+      padding-right: 10%;
+      position: fixed;
+      /* Changed from relative to fixed */
+      top: 0;
+      /* Make sure it stays at the top */
+      width: 100%;
+      /* Make sure it spans the full width */
+      background-color: rgba(14, 14, 14, 0.655);
+      z-index: 10;
+      /* Ensure it is above other elements */
+      margin-bottom: 20px;
+    }
+
+    .logo {
+      color: white;
+      font-size: 24px;
+    }
+
+    span {
+      color: brown;
+    }
+
+    nav ul li {
+      list-style-type: none;
+      display: inline-block;
+      padding: 10px 20px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav ul li a:hover {
+      color: brown;
+      transition: .3s;
+    }
+
+    button {
+      border: none;
+      background: brown;
+      padding: 12px 30px;
+      border-radius: 30px;
+      color: white;
+      font-weight: bold;
+      font-size: 15px;
+      transition: .4s;
+      margin-bottom: 20px;
+    }
+
+    button:hover {
+      transform: scale(1.1);
+      cursor: pointer;
+    }
+
+
+    .short-hr {
+      width: 300px;
+      /* Adjust the width to make the line shorter */
+      height: 1px;
+      /* Set the height to 1px to ensure it's a horizontal line */
+      background-color: rgb(222, 222, 222);
+      /* Set the color of the line */
+      border: none;
+      /* Remove any default border */
+      margin: 0 auto;
+      /* Center the line horizontally */
+    }
+
+    .animated-text {
+      animation: slide-up 2s ease forwards;
+      /* Apply animation to elements with 'animated-text' class */
+      opacity: 0;
+      /* Initially hide the text */
+    }
+
+    @keyframes slide-up {
+      from {
+        transform: translateY(50px);
+        /* Start from 20px below */
+        opacity: 0;
+        /* Start with opacity 0 */
+      }
+
+      to {
+        transform: translateY(0);
+        /* Move to original position */
+        opacity: 5;
+        /* Fade in */
+      }
+    }
+
+    .container1 {
+      display: flex;
+      justify-content: space-between;
+      /* Align items with space between */
+      font-family: sans-serif;
+    }
+
+    .left-frame {
+      /* margin-top: 80px; */
+      margin-left: 100px;
+      flex: 1;
+      /* Take up 50% of the container width */
+    }
+
+    .right-frame {
+      margin-top: 120px;
+      flex: 1;
+      /* Take up 50% of the container width */
+      margin-right: 200px;
+      /* line-height: 2; */
+      margin-left: 100px;
+    }
+
+    .left-frame img {
+      max-width: 100%;
+      /* Ensure the image doesn't exceed its container */
+    }
+
+    .ads1 {
+      margin-top: 170px;
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    table {
+      font-size: large;
+    }
+
+    h1 {
+      margin-top: -10px;
+      font-size: 50px;
+      font-weight: bold;
+    }
+
+    button {
+      background-color: brown;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .animated-text-1 {
+      opacity: 0;
+      /* Initially hide the text */
+      transition: opacity 0.5s ease-in-out, color 0.3s linear;
+      /* Smooth transition for opacity change */
+      font-size: 20px;
+    }
+
+    .bold {
+      font-size: 30px;
+      font-weight: bold;
+    }
+
+    .animated-text-1.active {
+      opacity: 1;
+      /* Show the text when the active class is applied */
+    }
+
+    .container3 {
+      text-align: center;
+      margin-top: 150px;
+    }
+
+    .container3 h1 {
+      margin-bottom: 10px;
+    }
+
+    .container4 {
+      display: flex;
+      justify-content: center;
+      /* Center the cards horizontally */
+      align-items: center;
+      /* Center the cards vertically */
+      /* height: 100vh; Set the container height to the full viewport height */
+    }
+
+    .card {
+      width: 300px;
+      /* Set the width of each card */
+      text-align: center;
+      /* Center the text horizontally */
+      margin: 0 20px;
+      /* Add spacing between the cards */
+      background-color: rgb(190, 190, 190);
+      /* height: 500px; */
+      border-radius: 10px;
+    }
+
+    .card h2 {
+      margin-top: 10px;
+      /* Add some spacing between the image and the heading */
+    }
+
+    .card p {
+      margin-top: 5px;
+      /* Add some spacing between the heading and the paragraph */
+    }
+
+    .img1 {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      margin-top: 20px;
+    }
+
+    .icons {
+      margin-top: 10px;
+      /* Add space between text and icons */
+      margin-bottom: 20px;
+
+    }
+
+    .icons i {
+      margin: 0 5px;
+      /* Add space between icons */
+      font-size: 24px;
+    }
+
+    .container0 {
+      width: 400px;
+      height: 500px;
+      border-radius: 20px;
+      margin-top: 40px;
+      box-shadow: 5px 5px 5px rgb(168, 169, 169);
+      overflow: hidden;
+      margin-left: 500px;
+    }
+
+    .carousel .carousel-item {
+      width: 500px;
+      /* Set the width of the carousel item */
+      height: 600px;
+      /* Set the height of the carousel item */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      /* overflow: hidden; */
+    }
+
+    .testimonial-card {
+      width: 500px;
+      /* Make the card take the full width of the carousel item */
+      height: 600px;
+      /* Make the card take the full height of the carousel item */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      background: linear-gradient(to bottom, #ffc0c0, #f08ec2);
+    }
+
+    /* .linear-gradient {
+        width: 200px;
+        height: 200px;
+        background: linear-gradient(to right, #ff0000, #0000ff);
+      } */
+    .testimonial-photo1 {
+      /* margin-top: -200px; */
+      height: 150px;
+      width: 150px;
+      border-radius: 50%;
+      margin-bottom: 15px;
+      background-image: url("{% static 'images/girl1.jpg' %}");
+      border: 5px solid rgb(255, 255, 255);
+      /* width: 150px;
+        height: 150px; */
+      overflow-x: visible;
+    }
+
+    .testimonial-photo2 {
+      /* margin-top: -200px; */
+      height: 150px;
+      width: 150px;
+      border-radius: 50%;
+      margin-bottom: 15px;
+      background-image: url("{% static 'images/girl3.jpg' %}");
+      border: 5px solid rgb(255, 255, 255);
+      /* width: 150px;
+        height: 150px; */
+    }
+
+    .testimonial-photo3 {
+      /* margin-top: -200px; */
+      height: 150px;
+      width: 150px;
+      border-radius: 50%;
+      margin-bottom: 15px;
+      background-image: url("{% static 'images/girl2.jpg' %}");
+      border: 5px solid rgb(255, 255, 255);
+      /* width: 150px;
+        height: 150px; */
+    }
+
+    .testimonial-photo4 {
+      /* margin-top: -200px; */
+      height: 150px;
+      width: 150px;
+      border-radius: 50%;
+      margin-bottom: 15px;
+      background-image: url("{% static 'images/O_Weiss_Small.jpg' %}");
+      border: 5px solid rgb(255, 255, 255);
+      /* width: 150px;
+        height: 150px; */
+    }
+
+    .testimonial-photo5 {
+      /* margin-top: -200px; */
+      height: 150px;
+      width: 150px;
+      border-radius: 50%;
+      margin-bottom: 15px;
+      background-image: url("{% static 'images/girl5.jpg' %}");
+      border: 5px solid rgb(255, 255, 255);
+      /* width: 150px;
+        height: 150px; */
+    }
+
+    /* .testimonial-photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; 
+        border-radius: 50%; /* Ensure the image itself is rounded */
+    .testimonial-text {
+      text-align: center;
+      padding: 0 20px;
+    }
+
+    .stars {
+      color: gold;
+    }
+
+    .stars1 {
+      color: gray;
+    }
+
+    .h5 {
+      font-weight: bold;
+    }
+
+    .container00 {
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    /* .container00 h1{
+      margin-bottom: 10px;
+  }    body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: serif;
+  } */
+    .h1 {
+      margin-top: -10px;
+      font-size: 50px;
+      font-weight: bold;
+    }
+
+    .color {
+      background-color: rgb(197, 194, 191);
+    }
+
+    .main-container {
+      display: flex;
+      justify-content: center;
+      margin-top: 40px;
+      margin-left: -500px;
+    }
+
+    .container0 {
+      width: 600px;
+      /* Increased from 500px */
+      height: 400px;
+      border-radius: 20px;
+      box-shadow: 5px 5px 5px rgb(168, 169, 169);
+      overflow: hidden;
+      margin-right: 40px;
+    }
+
+    .carousel .carousel-item {
+      width: 600px;
+      /* Increased from 500px */
+      height: 700px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .testimonial-card {
+      width: 600px;
+      /* Increased from 500px */
+      height: 600px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      background: linear-gradient(to bottom, rgb(143, 36, 36), rgba(165, 42, 42, 0.671));
+    }
+
+    .testimonial-photo1,
+    .testimonial-photo2,
+    .testimonial-photo3,
+    .testimonial-photo4,
+    .testimonial-photo5 {
+      height: 150px;
+      width: 150px;
+      border-radius: 50%;
+      margin-bottom: 15px;
+      border: 5px solid rgb(255, 255, 255);
+      background-size: cover;
+    }
+
+    .testimonial-photo1 {
+      background-image: url("{% static './images/girl1.jpg' %}");
+    }
+
+    .testimonial-photo2 {
+      background-image: url("{% static './images/girl3.jpg' %}");
+    }
+
+    .testimonial-photo3 {
+      background-image: url("{% static './images/girl2.jpg' %}");
+    }
+
+    .testimonial-photo4 {
+      background-image: url("{% static './images/O_Weiss_Small.jpg' %}");
+    }
+
+    .testimonial-photo5 {
+      background-image: url("{% static './images/girl5.jpg' %}");
+    }
+
+    .testimonial-text {
+      text-align: center;
+      padding: 0 20px;
+    }
+
+    .stars {
+      color: gold;
+    }
+
+    .stars1 {
+      color: gray;
+    }
+
+    .h5 {
+      font-weight: bold;
+    }
+
+    .container00 {
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    .container00 h1 {
+      margin-bottom: 10px;
+      font-size: 50px;
+      font-weight: bold;
+    }
+
+    .additional-content {
+      margin-left: 20px;
+      padding: 20px;
+      width: 400px;
+      background-color: #929292;
+      border-radius: 20px;
+      box-shadow: 2px 2px rgba(75, 75, 75, 0.594);
+    }
+
+    #comment-box {
+      width: 100%;
+      padding: 10px;
+      /* Reduced padding */
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      padding-bottom: -100px;
+    }
+
+    #comment-box input[type="text"],
+    #comment-box textarea {
+      width: 90%;
+      margin-bottom: 5px;
+      /* Reduced margin */
+      padding: 5px;
+      /* Reduced padding */
+      border: 1px solid #bdbcbc;
+      border-radius: 5px;
+      height: 100px;
+      resize: none;
+    }
+
+
+
+    #comment-box .star-rating {
+      font-size: 24px;
+      margin-bottom: 10px;
+      /* Added margin to separate stars from inputs */
+    }
+
+    #comment-box .star-rating .fa-star {
+      color: #ddd;
+      cursor: pointer;
+    }
+
+    #comment-box .star-rating .fa-star:hover,
+    #comment-box .star-rating .fa-star.active {
+      color: #ffac33;
+    }
+
+    #comment-name {
+      display: none;
+    }
+
+    #comment-box button {
+      padding: 5px 10px;
+      /* Reduced padding */
+      background-color: #771414;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    #comment-box button:hover {
+      background-color: #601b1b;
+    }
+
+    .link-button {
+      display: block;
+      width: 220px;
+      margin: 20px auto;
+      padding: 10px 20px;
+      background-color: #b13f39;
+      color: white;
+      text-align: center;
+      border-radius: 4px;
+      text-decoration: none;
+      font-size: 16px;
+    }
+
+    .link-button:hover {
+      background-color: #aeaeae;
+    }
+
+    .comment_header {
+      font-size: medium;
+    }
+
+    footer {
+      background-color: #222;
+      color: #fff;
+      padding: 30px 0;
+      text-decoration: none;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+    }
+
+    .footer-content p {
+      margin: 0;
+      font-size: 14px;
+    }
+
+    .footer-content nav ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .footer-content nav ul li {
+      display: inline-block;
+      margin-right: 20px;
+    }
+
+    .footer-content nav ul li:last-child {
+      margin-right: 0;
+    }
+
+    .footer-content nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer-content nav ul li a:hover {
+      color: #f90101;
+    }
+
+    .social-media a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 10px;
+      font-size: 20px;
+    }
+
+    .social-media a:hover {
+      color: #ccc;
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <h2 class="logo lil">Healthier <span> You</span></h2>
+    <ul>
+      <li><a href="{% url 'home' %}">Home</a></li>
+      <li><a href="{% url 'aboutus' %} "
+          style="background-color: rgba(107, 6, 6, 0.318); padding: 2px 20px; border-radius: 5px 5px 0px 0px ;">About
+          us</a></li>
+      <li><a href="{% url 'exercise' %}">Exercises</a></li>
+      <li><a href="{% url 'diet' %}">Diet Plan</a></li>
+      <li><a href="{% url 'shop' %}">Shop</a></li>
+    </ul>
+    <a href="{% url 'profile' %}">
+      <i class="fas fa-user" style="margin-right: 8px;"></i>{{ user }}
+    </a>
+  </nav>
+  <br><br><br>
+  <div class="container">
+    <video autoplay muted loop id="video-background">
+      <source src="{% static './images/Food_video.mp4' %}" type="video/mp4">
+      Your browser does not support HTML5 video.
+    </video>
+    <div class="overlay"></div> <!-- Semi-transparent overlay -->
+    <div class="content">
+      <h1 class="bb animated-text">About Us</h1>
+      <hr class="short-hr">
+      <p class="bb1 animated-text">we take care about the quality</p>
+    </div>
+  </div>
+
+  <div class="container1">
+    <!-- Left frame for photo -->
+    <div class="left-frame">
+      <img src="{% static 'images/mainchef.jpg' %}" alt="Photo" class="ads1">
+    </div>
+    <!-- Right frame for text -->
+    <div class="right-frame">
+      <i>meet with us ----</i>
+      <h1>Revitalizing <br>
+        Nutrient Fruits</h1>
+      <p>Experience the burst of flavors and nourishment with our selection of refreshing, seasonal fruits and fresh
+        food.</p>
+      <table>
+        <tr class="animated-text-1">
+          <td>
+            <ul>
+              <li>Nature's bounty with fresh</li>
+            </ul>
+          </td>
+          <td>
+            <ul>
+              <li>Fresh Juice with Selections</li>
+            </ul>
+          </td>
+        </tr>
+        <tr class="animated-text-1">
+          <td>
+            <ul>
+              <li>Flavorful selection</li>
+            </ul>
+          </td>
+          <td>
+            <ul>
+              <li>Elevate Your Health!</li>
+            </ul>
+          </td>
+        </tr>
+      </table>
+      <button class="animated-text">CONNECT NOW</button>
+    </div>
+  </div>
+
+  <div class="container3">
+    <i>____Our Chef Team____</i>
+    <h1>Meet With Us</h1>
+    <p>Our team comprises skilled and experienced chefs who have undergone rigorous training.</p>
+  </div>
+  <br><br>
+  <div class="container4">
+    <div class="card">
+      <img src="{% static 'images/Chef1.png' %}" alt="Photo 1" class="img1">
+      <h2 class="animated-text-1 bold">David James</h2>
+      <p class="animated-text-1">Nutrition chef</p>
+      <div class="icons animated-text-1">
+        <i class="fab fa-facebook"></i>
+        <i class="fab fa-google"></i>
+        <i class="fab fa-twitter"></i>
+        <i class="fab fa-linkedin"></i>
+      </div>
+    </div>
+    <div class="card">
+      <img src="{% static 'images/chef.jpg' %}" alt="img1" class="img1">
+      <h2 class="animated-text-1 bold">Robert Allen</h2>
+      <p class="animated-text-1">Nutrition chef</p>
+      <div class="icons animated-text-1">
+        <i class="fab fa-facebook"></i>
+        <i class="fab fa-google"></i>
+        <i class="fab fa-twitter"></i>
+        <i class="fab fa-linkedin"></i>
+      </div>
+    </div>
+    <div class="card">
+      <img src="{% static 'images/chef3.jpg' %}" alt="Photo 3" class="img1">
+      <h2 class="animated-text-1 bold">Ella wendy</h2>
+      <p class="animated-text-1">Nutrition cheef</p>
+      <div class="icons animated-text-1">
+        <i class="fab fa-facebook"></i>
+        <i class="fab fa-google"></i>
+        <i class="fab fa-twitter"></i>
+        <i class="fab fa-linkedin"></i>
+      </div>
+    </div>
+    <div class="card">
+      <img src="{% static 'images/chef4.png' %}" alt="Photo 3" class="img1">
+      <h2 class="animated-text-1 bold">Mr Li</h2>
+      <p class="animated-text-1">Asian cheef</p>
+      <div class="icons animated-text-1">
+        <i class="fab fa-facebook"></i>
+        <i class="fab fa-google"></i>
+        <i class="fab fa-twitter"></i>
+        <i class="fab fa-linkedin"></i>
+      </div>
+    </div>
+  </div>
+  <br><br><br>
+  <div class="container">
+    <video autoplay muted loop id="video-background">
+      <source src="{% static 'images/gymvideo.mp4' %}" type="video/mp4">
+      Your browser does not support HTML5 video.
+    </video>
+    <div class="overlay"></div> <!-- Semi-transparent overlay -->
+    <div class="content">
+      <h1 class="bb animated-text">Meet with our skillful trainers</h1>
+      <hr class="short-hr">
+      <p class="bb1 animated-text">your body will thank you for this</p>
+    </div>
+  </div>
+
+  <br><br><br>
+  <div class="container1">
+    <!-- Left frame for photo -->
+    <div class="left-frame">
+      <img src="{% static 'images/gym_cover.png' %}" alt="Photo" class="ads1">
+    </div>
+    <!-- Right frame for text -->
+    <div class="right-frame">
+      <i>meet with us ----</i>
+      <h1>Elite Fitness,<br>
+        Expert Trainers!</h1>
+      <p>Join a friendly and supportive community that makes every visit enjoyable.Our trainers are dedicated to keeping
+        you motivated and on track.</p>
+      <table>
+        <tr class="animated-text-1">
+          <td>
+            <ul>
+              <li>Certified Professionals</li>
+            </ul>
+          </td>
+          <td>
+            <ul>
+              <li>State-of-the-Art Facilities</li>
+            </ul>
+          </td>
+        </tr>
+        <tr class="animated-text-1">
+          <td>
+            <ul>
+              <li>Welcoming Community</li>
+            </ul>
+          </td>
+          <td>
+            <ul>
+              <li>Safety-Focused</li>
+            </ul>
+          </td>
+        </tr>
+      </table>
+      <button class="animated-text">CONNECT NOW</button>
+    </div>
+  </div>
+
+
+  <div class="container3">
+    <i>____Our Gym Team____</i>
+    <h1>Meet With Us</h1>
+    <p>Our team comprises skilled and experienced tutors who have undergone rigorous training.</p>
+  </div> <br>
+  <div class="container4">
+    <div class="card">
+      <!-- <img src="trainer1.jpeg" alt="Photo 1" class="img1"> -->
+      <img src="{% static 'images/trainer1.jpeg' %}" alt="Photo 1" class="img1">
+      <h2 class="animated-text-1 bold">David James</h2>
+      <p class="animated-text-1">Personal Trainer</p>
+      <div class="icons animated-text-1">
+        <i class="fab fa-facebook"></i>
+        <i class="fab fa-google"></i>
+        <i class="fab fa-twitter"></i>
+        <i class="fab fa-linkedin"></i>
+      </div>
+    </div>
+    <div class="card">
+      <img src="{% static 'images/trainer2.jpeg' %}" alt="img1" class="img1">
+      <h2 class="animated-text-1 bold">Robert Allen</h2>
+      <p class="animated-text-1">Personal Trainer</p>
+      <div class="icons animated-text-1">
+        <i class="fab fa-facebook"></i>
+        <i class="fab fa-google"></i>
+        <i class="fab fa-twitter"></i>
+        <i class="fab fa-linkedin"></i>
+      </div>
+    </div>
+    <div class="card">
+      <img src="{% static 'images/trainer3.jpeg' %}" alt="Photo 3" class="img1">
+      <h2 class="animated-text-1 bold">Nick</h2>
+      <p class="animated-text-1">Personal Trainer</p>
+      <div class="icons animated-text-1">
+        <i class="fab fa-facebook"></i>
+        <i class="fab fa-google"></i>
+        <i class="fab fa-twitter"></i>
+        <i class="fab fa-linkedin"></i>
+      </div>
+    </div>
+    <div class="card">
+      <img src="{% static 'images/trainer3.jpeg' %}" alt="Photo 3" class="img1">
+      <h2 class="animated-text-1 bold">Ella wendy</h2>
+      <p class="animated-text-1">Personal Trainer</p>
+      <div class="icons animated-text-1">
+        <i class="fab fa-facebook"></i>
+        <i class="fab fa-google"></i>
+        <i class="fab fa-twitter"></i>
+        <i class="fab fa-linkedin"></i>
+      </div>
+    </div>
+  </div>
+  <br><br><br>
+
+
+
+  <br><br><br><br>
+  <div class="container00">
+    <i>____Testimonial____</i>
+    <h1 class="h1">What people think about us</h1>
+    <p>Just don't trust our words, listen to our client opinions for us!</p>
+  </div>
+
+  <div class="main-container">
+    <div class="container0">
+      <div class="carousel carousel-slider center">
+        <div class="carousel-item">
+          <div class="testimonial-card">
+            <div class="testimonial-photo1"></div>
+            <h5 class="h5">Thin Thiri Bon</h5>
+            <div>
+              <i class="fas fa-star stars"></i>
+              <i class="fas fa-star stars"></i>
+              <i class="fas fa-star stars"></i>
+              <i class="fas fa-star stars"></i>
+              <i class="fas fa-star stars1"></i>
+            </div>
+            <p class="testimonial-text">"The gym facilities are top-notch, and the trainers are incredibly supportive."
+            </p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="testimonial-card">
+            <div class="testimonial-photo2"></div>
+            <h5 class="h5">Wai Yan Min</h5>
+            <div>
+              <i class="fas fa-star stars"></i>
+              <i class="fas fa-star stars"></i>
+              <i class="fas fa-star stars"></i>
+              <i class="fas fa-star stars1"></i>
+              <i class="fas fa-star stars1"></i>
+            </div>
+            <p class="testimonial-text">"The diet plan provided has helped me lose weight in a healthy and sustainable
+              way."</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="testimonial-card">
+            <div class="testimonial-photo3"></div>
+            <h5 class="h5">Yoon Moh Moh Aung</h5>
+            <div class="stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <p class="testimonial-text">"I love the variety of workout classes available, it keeps me motivated and
+              engaged."</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="testimonial-card">
+            <div class="testimonial-photo4"></div>
+            <h5 class="h5">Hein Thiha</h5>
+            <div>
+              <i class="fas fa-star stars"></i>
+              <i class="fas fa-star stars"></i>
+              <i class="fas fa-star stars"></i>
+              <i class="fas fa-star stars"></i>
+              <i class="fas fa-star stars1"></i>
+            </div>
+            <p class="testimonial-text">"The personalized diet plan has improved my energy levels and overall
+              well-being."</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="testimonial-card">
+            <div class="testimonial-photo5"></div>
+            <h5 class="h5">Wai Yan Htut</h5>
+            <div class="stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star stars1"></i>
+            </div>
+            <p class="testimonial-text">"The gym's environment is very welcoming, and the staff are always ready to
+              help."</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="additional-content">
+      <div id="comment-box">
+          <h4 class="comment_header">What do you think of our website?</h4>
+          <div class="star-rating">
+              <i class="fas fa-star" onclick="rate(1)"></i>
+              <i class="fas fa-star" onclick="rate(2)"></i>
+              <i class="fas fa-star" onclick="rate(3)"></i>
+              <i class="fas fa-star" onclick="rate(4)"></i>
+              <i class="fas fa-star" onclick="rate(5)"></i>
+          </div>
+          <input type="hidden" id="comment-name" value="{{ user }}">
+          <input type="hidden" id="comment-sex" value="{{ user.sex }}">
+          <textarea id="comment-text" placeholder="Write your comment here ..."></textarea>
+          <br>
+          <button onclick="postComment()" id="commmet_button">Post Comment</button>
+          <div id="info-box" style="display:none; padding: 10px; margin-top: 10px; border: 1px solid #ccc; background-color: #f9f9f9;"></div>
+      </div>
+      <a href="{% url 'comment' %}" class="link-button">Read Comments here</a>
+  </div>
+  </div>
+  <br><br><br>
+  <footer>
+    <div class="footer-content">
+      <p>&copy; 2024 MIIT. All Rights Reserved.</p>
+      <div class="social-media">
+        <h6>Follow us:</h6>
+        <a href="https://www.facebook.com"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.youtube.com"><i class="fab fa-youtube"></i></a>
+        <a href="https://twitter.com"><i class="fab fa-twitter"></i></a>
+      </div>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="{% url 'diet' %}">DietPlam</a></li>
+        <li><a href="{% url 'shop' %}">Shop</a></li>
+        <li><a href="{% url 'aboutus' %}">About Us</a></li>
+      </ul>
+
+    </div>
+  </footer>
+
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var elems = document.querySelectorAll('.carousel');
+        if (elems.length > 0) {
+            var instances = M.Carousel.init(elems, {
+                fullWidth: true,
+                indicators: true,
+                duration: 200
+            });
+
+            // Check if instances[0] exists before setting the interval
+            if (instances.length > 0) {
+                setInterval(() => {
+                    instances[0].next();
+                }, 2000);
+            }
+        }
+
+        // Trigger scroll event once to check initial positions
+        handleScroll();
+    });
+
+    // Function to check if an element is in the viewport
+    function isInViewport(element) {
+        var rect = element.getBoundingClientRect();
+        return (
+            rect.top >= 0 &&
+            rect.left >= 0 &&
+            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+            rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+        );
+    }
+
+    // Debounce function to limit the rate at which a function can fire
+    function debounce(func, wait) {
+        let timeout;
+        return function (...args) {
+            clearTimeout(timeout);
+            timeout = setTimeout(() => func.apply(this, args), wait);
+        };
+    }
+
+    // Function to handle scroll event
+    function handleScroll() {
+        var elements = document.querySelectorAll('.animated-text-1');
+        elements.forEach(function (element) {
+            if (isInViewport(element)) {
+                element.classList.add('active'); // Add the 'active' class if the element is in the viewport
+            }
+        });
+    }
+
+    // Add scroll event listener with debounce
+    window.addEventListener('scroll', debounce(handleScroll, 50));
+
+    document.addEventListener('DOMContentLoaded', function () {
+        var elems = document.querySelectorAll('.carousel');
+        var instances = M.Carousel.init(elems, {
+            fullWidth: true,
+            indicators: true,
+            duration: 200
+        });
+
+        setInterval(() => {
+            instances[0].next();
+        }, 2000);
+    });
+
+    var rating = 0;
+
+    function rate(value) {
+        rating = value;
+        var stars = document.querySelectorAll('.star-rating .fa-star');
+        stars.forEach(function (star, index) {
+            if (index < value) {
+                star.classList.add('active');
+            } else {
+                star.classList.remove('active');
+            }
+        });
+    }
+
+    function postComment() {
+        var commentName = document.getElementById('comment-name').value;
+        var commentText = document.getElementById('comment-text').value;
+        var commentSex = document.getElementById('comment-sex').value;
+
+        if (commentName.trim() !== '' && commentText.trim() !== '' && commentSex.trim() !== '') {
+            var comment = {
+                name: commentName,
+                text: commentText,
+                sex: commentSex,
+                rating: rating,
+                timestamp: new Date().getTime()
+            };
+
+            var comments = JSON.parse(localStorage.getItem('comments')) || [];
+            comments.push(comment);
+            localStorage.setItem('comments', JSON.stringify(comments));
+
+            document.getElementById('comment-text').value = '';
+            rate(0);
+
+            showInfoBox('Your comment has been posted. Thanks!');
+        } else {
+            showInfoBox('Please enter your comment.');
+        }
+    }
+
+    function showInfoBox(message) {
+        var infoBox = document.getElementById('info-box');
+        infoBox.textContent = message;
+        infoBox.style.display = 'block';
+    }
+</script>
+</body>
+
+</html>

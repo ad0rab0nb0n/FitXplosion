@@ -1,0 +1,182 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitXplosion - Fitness Website</title>
+    <style>
+        body{
+            background-color: #d0d0d0;
+        }
+        .body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        p{
+            text-align: center;
+            font-size: 26px;
+        }
+        .card {
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            padding: 20px;
+        }
+        h1{
+            margin-top: 50px;
+            text-align: center;
+            color: brown;
+        }
+        .card img {
+            margin-left: -10px;
+             width: 200px;
+             height: 200px;
+            margin-right: 20px;
+        }
+        .image{
+            margin-left: -20px;
+        }
+        .warrior{
+            margin-left: -20px;
+            width: 230px;
+        }
+        .loust{
+            margin-left: -20px;
+            margin-bottom: 20px;
+        }
+        .card-content {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .days {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        h3 {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        .details {
+            display: flex;
+            flex-direction: column;
+            color: #777;
+        }
+        
+        .details span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        button{
+            border: none;
+            background: brown;
+            padding: 12px 50px;
+            border-radius: 30px;
+            color: white;
+            font-weight: bold;
+            font-size: 15px;
+            transition: .4s;
+            margin-bottom: 20px;
+            margin-right: 100px;
+            }
+            
+        button:hover{
+            transform: scale(1.1);
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Abs exercises</h1>
+    <p>certificated health and fitness recommendations</p>
+    <div>
+        <div class="card-container">
+            <div class="card">
+                <img src="{% static 'images/sideplank.png'%}" class="image">
+                <div class="card-content">
+                    <h3>Side Plank</h3>
+                    <div class="details">
+                        <span>🕒 1:00 mins</span>
+                        <br>
+                        <a href="{% url 'abs_exe' %}"><button>Start</button></a>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="{% static 'images/situp.png' %}" class="warrior">
+                <div class="card-content">
+                    <h3>Sit-ups</h3>
+                    <div class="details">
+                        <span>🕒 1:00 mins</span>
+                        <br>
+                        <a href="{% url 'abs_exe' %}"><button>Start</button></a>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="{% static 'images/scissorkick.png' %}" class="loust">
+                <div class="card-content">
+                    <h3>Scissor Kick</h3>
+                    <div class="details">
+                        <span>🕒 1:00 mins</span>
+                        <br>
+                        <a href="{% url 'abs_exe' %}"><button>Start</button></a>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="{% static 'images/bicyclecrunch.png' %}" class="image">
+                <div class="card-content">
+                    <h3>Bicycle Crunch</h3>
+                    <div class="details">
+                        <span>🕒 1:00 mins</span>
+                        <br>
+                        <a href="{% url 'abs_exe' %}"><button>Start</button></a>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="{% static 'images/mountainclimber.png' %}" class="image">
+                <div class="card-content">
+                    <h3>Mountain Climber</h3>
+                    <div class="details">
+                        <span>🕒 1:00 mins</span>
+                        <br>
+                        <a href="{% url 'abs_exe' %}"><button>Start</button></a>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="{% static 'images/russiantwist.png' %}" class="image">
+                <div class="card-content">
+                    <h3>Russian Twist</h3>
+                    <div class="details">
+                        <span>🕒 1:00 mins</span>
+                        <br>
+                        <a href="{% url 'abs_exe' %}"><button>Start</button></a>
+                    </div>
+                </div>
+            </div>   
+        </div>
+    </div>
+</body>
+</html>

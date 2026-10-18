@@ -1,0 +1,1070 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitXplosion - Fitness Website</title>
+    <!-- <link rel="stylesheet" href="homepage.css"> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet"> -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: 'Open Sans', sans-serif;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+        }
+        
+        .lil{
+            margin-left: 20px;
+        }
+        .maintitle{
+            align-items: center;
+            font-weight: bolder;
+            color: rgb(255, 255, 255);
+            font-size: 40px;
+            text-align: center;
+            margin-top: 190px;
+            z-index: 1; /* Ensure the title is above the video */
+            position: relative;
+        }
+        .maintitle1{
+            align-items: center;
+            font-weight: bolder;
+            color: rgb(255, 255, 255);
+            font-size: 40px;
+            text-align: center;
+        
+            z-index: 1; /* Ensure the title is above the video */
+            position: relative;
+        }
+        .subtitle{
+            align-items: center;
+            font-weight: bold;
+            color:rgb(207, 7, 7);
+            font-size: 20px;
+            text-align: center;
+            margin-left: 15px;
+            z-index: 1; /* Ensure the subtitle is above the video */
+            position: relative;
+        }
+        .hero {
+            height: 100vh;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: 'Josefin Sans', sans-serif;
+            position: relative;
+            overflow: hidden;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .hero video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transform: translate(-50%, -50%);
+            z-index: -2;
+        }
+        
+        .hero .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(60, 60, 60, 0.5); /* Adjust the opacity as needed */
+            z-index: -1;
+        }
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 20px;
+            padding-right: 10%;
+            position: fixed; /* Changed from relative to fixed */
+            top: 0; /* Make sure it stays at the top */
+            width: 100%; /* Make sure it spans the full width */
+            background-color: rgba(14, 14, 14, 0.324); 
+            z-index: 10; /* Ensure it is above other elements */
+            margin-bottom: 20px;
+        }
+        .logo{
+            color: white;
+            font-size: 24px;
+        }
+        
+        span{
+            color: brown;
+        }
+        
+        nav ul li{
+            list-style-type: none;
+            display:inline-block ;
+            padding: 10px 20px;
+        }
+        
+        nav ul li a{
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        nav ul li a:hover{
+            color: brown;
+            transition: .3s;
+        }
+        nav ul li a.active {
+            color: brown; /* Color when link is active */
+        }
+
+        nav a{
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        nav a:hover{
+            color: brown;
+            transition: .3s;
+        }
+        nav a.active {
+            color: brown; /* Color when link is active */
+        }
+        .custom-hr {
+            width: 50%; /* Adjust the width to the required length */
+            height: 2px; /* Adjust the height to the desired thickness */
+            background-color: #ffffff; /* Change the color as needed */
+            border: none;
+            margin: 20px auto; /* Center the HR element horizontally */
+        }
+        
+        button{
+            border: none;
+            background: brown;
+            padding: 12px 30px;
+            border-radius: 30px;
+            color: white;
+            font-weight: bold;
+            font-size: 15px;
+            transition: .4s;
+            margin-bottom: 20px;
+        }
+        
+        button:hover{
+            transform: scale(1.3);
+            cursor: pointer;
+        }
+        
+        .body1 {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .container3{
+            text-align: center;
+            margin-top: 150px;
+        }
+        .container3 h1{
+            margin-bottom: 10px;
+        }
+        /* //////////////////////////////////////// */
+        .container1 {
+            display: flex;
+            justify-content: space-between; /* Align items with space between */
+            font-family: sans-serif;
+          }
+          
+          .left-frame {
+            margin-left: 90px;
+            /* margin-top: -20px; */
+            flex: 1; /* Take up 50% of the container width */
+          }
+          
+          .right-frame {
+            margin-top: 150px;
+            flex: 1; /* Take up 50% of the container width */
+            margin-right: 200px;
+            margin-left: 100px;
+          }
+          
+          .left-frame img {
+            max-width: 100%; /* Ensure the image doesn't exceed its container */
+          }
+          
+          .ads1 {
+            margin-top: 100px;
+            width: 100%;
+            border-radius: 10px;
+          }
+          .green{
+            color: rgb(0, 73, 0);
+          }
+          table {
+            font-size: large;
+          }
+          
+          h1 {
+            margin-top: -10px;
+            font-size: 50px;
+            font-weight: bold;
+          }
+          
+          /* button {
+            background-color: #000000;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+          }
+           */
+          .animated-text-1 {
+            opacity: 0; /* Initially hide the text */
+            transition: opacity 0.5s ease-in-out, color 0.3s linear; /* Smooth transition for opacity change */
+            font-size: 20px;
+          }
+          
+          .bold {
+            font-size: 30px;
+            font-weight: bold;
+          }
+          
+          .animated-text-1.active {
+            opacity: 1; /* Show the text when the active class is applied */
+          }
+          .bon {
+            background-color: rgb(222, 247, 232);
+          }
+          .left-frame1 img {
+            max-width: 80%; /* Ensure the image doesn't exceed its container */
+          }
+          .left-frame1 {
+            margin-left: -100px;
+            margin-top: -20px;
+            flex: 1; /* Take up 50% of the container width */
+          }
+          .spin-on-hover:hover {
+            transform: rotate(360deg);
+        }
+        
+        /* Optional: if you want the image to spin infinitely */
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        
+        .spin-on-hover:hover {
+            animation: spin 3.5s linear; /* Adjust the duration as needed */
+        }
+        .containerbon {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            text-align: center;
+            position: relative; /* Added */
+        }
+        .heading {
+            grid-column: span 4;
+            font-size: 30px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .promotion {
+            grid-column: span 4;
+            font-size: 18px;
+            color: #666;
+        }
+        .card {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 10px; /* Adjusted padding */
+            position: relative;
+            overflow: hidden;
+            transition: box-shadow 0.3s;
+            width: 300px; /* Adjusted width */
+        }
+        .card:hover {
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .card img {
+            width: 100%;
+            border-radius: 8px 8px 0 0;
+            transition: transform 0.3s;
+        }
+        .card:hover img {
+            transform: scale(1.05);
+        }
+        .protein-name {
+            margin-top: 10px;
+            font-weight: bold;
+            font-size: 16px; /* Adjusted font size */
+        }
+        .protein-1 {
+            color: rgb(1, 198, 126);
+        }
+        .protein-2 {
+            color: rgb(70, 231, 16);
+        }
+        .protein-3 {
+            color: purple;
+        }
+        .protein-4 {
+            color: orange;
+        }
+        .shop-now {
+            grid-column: span 4;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .shop-now button {
+            background-color: #8d0a0a;
+            color: #fff;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+        }
+        .shop-now button:hover {
+            transform: scale(1.1);
+        }
+        .hot-item { /* Styling for the hot item label */
+            position: absolute;
+            top: 5px;
+            /* Adjusted right position */
+            background-color: rgb(147, 25, 25);
+            color: white;
+            padding: 10px 80px;
+            margin-left: -90px;
+            margin-top: 10px;
+            border-radius: 5px;
+            font-size: 16px;
+            transform: rotate(-45deg);
+             /* To place it above the card */
+        }
+        /* .color_container{
+            background-color: #8b8b8b;
+        } */
+        
+        .containerttb {
+            width: 90%;
+            height: 500px;
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            /* margin-left: 200px; */
+            /* align-items: center; */
+        }
+        
+        .map-container, .contact-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .map-container iframe {
+            width: 75%;
+            height: 100%;
+            border: 0;
+            border-radius: 8px;
+        }
+        .contact-container {
+            max-width: 500px;
+            max-height: 500px;
+            width: 100%;
+            height: 100%;
+            padding: 20px;
+            background-color: #f4f4f4;
+            box-sizing: border-box;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: left;
+            margin-left: -100px;
+        }
+        .contact-container h2 {
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+        .contact-container ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .contact-container li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            font-size: 20px;
+        }
+        .contact-container li i {
+            margin-right: 20px;
+            color: rgb(92, 92, 92);
+            font-size: 30px;
+        }
+        .contact-container a {
+            text-decoration: none;
+            color: brown;
+            font-weight: bold;
+        }
+        .contact-container a:hover {
+            text-decoration: underline;
+        }
+          
+        /* ///////////////////////////////////////////// */
+        
+        .main-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+            margin-left: -30px;
+        }
+        .container0 {
+        width: 600px; /* Increased from 500px */
+        height: 400px;
+        border-radius: 20px;
+        box-shadow: 5px 5px 5px rgb(168, 169, 169);
+        overflow: hidden;
+        margin-right: 40px;
+        }
+        .carousel .carousel-item {
+        width: 600px; /* Increased from 500px */
+        height: 700px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        }
+        .testimonial-card {
+        width: 600px; /* Increased from 500px */
+        height: 600px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        border-radius: 10px;
+        background: linear-gradient(to bottom, rgba(185, 62, 62, 0.906), rgba(112, 28, 28, 0.87));
+        }
+        .testimonial-photo1, .testimonial-photo2, .testimonial-photo3, .testimonial-photo4, .testimonial-photo5 {
+            height: 150px;
+            width: 150px;
+            border-radius: 50%;
+            margin-bottom: 15px;
+            border: 5px solid rgb(255, 255, 255);
+            background-size: cover;
+        }
+        .testimonial-photo1 { background-image: url(girl1.jpg); }
+        .testimonial-photo2 { background-image: url(girl3.jpg); }
+        .testimonial-photo3 { background-image: url(girl2.jpg); }
+        .testimonial-photo4 { background-image: url(O_Weiss_Small.jpg); }
+        .testimonial-photo5 { background-image: url(girl5.jpg); }
+        .testimonial-text {
+            text-align: center;
+            padding: 0 20px; 
+        }
+        .stars {
+            color: gold;
+        }
+        .stars1 {
+            color: gray;
+        }
+        .h5 {
+            font-weight: bold;
+        }
+        .container00 {
+            text-align: center;
+            margin-top: 50px;
+        }
+        .container00 h1 {
+            margin-bottom: 10px;
+            font-size: 50px;
+            font-weight: bold;
+        }
+        .additional-content {
+            margin-left: 20px;
+            padding: 20px;
+            width: 400px;
+            background-color: #929292;
+            border-radius: 20px;
+            box-shadow: 2px 2px rgba(75, 75, 75, 0.594);
+        }
+        #comment-box {
+        width: 100%;
+        padding: 10px; /* Reduced padding */
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        }
+        
+        #comment-box input[type="text"],
+        #comment-box textarea {
+        width: 90%;
+        margin-bottom: 5px; /* Reduced margin */
+        padding: 5px; /* Reduced padding */
+        border: 1px solid #bdbcbc;
+        border-radius: 5px;
+        resize: none;
+        }
+        
+        #comment-box .star-rating {
+        font-size: 24px;
+        margin-bottom: 10px; /* Added margin to separate stars from inputs */
+        }
+        
+        #comment-box .star-rating .fa-star {
+        color: #ddd;
+        cursor: pointer;
+        }
+        
+        #comment-box .star-rating .fa-star:hover,
+        #comment-box .star-rating .fa-star.active {
+        color: #ffac33;
+        }
+        
+        #comment-box button {
+        padding: 5px 10px; /* Reduced padding */
+        background-color: brown;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        }
+        
+        #comment-box button:hover {
+        background-color: rgba(165, 42, 42, 0.534);
+        }
+        .link-button {
+            display: block;
+            width: 220px;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #aeaeae;
+            color: white;
+            text-align: center;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 16px;
+        }
+        .link-button:hover {
+            background-color:brown;
+        }
+        .comment_header{
+          font-size: medium;
+        }
+        .contactinfo{
+            font-size: 30px;
+        }
+        .btn_color{
+            background-color: brown;
+            border-radius: 3px;
+        }
+        footer {
+            background-color: #222;
+            color: #fff;
+            padding: 30px 0;
+            text-decoration: none;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        
+        }
+        
+        .footer-content p {
+            margin: 0;
+            font-size: 14px;
+        }
+        
+        .footer-content nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .footer-content nav ul li {
+            display: inline-block;
+            margin-right: 20px;
+        }
+        
+        .footer-content nav ul li:last-child {
+            margin-right: 0;
+        }
+        
+        .footer-content nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-content nav ul li a:hover {
+            color: #f90101;
+        }
+        .social-media a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 10px;
+            font-size: 20px;
+        }
+        
+        .social-media a:hover {
+            color: #ccc;
+        }
+        
+        
+        /* /////////////////////////////////////// */
+        .container11 {
+            display: flex;
+            justify-content: space-between; /* Align items with space between */
+            font-family: sans-serif;
+            height: 500px;
+          }
+          .bonbon {
+            background-color: rgb(147, 144, 144);
+          }
+          .left-frame11 {
+            margin-left: 100px;
+            /* margin-top: -20px; */
+            flex: 1; /* Take up 50% of the container width */
+          }
+          
+          .right-frame11 {
+            margin-top: 150px;
+            flex: 1; /* Take up 50% of the container width */
+            margin-right: 200px;
+            margin-left: 100px;
+          }
+          
+          .left-frame11 img {
+            max-width: 100%; /* Ensure the image doesn't exceed its container */
+          }
+          /* ///////////////////for the page under 1st home */
+          .body1 {
+            font-family: Arial, sans-serif;
+            background-color: #242424;
+            margin: 0;
+            padding: 0;
+            color: white;
+        }
+        .content {
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-start;
+            margin: 50px auto;
+            max-width: 1000px;
+            gap: 20px;
+        }
+        .content-item {
+            text-align: center;
+            padding: 20px;
+            background-color: #3a3a3a;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            width: 30%;
+        
+        }
+        .content-item i {
+            font-size: 48px;
+            color: #850000;
+            margin-bottom: 10px;
+        }
+        .content-item h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+        .content-item p {
+            font-size: 16px;
+            color: #a3a3a3;
+        }
+        .center{
+            text-align: center;
+        }
+        .center1{
+            margin-left: 200px;
+            color: #cfcaca;
+        }
+        .animated {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1s ease, transform 0.5s ease;
+          }
+          .animated-show {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        
+        .spin-on-load {
+            animation: spin 10s linear infinite; /* Adjust animation duration and timing function as desired */
+          }
+          
+          @keyframes spin {
+            from {
+              transform: rotate(0deg);
+            }
+            to {
+              transform: rotate(360deg);
+            }
+          }
+        
+          .waterbody {
+            background: linear-gradient(-60deg, #6be3f3, #5feafd, #44c8fc, #24bdf9);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+            height: 100vh;
+            color: #000;
+            font-family: "Montserrat", sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 40px;
+          }
+          
+        .left-frame1 {
+            margin-left: 100px;
+            /* margin-top: -20px; */
+            flex: 1; /* Take up 50% of the container width */
+          }
+          .left-frame1 img {
+            max-width: 80%; /* Ensure the image doesn't exceed its container */
+            margin-top: 70px;
+          }
+          
+        .wbutton{
+            border: none;
+            background: rgb(178, 232, 255);
+            padding: 20px 30px;
+            border-radius: 30px;
+            color: white;
+            font-weight: bold;
+            font-size: 15px;
+            transition: .4s;
+            margin-bottom: 20px;
+          }
+          
+          .wbutton:hover{
+            transform: scale(1.3);
+            cursor: pointer;
+          }
+          .white{
+            color: white;
+            font-size: 45px;
+          }
+          a{
+            text-decoration: none;
+            color: white;
+          }
+        
+          /* ///////////////// Exercise cover css//////////////// */
+          .banner {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            background: url('{% static "images/back.jpg" %}');
+        }
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5); /* Dark overlay for text contrast */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: left;
+            color: white;
+        }
+                
+        .text-content h1 {
+            font-size: 4em;
+            margin: 0;
+        }
+        
+        .text-content p {
+            font-size: 1.2em;
+            margin: 20px 0;
+        }
+        .brown{
+            color: brown;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <video autoplay muted loop id="homebg">
+            <source src="{% static 'images/homebg.MOV' %}" type="video/mp4">
+            Your browser does not support HTML5 video.
+        </video>
+        <div class="overlay"></div>
+        <nav>
+            <h2 class="logo lil">Healthier <span> You</span></h2>
+            <ul>
+                <li><a href="{% url 'home' %}" style="background-color: rgba(107, 6, 6, 0.318); padding: 12px 30px; border-radius: 5px 5px 0px 0px;">Home</a></li>
+                <li><a href="{% url 'aboutus' %}">About us</a></li>
+                <li><a href="{% url 'exercise' %}">Exercise</a></li>
+                <li><a href="{% url 'diet' %}">Diet Plan</a></li>
+                <li><a href="{% url 'shop' %}">Shop</a></li>
+            </ul>
+            <a href="{% url 'profile' %}">
+                <i class="fas fa-user" style="margin-right: 8px;"></i>{{ user }}
+            </a>
+        </nav>
+        <div class="maintitle animated">GET HEALTHY BODY <br>WITH PERFECT EXERCISES AND DIET</div>
+        <hr class="custom-hr">
+        <p class="subtitle animated">we are always here to help you</p>
+    </div>
+ <!-- ////////////////////////////////////////////////
+   -->
+
+         
+    <div class="body1">
+      <br><br><br>
+      <p class="maintitle1 animated">PUSH YOUR LIMITS FORWARD</p>
+      <i class="center1 animated">"Empower your wellness journey with expertly curated exercises, personalized diet plans, and essential fitness products—all in one place."</i>
+      <section class="content">
+          <!-- Exercise Content -->
+          <div class="content-item animated">
+              <i class="fas fa-dumbbell"></i>
+              <h3>Exercise</h3>
+              <p>Join us for engaging on-campus workouts or seamlessly transition from online.</p>
+              <br>
+          </div>
+  
+          <!-- Diet Plan Content -->
+          <div class="content-item animated">
+              <i class="fas fa-utensils"></i>
+              <h3>Diet Plan</h3>
+              <p>Discover our convenient diet plans, available with doorstep delivery, Make it easy.</p>
+              <br>
+          </div>
+  
+          <!-- Shop Content -->
+          <div class="content-item animated">
+              <i class="fas fa-shopping-cart"></i>
+              <h3>Shop</h3>
+              <p>Explore our curated shop for essential fitness gear and wellness products, your one-stop destination.</p>
+            <br>
+          </div>
+  
+          <!-- Water Tracker Content -->
+          <div class="content-item animated">
+              <i class="fas fa-tint"></i>
+              <h3>Water Tracker</h3>
+              <p>"Stay hydrated effortlessly with our intuitive water tracker to achieve your daily hydration goals."</p>
+              <br>
+          </div>
+      </section>
+      <br><br>
+    </div>
+    <section class="banner">
+      <div class="overlay">
+          <div class="text-content">
+              <h1 class="brown animated">THE BEST YOU <br> CAN DO</h1>
+              <p class="animated">"Stronger every day. Our expert trainers and personalized programs will help you achieve your fitness goals."</p>
+              <br><br>
+              <a href="{% url 'exercise' %}"><button class="animated-text animated">JOIN NOW</button></a>
+          </div>
+      </div>
+  </section>
+    <div class="container1">
+        <!-- Left frame for photo -->
+        <div class="left-frame">
+          <img src="{% static 'images/change.png' %}" alt="Photo" class="ads1 animated">
+        </div>
+        <!-- Right frame for text -->
+        <div class="right-frame">
+            <i class="animated">meet with us ----</i>
+          <h1 class="animated">Ready to,<br>
+            Make a Change?</h1>
+          <p class="animated">Embark on a transformative journey with our expertly designed exercise routines. Whether you're looking to build strength, increase flexibility, or improve your overall well-being, our tailored programs are here to guide you every step of the way. Join us today and take the first step towards a healthier, more vibrant you.</p>
+          <br><br>
+          <a href="{% url 'exercise' %}"><button class="animated-text animated">JOIN NOW</button></a>
+
+          <br><br>
+        </div>
+      </div>
+      <br><br><br>
+         <!-- ///////////////////Exercise cover////////////////////////////// -->
+        
+
+      <!-- ////////////////////////////////////////////// -->
+    <div class="container1 bon">
+
+        <!-- Right frame for text -->
+        <div class="right-frame ">
+            <i class="animated">our diet plan ----</i>
+          <h1 class="animated green">Eat healthy,<br>
+           Live Healthy Today</h1>
+          <p class="animated">Transform Your Life with Our Personalized Diet Plan!
+            Unlock the secret to a healthier you with our tailored diet plans. Designed by experts, just for you!</p>
+          <br><br><br>
+          <a href="{% url 'calorie_calculator' %}"> <button class="animated-text animated">CALCULATE CALORIES</button></a>
+          <br><br><br><br>
+         
+        </div>
+                <!-- Left frame for photo -->
+                <div class="left-frame">
+                    <img src="{% static 'images/highq.png' %}" alt="Photo" class="ads1 spin-on-load">
+                  </div>
+      </div>
+      <br><br>
+      <div>
+         
+      </div>
+    <br><br><br>
+    <div class="containerbon">
+    <h1 class="animated heading">Shop With us for the best experience</h1><!-- Heading -->
+        <div class="card animated">
+            <img src="{% static 'images/prot1.png' %}" alt="Protein 1">
+            <div class="protein-name protein-1">Pro Formula</div>
+        </div>
+        <div class="card animated">
+            <img src="{% static 'images/prot2.png' %}" alt="Protein 2">
+            <div class="protein-name protein-2">Prime Protein</div>
+            <div class="hot-item">Hot Item</div> <!-- Hot item label -->
+        </div>
+        <div class="card animated">
+            <img src="{% static 'images/prot3.png' %}" alt="Protein 3">
+            <div class="protein-name protein-3">Titan Tonic</div>
+        </div>
+        <div class="card animated">
+            <img src="{% static 'images/prot4.png' %}" alt="Protein 4">
+            <div class="protein-name protein-4">Strength Surge Shake</div>
+        </div>
+        <div class="promotion">Hurry! Limited time offer. Get 20% off on all protein products.</div> <!-- Promotion line -->
+        <div class="shop-now">
+          <a href="{% url 'shop' %}"><button class="animated-text animated">ORDER NOW</button> </a>       </div>
+    </div>
+     
+<br><br><br><br>
+
+
+      <div class="waterbody">
+      <!-- ////////////////////////////////////////////// -->
+      <div class="container1">
+        <!-- Left frame for photo -->
+        <div class="left-frame1">
+          <img src="{% static 'images/cup.png' %}" alt="Photo" class="ads1 animated">
+        </div>
+        <!-- Right frame for text -->
+        <div class="right-frame">
+          <i class="animated">stay refreshed ----</i>
+          <h1 class="animated white">Ready to,<br> 
+              Track Your Hydration?</h1>
+          <p class="animated">Keep your body hydrated and healthy with our intuitive water tracker. Log your daily water intake effortlessly and stay on top of your hydration goals. Start your journey to a more energized and revitalized you today.</p>
+          <br><br>
+          <button class="animated-text animated wbutton"><a href="{% url 'water' %}">START TRACKING</a></button>
+      </div>
+      
+      </div>
+      <!-- ///////////////////////////////// -->
+      <div>
+        <!-- <img src="./cup.png" alt=""> -->
+        <section>
+          <div class='air air1'></div>
+          <div class='air air2'></div>
+          <div class='air air3'></div>
+          <div class='air air4'></div>
+        </section>
+      </div>
+    </div>
+    <br><br><br><br><br>
+    <!-- ///////////////////// -->
+    <div class="containerttb color_container">
+        <div class="map-container">
+            <!-- Replace the src URL with your specific location -->
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3700.913843514916!2d96.08939727434864!3d21.937863379948812!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30cb6d61168aa7c1%3A0xcf1acb8f196c3bd6!2sMyanmar%20Institute%20of%20Information%20Technology!5e0!3m2!1sen!2smm!4v1718177491395!5m2!1sen!2smm" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+ 
+        <div class="contact-container">
+            <h2 class="contactinfo">Contact Info</h2>
+            <ul>
+                <li><i class="fas fa-phone-alt"></i><a href="tel:+123456789">+1 234 567 89</a></li>
+                <li><i class="fas fa-envelope"></i><a href="mailto:contact@example.com">miit.edu.mm</a></li>
+                <li><i class="fab fa-facebook"></i><a href="https://www.facebook.com/yourpage" target="_blank">Myanmar Institute of Information Technology</a></li>
+                <li><i class="fas fa-map-marker-alt"></i><a href="#">73rd Street, Ngu Shwe Wah St, Mandalay</a></li>
+            </ul>
+        </div>
+    </div>
+    <br><br><br><br>
+
+</body>
+
+<footer>
+    <div class="footer-content">
+        <p>&copy; 2024 MIIT. All Rights Reserved.</p>
+        <div class="social-media">
+            <h4>Follow us:</h4>
+            <a href="https://www.facebook.com"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.youtube.com"><i class="fab fa-youtube"></i></a>
+            <a href="https://twitter.com"><i class="fab fa-twitter"></i></a>
+        </div>
+            <ul>
+                <li><a href="{% url 'home' %}" class="small">Home</a></li>
+                <li><a href="{% url 'diet' %}">DietPlan</a></li>
+                <li><a href="{% url 'shop' %}">Shop</a></li>
+                <li><a href="{% url 'aboutus' %}">About Us</a></li>
+            </ul>
+
+    </div>
+</footer>
+
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script> -->
+
+<script>
+  const sections = document.querySelectorAll('.animated');
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animated-show');
+      }
+    });
+  }, { threshold: 0.5 });
+
+  sections.forEach(section => {
+    observer.observe(section);
+  });
+</script>
+
+</html>

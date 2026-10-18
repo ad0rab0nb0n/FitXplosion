@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Order List</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+    <title>FitXplosion - Fitness Website</title>
+    <style>
+        .dataTables_wrapper .dataTables_filter {
+            float: right;
+            text-align: right;
+            padding-bottom: 15px;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+<div class="container mx-auto px-4 py-8">
+    <h1 class="text-3xl font-bold mb-5 text-red-900">Order List</h1>
+    <div class="overflow-x-auto bg-white rounded-lg shadow overflow-y-auto relative p-4">
+        <table id="orderTable" class="table-auto w-full border-collapse border border-gray-200">
+            <thead>
+            <tr class="text-left">
+                <th class="px-4 py-2 border border-gray-200">No</th>
+                <th class="px-4 py-2 border border-gray-200">Receipt ID</th>
+                <th class="px-4 py-2 border border-gray-200">Customer Name</th>
+                <th class="px-4 py-2 border border-gray-200">Amounts</th>
+                <th class="px-4 py-2 border border-gray-200">Order Date</th>
+                <th class="px-4 py-2 border border-gray-200"></th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for receipt in receipts %}
+            <tr>
+                <td class="px-4 py-2 border border-gray-200">{{ receipt.receipt_id }}</td>
+                <td class="px-4 py-2 border border-gray-200">{{ receipt.receipt_code }}</td> 
+                <td class="px-4 py-2 border border-gray-200">{{ receipt.user_id }} </td>
+                <td class="px-4 py-2 border border-gray-200">{{ receipt.total_amount }}Ks</td>
+                <td class="px-4 py-2 border border-gray-200">{{ receipt.date_of_receipt }}</td>
+                <td class="px-4 py-2 border border-gray-200">
+                    <form action="{% url 'order_details' %}" method="POST">
+                        {% csrf_token %}
+                    <input type="text" class="hidden" name="id" value="{{receipt.receipt_id}}">
+                    <input type="text" class="hidden" name="amount" value="{{receipt.total_amount}}">
+                    <button class="border-b border-blue-400 text-blue-500 hover:text-blue-700 cursor-pointer">View details &gt;&gt;</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#orderTable').DataTable();
+    });
+</script>
+</body>
+</html>

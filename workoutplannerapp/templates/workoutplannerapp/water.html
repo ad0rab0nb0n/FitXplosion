@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>FitXplosion - Fitness Website</title>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<style>
+    @import url("https://fonts.googleapis.com/css?family=Montserrat:400,600&display=swap");
+
+:root {
+--border-color: #144fc6;
+--fill-color: #6ab3f8;
+}
+
+* {
+box-sizing: border-box;
+}
+
+body {
+background: linear-gradient(-60deg, #e6f0ff, #3385ff, #23a6d5, #23d5ab);
+background-size: 400% 400%;
+animation: gradient 15s ease infinite;
+height: 100vh;
+color: #000;
+font-family: "Montserrat", sans-serif;
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+h1 {
+text-shadow: 0px 2px 4px #144fc6;
+}
+
+h3 {
+font-weight: 400;
+margin: 10px 0;
+text-shadow: 0px 2px 4px #144fc6;
+}
+
+.cup {
+background-color: rgba(255, 255, 255, 0.7);
+border: 2px solid var(--border-color);
+border-top: 0px;
+color: var(--border-color);
+border-radius: 0 0 40px 40px;
+height: 330px;
+width: 150px;
+margin: 30px 0;
+display: flex;
+flex-direction: column;
+overflow: hidden;
+}
+
+.remaining {
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+text-align: center;
+flex: 1;
+transition: 0.5 ease;
+}
+
+.remaining span {
+font-size: 20px;
+font-weight: bold;
+}
+
+.percentage {
+background-color: var(--fill-color);
+display: flex;
+align-items: center;
+justify-content: center;
+font-weight: bold;
+font-size: 30px;
+height: 0;
+transition: 0.5s ease;
+opacity: 0.8;
+}
+
+.text {
+text-align: center;
+margin: 0 0 5px;
+text-shadow: 0px 2px 4px #144fc6;
+}
+
+section {
+position: bottom;
+width: 100%;
+height: 20vh;
+overflow: hidden;
+}
+
+section .air {
+position: absolute;
+bottom: 0;
+left: 0;
+width: 100%;
+height: 100px;
+background: url(https://1.bp.blogspot.com/-xQUc-TovqDk/XdxogmMqIRI/AAAAAAAACvI/AizpnE509UMGBcTiLJ58BC6iViPYGYQfQCLcBGAsYHQ/s1600/wave.png);
+background-size: 1000px 100px;
+}
+
+section .air.air1 {
+animation: wave 30s linear infinite;
+z-index: 1000;
+opacity: 1;
+animation-delay: 0s;
+bottom: 0;
+}
+section .air.air2 {
+animation: wave2 15s linear infinite;
+z-index: 999;
+opacity: 0.5;
+animation-delay: -5s;
+bottom: 10px;
+}
+
+section .air.air3 {
+animation: wave 30s linear infinite;
+z-index: 998;
+opacity: 0.2;
+animation-delay: -2s;
+bottom: 15px;
+}
+
+section .air.air4 {
+animation: wave2 5s linear infinite;
+z-index: 997;
+opacity: 0.7;
+animation-delay: -5s;
+bottom: 20px;
+}
+
+@keyframes wave {
+0% {
+    background-position-x: 0px;
+}
+100% {
+    background-position-x: 1000px;
+}
+}
+
+@keyframes wave2 {
+0% {
+    background-position-x: 0px;
+}
+100% {
+    background-position-x: -1000px;
+}
+}
+
+@keyframes gradient {
+0% {
+    background-position: 0% 50%;
+}
+50% {
+    background-position: 100% 50%;
+}
+100% {
+    background-position: 0% 50%;
+}
+}
+
+.controls i {
+    font-size: 24px;
+    margin: 10px;
+    cursor: pointer;
+    border: 2px solid var(--border-color);
+    background-color: white;
+    padding: 10px;
+    border-radius: 50%;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.controls i:hover {
+    background-color: var(--fill-color);
+    color: white;
+}
+.flex{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 600px;
+}
+.controls{
+    text-align: center;
+}
+
+
+</style>
+</head>
+
+<body>
+    <h1>Remember to hydrate!</h1>
+    <h3>Goal: 2 Liters</h3>
+    <div class="flex">
+        <div class="cup">
+            <div class="remaining" id="remaining">
+            <span id="liters"></span>
+            <small>Remaining</small>
+            </div>
+            <div class="percentage" id="percentage"></div>
+        </div>
+        <div>
+            <p class="text">How many glasses of water did you drink today?</p>
+            <div class="controls">
+                <i id="add" class="fas fa-plus" onclick="addWater()"></i>
+                <i id="reduce" class="fas fa-minus" onclick="removeWater()"></i>
+                <i id="reset" class="fas fa-sync-alt" onclick="resetWater()"></i>
+            </div>
+        </div>
+    </div>
+    <section>
+    <div class='air air1'></div>
+    <div class='air air2'></div>
+    <div class='air air3'></div>
+    <div class='air air4'></div>
+    </section>
+
+
+
+    <script>
+        // grab buttons
+    const addButton = document.getElementById("add");
+    const reduceButton = document.getElementById("reduce");
+    const resetButton = document.getElementById("reset");
+
+    // grab element 'liters'
+    const liters = document.getElementById("liters");
+    // grab element 'percentage'
+    const percentage = document.getElementById("percentage");
+    // grab element 'remaining'
+    const remaining = document.getElementById("remaining");
+
+    // Define the total number of cups for the calculation
+    const totalCups = 8; // Assuming 8 cups is the goal for a day
+    let currentCups = 0;
+
+    updateBigCup();
+
+    // Add event listeners for buttons
+    addButton.addEventListener("click", () => changeWaterLevel(1));
+    reduceButton.addEventListener("click", () => changeWaterLevel(-1));
+    resetButton.addEventListener("click", () => resetWaterLevel());
+
+    // Function to change the water level
+    function changeWaterLevel(change) {
+    // Update the number of full cups based on the button clicked
+    currentCups = Math.min(totalCups, Math.max(0, currentCups + change));
+    updateBigCup();
+    }
+
+    // Reset the water level
+    function resetWaterLevel() {
+    currentCups = 0;
+    updateBigCup();
+    }
+
+    // Function that fills the jug based on glasses consumed
+    function updateBigCup() {
+    // No full cups = 0 intake so far = don't show percentage
+    if (currentCups === 0) {
+        percentage.style.visibility = "hidden";
+        percentage.style.height = 0;
+    } else {
+        // If any cups filled = show percentage
+        percentage.style.visibility = "visible";
+        percentage.style.height = `${(currentCups / totalCups) * 330}px`;
+        percentage.innerText = `${(currentCups / totalCups) * 100}%`;
+    }
+    // All cups full = daily intake goal reached = don't show remaining
+    if (currentCups === totalCups) {
+        remaining.style.visibility = "hidden";
+        remaining.style.height = 0;
+    } else {
+        // Bring remaining and show litres remaining back if set back to not full jug state
+        remaining.style.visibility = "visible";
+        liters.innerText = `${2 - (250 * currentCups) / 1000}L`;
+    }
+    }
+
+</script>
+</body>
+</html>

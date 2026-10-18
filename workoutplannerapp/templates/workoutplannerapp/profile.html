@@ -1,0 +1,325 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitXplosion - Fitness Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #710202;
+            overflow-y: scroll; /* Make the entire body scrollable */
+        }
+        
+        .background {
+            background: linear-gradient(to bottom, #710202 30%, #f6f6f6 7px);
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* Align items at the top */
+            padding-top: 20px; /* Add some padding to the top */
+        }
+        
+        .profile-card {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 650px;
+            padding-top: 20px;
+            padding-bottom: 30px;
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+        
+        .profile-img-wrapper {
+            background: #fff;
+            border-radius: 50%;
+            padding: 7px;
+            margin-top: -60px;
+            margin-bottom: 10px;
+            display: inline-block;
+            width: 150px;
+            height: 150px;
+        }
+        
+        .profile-img {
+            border-radius: 50%;
+            height: 150px;
+            width: 150px;
+            object-fit: cover;
+        }
+        
+        .profile-info {
+            padding: 20px;
+            margin-top: -30px;
+        }
+        
+        .profile-stats {
+            display: flex;
+            justify-content: space-around;
+            padding: 5px -10px;
+            border-top: 1px solid #f0f0f0;
+        }
+        .profile-stats div {
+            text-align: center;
+        }
+        
+        .profile-stats span {
+            display: block;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        
+        button {
+            background: linear-gradient(to bottom, #700101, #ab7156);
+            border: none;
+            color: #fff;
+            cursor: pointer;
+            padding: 10px 20px;
+            width: 150px;
+            border-radius: 15px;
+            font-size: 16px;
+            margin-bottom: 30px;
+        }
+        
+        button:hover {
+            background: linear-gradient(to bottom, #ab7156, #700101);
+        }
+        
+        .fate {
+            color: rgb(105, 105, 105);
+            margin-bottom: -20px;
+            margin-top: 10px;
+        }
+        .fate1{
+            margin-top: -10px;
+        }
+        
+        td {
+            margin-left: 30px;
+        }
+        
+        .marg {
+            margin-top: 5px;
+        }
+        .container {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;justify-content: center;
+            width: 90%;
+            margin-top: 20px;
+            margin-left: 20px;
+        }
+        
+        .frame2 {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-right: 20px;
+            width: 200px;
+        }
+        
+        .progress-text {
+            font-weight: bold;
+            margin-bottom: 20px; /* Add space between each text */
+            width: 200px;
+            text-align: left;
+            margin-right: -20px;
+        }
+        
+        .frame {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 100%;
+        }
+        
+        .progress-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            width: 100%;
+            justify-content: center;
+        }
+        
+        .progress-container {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            height: 30px;
+            background-color: #ddd;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .logo {
+            width: 30px;
+            height: 30px;
+            margin: 0 10px;
+        }
+        
+        .progress-bar {
+            height: 100%;
+            width: 50%; /* Set default progress width, adjust as needed */
+            border-radius: 25px 0 0 25px;
+            transition: width 0.25s;
+        }
+        
+        #progress-bar1 {
+            width: 0;
+            background-color: #389929;
+        }
+        
+        #progress-bar2 {
+            width: 0;
+            background-color: #3ebac5;
+        }
+        
+        #progress-bar3 {
+            width: 0;
+            background-color: #389929;
+        }
+        
+        #progress-bar4 {
+            width: 0;
+            background-color: #3ebac5;
+        }
+        #progress-bar5 {
+            width: 0;
+            background-color: #389929;
+        }
+        #progress-bar6 {
+            width: 0;
+            background-color: #3ebac5;
+        }
+        #progress-bar7 {
+            width: 0;
+            background-color: #389929;
+        }
+        
+
+    </style>
+    
+</head>
+<body>
+    <br><br><br>
+    <div  class="background">
+        <div class="profile-card">
+            <div class="profile-img-wrapper">
+                <img src=" {% if user.sex == 'F' %} {% static 'images/ttb.png' %} {% else %} {% static 'images/profileb.png' %} {% endif %}" alt="Profile Picture" class="profile-img">
+            </div>
+            <div class="profile-info">
+                <h2>{{user}}</h2>
+                <div class="fate">
+                    {% if user.address %}
+                    <p>{{ user.address }}</p>
+                    {% else %}
+                    <p>Mandalay, Myanmar</p>
+                    <p class="fate1">MIIT</p>
+                    {% endif %}
+                </div>
+              
+            </div>
+            <div class="profile-stats">
+                <div class="marg">
+                    <span><img src="{% static 'images/lifestyle.png' %}" alt="" width="50px" height="55px"></span>
+                    <span class="fate">Fitness Level</span>
+                    <p>Beginner</p>
+                </div>
+                <div class="marg">
+                    <span><img src="{% static 'images/bmi.png' %}" alt="" width="50px" height="50px" class="marg"></span>
+                    <span class="fate">BMI</span>
+                    <p>{{bmi}}</p>
+                </div>
+                <div class="marg">
+                    <span><img src="{% static 'images/shop.png' %}" alt="" width="50px" height="50px"></span>
+                    <span class="fate">Loyalty</span>
+                    <p>{{amount}}Ks</p>
+                </div>
+            </div>
+            <div class="container">
+                <div class="frame">
+                    <div class="progress-item">
+                        <span class="progress-text">Yoga</span>
+                        <div class="progress-container" id="block">
+                            <img src="{% static 'images/kcal.png' %}" alt="Logo" class="logo">
+                            <div class="progress-bar" id="progress-bar1"></div>
+                        </div>
+                    </div>
+                    <div class="progress-item">
+                        <span class="progress-text">Weight loss</span>
+                        <div class="progress-container">
+                            <img src="{% static 'images/kcal.png' %}" alt="Logo" class="logo">
+                            <div class="progress-bar" id="progress-bar2"></div>
+                        </div>
+                    </div>
+                    <div class="progress-item">
+                        <span class="progress-text">Weight Gain</span>
+                        <div class="progress-container" id="block">
+                            <img src="{% static 'images/kcal.png' %}" alt="Logo" class="logo">
+                            <div class="progress-bar" id="progress-bar3"></div>
+                        </div>
+                    </div>
+                    <div class="progress-item">
+                        <span class="progress-text">Muscle Gain</span>
+                        <div class="progress-container">
+                            <img src="{% static 'images/kcal.png' %}" alt="Logo" class="logo">
+                            <div class="progress-bar" id="progress-bar4"></div>
+                        </div>
+                    </div>
+                    <div class="progress-item">
+                        <span class="progress-text">Cardio</span>
+                        <div class="progress-container">
+                            <img src="{% static 'images/kcal.png' %}" alt="Logo" class="logo">
+                            <div class="progress-bar" id="progress-bar5"></div>
+                        </div>
+                    </div>
+                    <div class="progress-item">
+                        <span class="progress-text">Upperbody</span>
+                        <div class="progress-container">
+                            <img src="{% static 'images/kcal.png' %}" alt="Logo" class="logo">
+                            <div class="progress-bar" id="progress-bar6"></div>
+                        </div>
+                    </div>
+                    <div class="progress-item">
+                        <span class="progress-text">Lowerbody</span>
+                        <div class="progress-container">
+                            <img src="{% static 'images/kcal.png' %}" alt="Logo" class="logo">
+                            <div class="progress-bar" id="progress-bar7"></div>
+                        </div>
+                    </div>
+                    <form action="{% url 'logout' %}" method="POST">
+                        {% csrf_token %}
+                        <button type="submit" style="margin-top: 20px;">LOGOUT</button>
+                    </form> 
+                </div>
+            </div>
+        </div>
+               
+    </div>
+    
+</body>
+<script>
+    function updateProgressBar(id, progress) {
+        var progressBar = document.getElementById(id);
+        progressBar.style.width = progress + '%';
+    }
+
+    // Example: update the progress bars
+    setTimeout(function() {
+        updateProgressBar('progress-bar1', "{{ yoga }}");
+        updateProgressBar('progress-bar2', "{{ weightloss }}");
+        updateProgressBar('progress-bar3', "{{ weightgain }}");
+        updateProgressBar('progress-bar4', "{{ abs }}");
+        updateProgressBar('progress-bar5', "{{ cardio }}");
+        updateProgressBar('progress-bar6', "{{ upper }}");
+        updateProgressBar('progress-bar7', "{{ lower }}");
+    }, 500);
+</script>
+</html>

@@ -1,0 +1,632 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitXplosion - Fitness Website</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap');
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+.container {
+    width: 900px;
+    margin: auto;
+    max-width: 90vw;
+    text-align: center;
+    padding-top: 20px;
+    transition: transform 0.5s;
+}
+
+svg {
+    width: 30px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.icon-cart {
+    position: relative;
+}
+
+.icon-cart span {
+    display: flex;
+    width: 30px;
+    height: 30px;
+    background-color: rgb(255, 230, 245);
+    justify-content: center;
+    align-items: center;
+    color: #000000;
+    border-radius: 50%;
+    position: absolute;
+    top: -10px;
+    right: -15px;
+}
+
+div .title {
+    font-size: xx-large;
+    text-decoration: none;
+    font-weight: bold;
+    color: brown;
+}
+
+nav {
+    height: 100px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    margin: 0 10px;
+}
+
+.nav-links li a {
+    font-size: 17px;
+    padding: 7px 13px;
+    text-transform: uppercase;
+    border-radius: 5px 5px 0px 0px;
+    text-decoration: none;
+    color: black;
+}
+
+.nav-links a:hover {
+    background-color: #c3e2f9;
+}
+
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+    margin-left: 30px;
+}
+
+.menu-toggle i {
+    font-size: 1.5rem;
+    color: black;
+}
+
+.listProduct .item img {
+    width: 90%;
+    filter: drop-shadow(0 50px 20px #0009);
+}
+
+.listProduct {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.listProduct .item {
+    background-color: #EEEEE6;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.listProduct .item h2 {
+    font-weight: 500;
+    font-size: large;
+}
+
+.listProduct .item .price {
+    letter-spacing: 7px;
+    font-size: small;
+}
+
+.listProduct .item button {
+    background-color: #353432;
+    color: #eee;
+    border: none;
+    padding: 8px 12px;
+    margin-top: 10px;
+    border-radius: 20px;
+}
+
+
+.listProduct .item button:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+/* cart */
+.cartTab {
+    width: 400px;
+    background-color: #353432;
+    color: #eee;
+    position: fixed;
+    top: 0;
+    right: -400px;
+    bottom: 0;
+    display: grid;
+    grid-template-rows: 70px 1fr 70px;
+    transition: 0.5s;
+}
+
+body.showCart .cartTab {
+    right: 0;
+}
+
+body.showCart .container {
+    transform: translateX(-250px);
+}
+
+.cartTab h1 {
+    padding: 20px;
+    margin: 0;
+    font-weight: 300;
+}
+
+.cartTab .btn {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.cartTab button {
+    background-color: #f7e7a7;
+    border: none;
+    font-family: Poppins;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.cartTab .close {
+    background-color: #eee;
+}
+
+.listCart .item img {
+    width: 100%;
+}
+
+.listCart .item {
+    display: grid;
+    grid-template-columns: 70px 150px 50px 1fr;
+    gap: 10px;
+    text-align: center;
+    align-items: center;
+}
+
+.listCart .quantity span {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    background-color: #eee;
+    border-radius: 50%;
+    color: #555;
+    cursor: pointer;
+}
+
+.listCart .quantity span:nth-child(2) {
+    background-color: transparent;
+    color: #eee;
+    cursor: auto;
+}
+
+.listCart .item:nth-child(even) {
+    background-color: #eee1;
+}
+
+.listCart {
+    overflow: auto;
+}
+
+.listCart::-webkit-scrollbar {
+    width: 0;
+}
+
+.active{
+        border-bottom: 3px solid brown;
+        border-radius: 0px;
+    }
+
+@media only screen and (max-width: 992px) {
+    .listProduct {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .listProduct {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        margin: 0;
+        padding: 0.3rem;
+        text-align: center;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+}
+.popover img {
+            border-radius: 10px;
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        #boxPrice{
+            color:brown;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .popover h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+        .flex {
+            display: flex;
+            align-items: flex-start;
+        }
+        .photo {
+            width: 40%;
+            margin-top:50px;
+        }
+        .details {
+            width: 60%;
+            padding-left: 20px;
+        }
+        .text-gray-700 {
+            color: #4a5568;
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin-bottom: 12px;
+        }
+        .text-gray-600 {
+            color: #718096;
+            margin-bottom: 12px;
+        }
+        
+        #popoverBox {
+            display: none;
+            position: absolute;
+            background-color: white;
+            border: 1px solid #d1d5db;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            width: 450px;
+            max-width: 90%;
+            text-align:left;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1000; /* Ensure it's above other content */
+        }   
+        
+        .blurred-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
+            z-index: 99;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <nav>
+                <div><a href="{% url 'home' %}" class="title">HOME</a></div>
+                <ul class="nav-links">
+                    <li><a href="{% url 'shop' %}" class="active">Suppliment</a></li>
+                    <li><a href="{% url 'shop_wear' %}">Sport Wears</a></li>
+                    <li><a href="{% url 'shop_equipment' %}">Equipments</a></li>
+                    <li><a href="{% url 'shop_diet' %}">Diet Meal</a></li>
+                </ul>
+                <div class="icon-cart">
+                    <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 20">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 15a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm0 0h8m-8 0-1-4m9 4a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-9-4h10l2-7H3m2 7L3 4m0 0-.792-3H1"/>
+                    </svg>
+                    <span>0</span>
+                </div>
+                <div class="menu-toggle" id="mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>   
+        </header>
+        <div class="listProduct">
+            <!-- Product list content goes here -->
+        </div>
+        <div id="popoverBox" class="hidden">
+            <button id="closePopover" style="background: none; border: none; font-size: 20px; position: absolute; top: 10px; right: 10px; cursor: pointer;">&times;</button>
+            <h3 id="boxTitle"></h3>
+            <div class="flex">
+                <div class="photo">
+                    <img id="boxImage" src="" alt="Product Image">
+                </div>
+                <div class="details">
+                    <p id="boxPrice" class="text-gray-700">$0.00</p>
+                    <p id="boxDescription" class="text-gray-600"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="cartTab">
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-right: 20px;">
+            <h1>Shopping Cart</h1>
+            <button class="clearCart" onclick="clearCart()"><i class="fas fa-trash" style="font-size: larger; margin: 5px;"></i></button>
+        </div>
+        <div class="listCart">
+            <!-- Shopping cart content goes here -->
+        </div> 
+        <div class="btn">
+            <button class="close">CLOSE</button>
+            <button class="checkOut" onclick="navigateToPage()">Check Out</button>
+        </div>
+        
+    </div>
+    <div class="blurred-background" id="blurredBackground"></div>
+    <script>
+        function navigateToPage() {
+            window.location.href = "{% url 'checkout' %}";
+        }
+        let listProductHTML = document.querySelector('.listProduct');
+let listCartHTML = document.querySelector('.listCart');
+let iconCart = document.querySelector('.icon-cart');
+let iconCartSpan = document.querySelector('.icon-cart span');
+let body = document.querySelector('body');
+let closeCart = document.querySelector('.close');
+let products = [];
+let cart = [];
+let categories = [];
+
+const mobileMenu = document.getElementById('mobile-menu');
+const navLinks = document.querySelector('.nav-links');
+
+mobileMenu.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+});
+
+iconCart.addEventListener('click', () => {
+    body.classList.toggle('showCart');
+});
+
+closeCart.addEventListener('click', () => {
+    body.classList.toggle('showCart');
+});
+
+const clearCart = () => {
+    cart = []; // Clear the cart array
+    addCartToHTML(); // Update the cart display
+    addCartToMemory(); // Update the local storage
+};
+
+const addDataToHTML = () => {
+    // Clear existing product list
+    listProductHTML.innerHTML = '';
+
+    let currentCategory = 'Supplies';
+
+    // Filter and display products by category
+    let filteredProducts = products.filter(product => {
+        let category = categories.find(cat => cat.id === product.category);
+        return category && category.name === currentCategory;
+    });
+
+    if (filteredProducts.length > 0) {
+        filteredProducts.forEach(product => {
+            let newProduct = document.createElement('div');
+            newProduct.dataset.id = product.id;
+            newProduct.classList.add('item');
+            newProduct.innerHTML = 
+            `<img src="${product.image}" alt="">
+            <h2>${product.name}</h2>
+            <div class="price">${product.price}Ks</div>
+            <button class="addCart">Add To Cart</button>`;
+            listProductHTML.appendChild(newProduct);
+            listProductHTML.appendChild(newProduct);
+
+            newProduct.addEventListener('click', (event) => {
+                // Ensure the showBox function is only triggered when clicking outside the button
+                if (!event.target.classList.contains('addCart')) {
+                    showBox(product);
+                }
+            });
+        });
+    } else {
+        listProductHTML.innerHTML = `<p>No products found in this category.</p>`;
+    }
+};
+
+listProductHTML.addEventListener('click', (event) => {
+    let positionClick = event.target;
+    if (positionClick.classList.contains('addCart')) {
+        let id_product = positionClick.parentElement.dataset.id;
+        addToCart(id_product);
+    }
+});
+
+const addToCart = (product_id) => {
+    let positionThisProductInCart = cart.findIndex((value) => value.product_id == product_id);
+    if (cart.length <= 0) {
+        cart = [{
+            product_id: product_id,
+            quantity: 1
+        }];
+    } else if (positionThisProductInCart < 0) {
+        cart.push({
+            product_id: product_id,
+            quantity: 1
+        });
+    } else {
+        cart[positionThisProductInCart].quantity += 1;
+    }
+    addCartToHTML();
+    addCartToMemory();
+};
+
+const addCartToMemory = () => {
+    localStorage.setItem('cart', JSON.stringify(cart));
+};
+
+const addCartToHTML = () => {
+    listCartHTML.innerHTML = '';
+    let totalQuantity = 0;
+    if (cart.length > 0) {
+        cart.forEach(item => {
+            totalQuantity += item.quantity;
+            let newItem = document.createElement('div');
+            newItem.classList.add('item');
+            newItem.dataset.id = item.product_id;
+
+            let positionProduct = products.findIndex((value) => value.id == item.product_id);
+            let info = products[positionProduct];
+
+            newItem.innerHTML = `
+            <img src="${info.image}" alt="">
+            <h2>${info.name}</h2>
+            <div class="quantity">
+                <span class="plus">+</span>
+                <span>${item.quantity}</span>
+                <span class="minus">-</span>
+            </div>
+            <div class="price">${info.price}Ks</div>
+            <button class="remove">Remove</button>
+            `;
+            listCartHTML.appendChild(newItem);
+        });
+        iconCartSpan.textContent = totalQuantity;
+    } else {
+        listCartHTML.innerHTML = '<p>Your cart is empty.</p>';
+        iconCartSpan.textContent = 0;
+    }
+};
+
+listCartHTML.addEventListener('click', (event) => {
+    let positionClick = event.target;
+    if (positionClick.classList.contains('minus') || positionClick.classList.contains('plus')) {
+        let product_id = positionClick.parentElement.parentElement.dataset.id;
+        let type = positionClick.classList.contains('plus') ? 'plus' : 'minus';
+        changeQuantityCart(product_id, type);
+    } else if (positionClick.classList.contains('remove')) {
+        let id_product = positionClick.parentElement.dataset.id;
+        removeFromCart(id_product);
+    }
+});
+
+const changeQuantityCart = (product_id, type) => {
+    let positionItemInCart = cart.findIndex((value) => value.product_id == product_id);
+    if (positionItemInCart >= 0) {
+        let info = cart[positionItemInCart];
+        switch (type) {
+            case 'plus':
+                cart[positionItemInCart].quantity += 1;
+                break;
+            case 'minus':
+                if (cart[positionItemInCart].quantity > 1) {
+                    cart[positionItemInCart].quantity -= 1;
+                } else {
+                    cart.splice(positionItemInCart, 1);
+                }
+                break;
+            default:
+                break;
+        }
+    }
+    addCartToHTML();
+    addCartToMemory();
+};
+
+const removeFromCart = (product_id) => {
+    let positionThisProductInCart = cart.findIndex((value) => value.product_id == product_id);
+    if (positionThisProductInCart >= 0) {
+        cart.splice(positionThisProductInCart, 1);
+    }
+    addCartToHTML();
+    addCartToMemory();
+};
+
+
+const initApp = () => {
+    // Get product and category data 
+    Promise.all([
+        fetch("{% static 'json/products.json' %}").then(response => response.json()),
+        fetch("{% static 'json/categories.json' %}").then(response => response.json())
+    ]).then(data => {
+        products = data[0];
+        categories = data[1];
+        addDataToHTML();
+
+        // Get cart data from local storage
+        if (localStorage.getItem('cart')) {
+            cart = JSON.parse(localStorage.getItem('cart'));
+            addCartToHTML();
+        }
+    }).catch(error => {
+        console.error('Error fetching data:', error);
+    });
+};
+const showBox = (product) => {
+    let popoverBox = document.getElementById('popoverBox');
+    document.getElementById('boxTitle').textContent = `${product.name}`;
+    document.getElementById('boxImage').src = `${product.image}`;
+    document.getElementById('boxPrice').textContent = `${product.price}Ks`;
+    document.getElementById('boxDescription').textContent = `${product.description}`;
+
+    popoverBox.style.display = 'block';
+    document.getElementById('blurredBackground').style.display = 'block';
+};
+
+const closeBox = () => {
+    document.getElementById('popoverBox').style.display = 'none';
+    document.getElementById('blurredBackground').style.display = 'none';
+};
+document.getElementById('closePopover').addEventListener('click', () => {
+    closeBox();
+});
+document.getElementById('blurredBackground').addEventListener('click', closeBox);
+
+initApp();
+
+    </script>
+</body>
+</html>
