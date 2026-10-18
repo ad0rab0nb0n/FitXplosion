@@ -13,6 +13,25 @@ FitXplosion is a web development project designed around fitness planning and pe
 - **Media-rich Interface** — Images and background media for the website.
 - **PDF Utilities** — ReportLab dependency for PDF generation functionality.
 
+## 📸 Screenshots
+
+### Homepage
+![FitXplosion Homepage](screenshots/homepage.png)
+
+### Shop Page
+![FitXplosion Shop Page](screenshots/shop.png)
+
+### Exercise Page
+![FitXplosion Exercise Page](screenshots/exercise.png)
+
+### Water Tracker
+![FitXplosion Water Tracker](screenshots/water-tracker.png)
+
+### Diet Page
+![FitXplosion Diet Page](screenshots/diet.png)
+
+
+
 ## 🛠️ Tech Stack
 
 - **Backend:** Python, Django
